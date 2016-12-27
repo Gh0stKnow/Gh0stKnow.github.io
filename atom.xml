@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-12-27T04:34:10.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GPS采点数据处理</title>
+    <link href="http://yoursite.com/2016/12/27/First/"/>
+    <id>http://yoursite.com/2016/12/27/First/</id>
+    <published>2016-12-27T03:47:05.000Z</published>
+    <updated>2016-12-27T04:34:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>iOS提供了获取位置信息的类，CLLocationManager。<br>通过它，我们可以轻松得到包含位置信息的对象CLLocation。</p>
+<p>但正常情况下在运动中，会不断得到CLLocation，而其中很多点都是无效的。 如果不去掉，将导致里程，速度，配速等一系列数据误差非常大。</p>
+<p>查询了一下资料，国内这一块的资料的确比较少， 这里我针对常见的误差情况，用最简单明了的方法，教你判断无效的GPS点。</p>
+<p>一、静止不动 上一个GPS点的瞬时速度为零，当前点的瞬时速度也为0,那么当前点无效. 瞬时速度就是CLLocation对象的属性speed。</p>
+<p>二、GPS信号太差 信号是CLLocation的属性horizontalAccuracy，表示水平方向的误差值。 当这个值大于70，我们认为信号太差。</p>
+<p>三、无效移动 前后两个GPS点的距离，小于horizontalAccuracy * (0.5~0.66)，我们认为这个点是无效移动。</p>
+<p>四、平均速度过大 如果当前点到上一个点的距离 / 当前点到上一个点的时间 速度大于某一个值，则认为当前点无效 比如跑步，博尔特最快是10.44m/s</p>
+<p>五、采样频率 如果不想GPS点过于密集，可以用时间限制。 如果当前点的时间到上一个点事件小于2s，则认为点无效。 另外也可以用位置管理器的distanceFilter属性来设置。 当distanceFilter = 30的时候，只有超过30m的移动，才会进入到位置更新的回调方法。 这样做的好处是设备可以更加省电，CPU的占用更低，根据实际情况而定。</p>
+<p>总结了几种常见gps点的过滤方法，希望对大家有帮助。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS提供了获取位置信息的类，CLLocationManager。&lt;br&gt;通过它，我们可以轻松得到包含位置信息的对象CLLocation。&lt;/p&gt;
+&lt;p&gt;但正常情况下在运动中，会不断得到CLLocation，而其中很多点都是无效的。 如果不去掉，将导致里程，速度，配速等一系
+    
+    </summary>
+    
+    
+      <category term="GPS" scheme="http://yoursite.com/tags/GPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2016/12/27/hello-world/"/>
+    <id>http://yoursite.com/2016/12/27/hello-world/</id>
+    <published>2016-12-27T03:42:52.000Z</published>
+    <updated>2016-12-27T03:42:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/27/First/">First</a>
+      <a class="article-title" href="/2016/12/27/First/">GPS采点数据处理</a>
     </h1>
   
 
@@ -83,13 +83,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>iOS提供了获取位置信息的类，CLLocationManager。<br>通过它，我们可以轻松得到包含位置信息的对象CLLocation。</p>
+<p>但正常情况下在运动中，会不断得到CLLocation，而其中很多点都是无效的。 如果不去掉，将导致里程，速度，配速等一系列数据误差非常大。</p>
+<p>查询了一下资料，国内这一块的资料的确比较少， 这里我针对常见的误差情况，用最简单明了的方法，教你判断无效的GPS点。</p>
+<p>一、静止不动 上一个GPS点的瞬时速度为零，当前点的瞬时速度也为0,那么当前点无效. 瞬时速度就是CLLocation对象的属性speed。</p>
+<p>二、GPS信号太差 信号是CLLocation的属性horizontalAccuracy，表示水平方向的误差值。 当这个值大于70，我们认为信号太差。</p>
+<p>三、无效移动 前后两个GPS点的距离，小于horizontalAccuracy * (0.5~0.66)，我们认为这个点是无效移动。</p>
+<p>四、平均速度过大 如果当前点到上一个点的距离 / 当前点到上一个点的时间 速度大于某一个值，则认为当前点无效 比如跑步，博尔特最快是10.44m/s</p>
+<p>五、采样频率 如果不想GPS点过于密集，可以用时间限制。 如果当前点的时间到上一个点事件小于2s，则认为点无效。 另外也可以用位置管理器的distanceFilter属性来设置。 当distanceFilter = 30的时候，只有超过30m的移动，才会进入到位置更新的回调方法。 这样做的好处是设备可以更加省电，CPU的占用更低，根据实际情况而定。</p>
+<p>总结了几种常见gps点的过滤方法，希望对大家有帮助。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/27/First/" data-id="cix6z1vxs0000kb4edsidd0ry" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/27/First/" data-id="cix70qx7n0001ab4esy06hpaf" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GPS/">GPS</a></li></ul>
+
     </footer>
   </div>
   
@@ -132,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/27/hello-world/" data-id="cix6z1vxx0001kb4elr6sxsmp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/27/hello-world/" data-id="cix70qx720000ab4esrighpnx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -151,9 +162,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPS/">GPS</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GPS/" style="font-size: 10px;">GPS</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -172,7 +197,7 @@
       <ul>
         
           <li>
-            <a href="/2016/12/27/First/">First</a>
+            <a href="/2016/12/27/First/">GPS采点数据处理</a>
           </li>
         
           <li>
