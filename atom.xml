@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Ghostknow</title>
-  <subtitle>We are always together</subtitle>
+  <subtitle>记录生活</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
   <updated>2016-12-27T04:34:10.000Z</updated>
   <id>http://yoursite.com/</id>
-  
-  <author>
-    <name>Ghostknow</name>
-    
-  </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
