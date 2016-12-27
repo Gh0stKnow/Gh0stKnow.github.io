@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Ghostknow</title>
-  <subtitle>技术和设计是我的生活</subtitle>
+  <title>晓东儿</title>
+  <subtitle>Talk is cheap, show me the code.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://godknow.cn/"/>
   <updated>2016-09-28T06:28:02.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://godknow.cn/</id>
   
   <author>
     <name>晓东儿</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>iOS开发 之 运动GPS采样处理</title>
-    <link href="http://yoursite.com/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/"/>
-    <id>http://yoursite.com/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/</id>
+    <link href="http://godknow.cn/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/"/>
+    <id>http://godknow.cn/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/</id>
     <published>2016-09-23T05:29:52.000Z</published>
     <updated>2016-09-28T06:28:02.000Z</updated>
     
@@ -45,8 +45,8 @@
   
   <entry>
     <title>响应者链条传递事件</title>
-    <link href="http://yoursite.com/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/"/>
-    <id>http://yoursite.com/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/</id>
+    <link href="http://godknow.cn/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/"/>
+    <id>http://godknow.cn/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/</id>
     <published>2016-09-12T05:15:11.000Z</published>
     <updated>2016-09-12T05:16:19.000Z</updated>
     
@@ -87,14 +87,14 @@
     </summary>
     
     
-      <category term=" - 转载" scheme="http://yoursite.com/tags/%E8%BD%AC%E8%BD%BD/"/>
+      <category term=" - 转载" scheme="http://godknow.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>Git 分支 - 变基</title>
-    <link href="http://yoursite.com/2016/09/10/git-fen-zhi-bian-ji/"/>
-    <id>http://yoursite.com/2016/09/10/git-fen-zhi-bian-ji/</id>
+    <link href="http://godknow.cn/2016/09/10/git-fen-zhi-bian-ji/"/>
+    <id>http://godknow.cn/2016/09/10/git-fen-zhi-bian-ji/</id>
     <published>2016-09-10T06:08:57.000Z</published>
     <updated>2016-09-10T06:27:06.000Z</updated>
     
@@ -180,8 +180,8 @@
   
   <entry>
     <title>willMoveToSuperView导致观察者无法释放bug</title>
-    <link href="http://yoursite.com/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/"/>
-    <id>http://yoursite.com/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/</id>
+    <link href="http://godknow.cn/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/"/>
+    <id>http://godknow.cn/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/</id>
     <published>2016-09-10T02:33:17.000Z</published>
     <updated>2016-09-10T02:39:20.000Z</updated>
     
@@ -202,14 +202,14 @@
     </summary>
     
     
-      <category term=" - bug归档" scheme="http://yoursite.com/tags/bug%E5%BD%92%E6%A1%A3/"/>
+      <category term=" - bug归档" scheme="http://godknow.cn/tags/bug%E5%BD%92%E6%A1%A3/"/>
     
   </entry>
   
   <entry>
     <title>比特币及区块链</title>
-    <link href="http://yoursite.com/2016/09/09/bi-te-bi-ji-qu-kuai-lian/"/>
-    <id>http://yoursite.com/2016/09/09/bi-te-bi-ji-qu-kuai-lian/</id>
+    <link href="http://godknow.cn/2016/09/09/bi-te-bi-ji-qu-kuai-lian/"/>
+    <id>http://godknow.cn/2016/09/09/bi-te-bi-ji-qu-kuai-lian/</id>
     <published>2016-09-09T03:13:43.000Z</published>
     <updated>2016-09-10T03:46:54.000Z</updated>
     
@@ -234,8 +234,8 @@
   
   <entry>
     <title>Xib加载的几种方法</title>
-    <link href="http://yoursite.com/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/"/>
-    <id>http://yoursite.com/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/</id>
+    <link href="http://godknow.cn/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/"/>
+    <id>http://godknow.cn/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/</id>
     <published>2016-08-13T07:00:33.000Z</published>
     <updated>2016-08-25T04:50:56.000Z</updated>
     
@@ -273,8 +273,8 @@
   
   <entry>
     <title>iOS加密的基本介绍</title>
-    <link href="http://yoursite.com/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/"/>
-    <id>http://yoursite.com/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/</id>
+    <link href="http://godknow.cn/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/"/>
+    <id>http://godknow.cn/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/</id>
     <published>2016-08-08T05:52:13.000Z</published>
     <updated>2016-08-14T09:59:10.000Z</updated>
     
@@ -353,8 +353,8 @@
   
   <entry>
     <title>升级Ruby配置CocoaPods安装</title>
-    <link href="http://yoursite.com/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/"/>
-    <id>http://yoursite.com/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/</id>
+    <link href="http://godknow.cn/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/"/>
+    <id>http://godknow.cn/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/</id>
     <published>2016-08-07T05:05:29.000Z</published>
     <updated>2016-08-07T05:25:25.000Z</updated>
     
@@ -397,8 +397,8 @@
   
   <entry>
     <title>PC端获取IPA包的方法</title>
-    <link href="http://yoursite.com/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/"/>
-    <id>http://yoursite.com/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/</id>
+    <link href="http://godknow.cn/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/"/>
+    <id>http://godknow.cn/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/</id>
     <published>2016-08-07T04:29:16.000Z</published>
     <updated>2016-08-07T04:30:15.000Z</updated>
     
@@ -462,14 +462,14 @@
     </summary>
     
     
-      <category term=" - iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term=" - iOS" scheme="http://godknow.cn/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>Swift (?)可选类型和 (!)强制解包</title>
-    <link href="http://yoursite.com/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/"/>
-    <id>http://yoursite.com/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/</id>
+    <link href="http://godknow.cn/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/"/>
+    <id>http://godknow.cn/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/</id>
     <published>2016-07-13T07:00:33.000Z</published>
     <updated>2016-07-20T19:05:09.000Z</updated>
     
@@ -502,8 +502,8 @@
   
   <entry>
     <title>iOS 开发路线</title>
-    <link href="http://yoursite.com/2016/07/12/ios-kai-fa-lu-xian/"/>
-    <id>http://yoursite.com/2016/07/12/ios-kai-fa-lu-xian/</id>
+    <link href="http://godknow.cn/2016/07/12/ios-kai-fa-lu-xian/"/>
+    <id>http://godknow.cn/2016/07/12/ios-kai-fa-lu-xian/</id>
     <published>2016-07-12T11:59:43.000Z</published>
     <updated>2016-07-13T06:56:44.000Z</updated>
     
@@ -528,8 +528,8 @@
   
   <entry>
     <title>基于 ijkplayer 的iOS视频直播推流仿写</title>
-    <link href="http://yoursite.com/2016/07/07/osshi-pin-zhi-bo-fang/"/>
-    <id>http://yoursite.com/2016/07/07/osshi-pin-zhi-bo-fang/</id>
+    <link href="http://godknow.cn/2016/07/07/osshi-pin-zhi-bo-fang/"/>
+    <id>http://godknow.cn/2016/07/07/osshi-pin-zhi-bo-fang/</id>
     <published>2016-07-07T03:39:36.000Z</published>
     <updated>2016-08-10T16:05:29.000Z</updated>
     
@@ -577,14 +577,14 @@
     </summary>
     
     
-      <category term=" - 转载" scheme="http://yoursite.com/tags/%E8%BD%AC%E8%BD%BD/"/>
+      <category term=" - 转载" scheme="http://godknow.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>来自 Linkedin 的 Swift 编程风格指南</title>
-    <link href="http://yoursite.com/2016/07/03/lai-zi-linkedin-de-swift-bian-cheng-feng-ge-zhi-nan/"/>
-    <id>http://yoursite.com/2016/07/03/lai-zi-linkedin-de-swift-bian-cheng-feng-ge-zhi-nan/</id>
+    <link href="http://godknow.cn/2016/07/03/lai-zi-linkedin-de-swift-bian-cheng-feng-ge-zhi-nan/"/>
+    <id>http://godknow.cn/2016/07/03/lai-zi-linkedin-de-swift-bian-cheng-feng-ge-zhi-nan/</id>
     <published>2016-07-03T01:37:29.000Z</published>
     <updated>2016-07-03T09:36:24.000Z</updated>
     
@@ -857,14 +857,14 @@
     </summary>
     
     
-      <category term=" - 转载" scheme="http://yoursite.com/tags/%E8%BD%AC%E8%BD%BD/"/>
+      <category term=" - 转载" scheme="http://godknow.cn/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>Swift中的问号?和感叹号!</title>
-    <link href="http://yoursite.com/2016/06/28/swiftzhong-de-wen-hao-he-gan-tan-hao/"/>
-    <id>http://yoursite.com/2016/06/28/swiftzhong-de-wen-hao-he-gan-tan-hao/</id>
+    <link href="http://godknow.cn/2016/06/28/swiftzhong-de-wen-hao-he-gan-tan-hao/"/>
+    <id>http://godknow.cn/2016/06/28/swiftzhong-de-wen-hao-he-gan-tan-hao/</id>
     <published>2016-06-28T08:50:22.000Z</published>
     <updated>2016-06-28T08:53:38.000Z</updated>
     
@@ -909,14 +909,14 @@
     </summary>
     
     
-      <category term=" - 转载 - swift" scheme="http://yoursite.com/tags/%E8%BD%AC%E8%BD%BD-swift/"/>
+      <category term=" - 转载 - swift" scheme="http://godknow.cn/tags/%E8%BD%AC%E8%BD%BD-swift/"/>
     
   </entry>
   
   <entry>
     <title>Swift 中的异常抛出和错误处理</title>
-    <link href="http://yoursite.com/2016/06/28/swift-zhong-de-yi-chang-pao-chu-he-cuo-wu-chu-li/"/>
-    <id>http://yoursite.com/2016/06/28/swift-zhong-de-yi-chang-pao-chu-he-cuo-wu-chu-li/</id>
+    <link href="http://godknow.cn/2016/06/28/swift-zhong-de-yi-chang-pao-chu-he-cuo-wu-chu-li/"/>
+    <id>http://godknow.cn/2016/06/28/swift-zhong-de-yi-chang-pao-chu-he-cuo-wu-chu-li/</id>
     <published>2016-06-28T04:19:24.000Z</published>
     <updated>2016-06-28T04:20:14.000Z</updated>
     
@@ -997,14 +997,14 @@
     </summary>
     
     
-      <category term=" - swift" scheme="http://yoursite.com/tags/swift/"/>
+      <category term=" - swift" scheme="http://godknow.cn/tags/swift/"/>
     
   </entry>
   
   <entry>
     <title>React-Native学习笔记</title>
-    <link href="http://yoursite.com/2016/06/28/react-nativexue-xi-bi-ji/"/>
-    <id>http://yoursite.com/2016/06/28/react-nativexue-xi-bi-ji/</id>
+    <link href="http://godknow.cn/2016/06/28/react-nativexue-xi-bi-ji/"/>
+    <id>http://godknow.cn/2016/06/28/react-nativexue-xi-bi-ji/</id>
     <published>2016-06-27T16:47:14.000Z</published>
     <updated>2016-07-13T07:01:00.000Z</updated>
     
@@ -1077,14 +1077,14 @@
     </summary>
     
     
-      <category term=" - 前端 - React-Native - 转载" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF-React-Native-%E8%BD%AC%E8%BD%BD/"/>
+      <category term=" - 前端 - React-Native - 转载" scheme="http://godknow.cn/tags/%E5%89%8D%E7%AB%AF-React-Native-%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>Mac OS X 进程UserEventAgent 占用CPU 100%的解决办法</title>
-    <link href="http://yoursite.com/2016/06/26/mac-os-x-jin-cheng-usereventagent-zhan-yong-cpu-100-de-jie-jue-ban-fa/"/>
-    <id>http://yoursite.com/2016/06/26/mac-os-x-jin-cheng-usereventagent-zhan-yong-cpu-100-de-jie-jue-ban-fa/</id>
+    <link href="http://godknow.cn/2016/06/26/mac-os-x-jin-cheng-usereventagent-zhan-yong-cpu-100-de-jie-jue-ban-fa/"/>
+    <id>http://godknow.cn/2016/06/26/mac-os-x-jin-cheng-usereventagent-zhan-yong-cpu-100-de-jie-jue-ban-fa/</id>
     <published>2016-06-26T14:53:59.000Z</published>
     <updated>2016-06-26T14:54:49.000Z</updated>
     
@@ -1104,8 +1104,8 @@
   
   <entry>
     <title>Bitcode 理解</title>
-    <link href="http://yoursite.com/2016/06/26/bitcode-li-jie/"/>
-    <id>http://yoursite.com/2016/06/26/bitcode-li-jie/</id>
+    <link href="http://godknow.cn/2016/06/26/bitcode-li-jie/"/>
+    <id>http://godknow.cn/2016/06/26/bitcode-li-jie/</id>
     <published>2016-06-26T07:14:20.000Z</published>
     <updated>2016-06-28T05:10:38.000Z</updated>
     
@@ -1158,8 +1158,8 @@
   
   <entry>
     <title>Bilibili开源框架ijkplayer</title>
-    <link href="http://yoursite.com/2016/06/26/bilibilikai-yuan-kuang-jia-ijkplayer/"/>
-    <id>http://yoursite.com/2016/06/26/bilibilikai-yuan-kuang-jia-ijkplayer/</id>
+    <link href="http://godknow.cn/2016/06/26/bilibilikai-yuan-kuang-jia-ijkplayer/"/>
+    <id>http://godknow.cn/2016/06/26/bilibilikai-yuan-kuang-jia-ijkplayer/</id>
     <published>2016-06-26T01:47:59.000Z</published>
     <updated>2016-06-28T05:11:04.000Z</updated>
     
@@ -1202,8 +1202,8 @@
   
   <entry>
     <title>逆向工程 - Reveal、IDA、Hopper、https抓包</title>
-    <link href="http://yoursite.com/2016/06/23/ni-xiang-gong-cheng-reveal-ida-hopper-httpszhua-bao/"/>
-    <id>http://yoursite.com/2016/06/23/ni-xiang-gong-cheng-reveal-ida-hopper-httpszhua-bao/</id>
+    <link href="http://godknow.cn/2016/06/23/ni-xiang-gong-cheng-reveal-ida-hopper-httpszhua-bao/"/>
+    <id>http://godknow.cn/2016/06/23/ni-xiang-gong-cheng-reveal-ida-hopper-httpszhua-bao/</id>
     <published>2016-06-23T03:21:14.000Z</published>
     <updated>2016-07-13T07:00:10.000Z</updated>
     
@@ -1328,7 +1328,7 @@
     </summary>
     
     
-      <category term=" - iOS - 转载" scheme="http://yoursite.com/tags/iOS-%E8%BD%AC%E8%BD%BD/"/>
+      <category term=" - iOS - 转载" scheme="http://godknow.cn/tags/iOS-%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
