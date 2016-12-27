@@ -263,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/27/First/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="晓东儿">
@@ -288,8 +288,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/27/First/" itemprop="url">
-                  GPS采点数据处理
+                <a class="post-title-link" href="/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/" itemprop="url">
+                  iOS开发 之 运动GPS采样处理
                 </a>
               
             
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-27T11:47:05+08:00">
-                2016-12-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-23T13:29:52+08:00">
+                2016-09-23
               </time>
             
 
@@ -324,8 +324,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/27/First/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/27/First/" itemprop="commentCount"></span>
+                <a href="/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -354,13 +354,13 @@
         
           
             <p>iOS提供了获取位置信息的类，CLLocationManager。<br>通过它，我们可以轻松得到包含位置信息的对象CLLocation。</p>
-<p>但正常情况下在运动中，会不断得到CLLocation，而其中很多点都是无效的。 如果不去掉，将导致里程，速度，配速等一系列数据误差非常大。</p>
-<p>查询了一下资料，国内这一块的资料的确比较少， 这里我针对常见的误差情况，用最简单明了的方法，教你判断无效的GPS点。</p>
-<p>一、静止不动 上一个GPS点的瞬时速度为零，当前点的瞬时速度也为0,那么当前点无效. 瞬时速度就是CLLocation对象的属性speed。</p>
-<p>二、GPS信号太差 信号是CLLocation的属性horizontalAccuracy，表示水平方向的误差值。 当这个值大于70，我们认为信号太差。</p>
-<p>三、无效移动 前后两个GPS点的距离，小于horizontalAccuracy * (0.5~0.66)，我们认为这个点是无效移动。</p>
-<p>四、平均速度过大 如果当前点到上一个点的距离 / 当前点到上一个点的时间 速度大于某一个值，则认为当前点无效 比如跑步，博尔特最快是10.44m/s</p>
-<p>五、采样频率 如果不想GPS点过于密集，可以用时间限制。 如果当前点的时间到上一个点事件小于2s，则认为点无效。 另外也可以用位置管理器的distanceFilter属性来设置。 当distanceFilter = 30的时候，只有超过30m的移动，才会进入到位置更新的回调方法。 这样做的好处是设备可以更加省电，CPU的占用更低，根据实际情况而定。</p>
+<p>但正常情况下在运动中，会不断得到CLLocation，而其中很多点都是无效的。<br>如果不去掉，将导致里程，速度，配速等一系列数据误差非常大。</p>
+<p>查询了一下资料，国内这一块的资料的确比较少，<br>这里我针对常见的误差情况，用最简单明了的方法，教你判断无效的GPS点。</p>
+<p><strong>一、静止不动</strong><br>上一个GPS点的瞬时速度为零，当前点的瞬时速度也为0,那么当前点无效.<br>瞬时速度就是CLLocation对象的属性speed。</p>
+<p><strong>二、GPS信号太差</strong><br>信号是CLLocation的属性horizontalAccuracy，表示水平方向的误差值。<br>当这个值大于70，我们认为信号太差。</p>
+<p><strong>三、无效移动</strong><br>前后两个GPS点的距离，小于horizontalAccuracy * (0.5~0.66)，我们认为这个点是无效移动。</p>
+<p><strong>四、平均速度过大</strong><br>如果当前点到上一个点的距离 / 当前点到上一个点的时间<br>速度大于某一个值，则认为当前点无效<br>比如跑步，博尔特最快是10.44m/s</p>
+<p><strong>五、采样频率</strong><br>如果不想GPS点过于密集，可以用时间限制。<br>如果当前点的时间到上一个点事件小于2s，则认为点无效。<br>另外也可以用位置管理器的distanceFilter属性来设置。<br>当distanceFilter = 30的时候，只有超过30m的移动，才会进入到位置更新的回调方法。<br>这样做的好处是设备可以更加省电，CPU的占用更低，根据实际情况而定。</p>
 <p>总结了几种常见gps点的过滤方法，希望对大家有帮助。</p>
 
           
@@ -400,7 +400,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/27/hello-world/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="晓东儿">
@@ -425,8 +425,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/27/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/" itemprop="url">
+                  响应者链条传递事件
                 </a>
               
             
@@ -442,8 +442,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-27T11:42:52+08:00">
-                2016-12-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-12T13:15:11+08:00">
+                2016-09-12
               </time>
             
 
@@ -461,8 +461,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/27/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/27/hello-world/" itemprop="commentCount"></span>
+                <a href="/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -490,15 +490,1296 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p>开篇先说点废话吧，最近整个人都很烦躁，也许跟天气有关吧，也很久没有静下来写一些东西了，最近也一直忙着新项目，也很纠接新项目应该采用什么样的结构去写才好迭代、维护。最终按自己的一写想法采用了Controller View ViewHander的模式（有点类似MVVM），因为这个Demo按照这个想法来写的所以这里简单说下，就不过多的讨论这个了，回到主题上UIResponder来，没有说之前我们先看一个图我们开发中经常遇到的：</p>
+<p><img src="http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq6xkecej20af0ik75x.jpg" alt=""></p>
+<p>很简单就是在UITableViewCell 放了一个UIButton 那我们怎么样接收这个Button的点击事件? 你第一时间可能会想到Delegate,Block？的确它们都可以实现我们的需求，Delegate我们要多写点代码，Block 如果我们的事件逻辑复杂点就会再赋值时写很多代码，当然你可以用一个简单的Block把处理的业务代封装成方法，再这个调用这方法，也可以把代码弄的简洁点，最重要我一定要考虑<strong>循环引用</strong>的问题。那我们能不能用UIResponder 传递这个事件呢，在我们想要的地方捕获这个事件呢? 我们先来看看iOS 事件是怎么传递的我们看个图：</p>
+<p><img src="http://ww4.sinaimg.cn/large/65e4f1e6gw1f7qq6j34v9j20eu04g0st.jpg" alt=""></p>
+<p>如上图，iOS中事件传递首先从App(UIApplication)开始，接着传递到Window(UIWindow)，在接着往下传递到View之前，Window会将事件交给GestureRecognizer，如果在此期间，GestureRecognizer识别了传递过来的事件，则该事件将不会继续传递到View去，而是像我们之前说的那样交给Target(ViewController)进行处理。（注：详细原理可以自己进行搜索学习）我们大致知道事件产生最先识别是的 AppDelegate，然后一层层往下找看事件发生那个view上，直到找个这个view,然后看个view 能不能响应这个事件。那我们现在再说说响应者链先看个张图：</p>
+<p><img src="http://ww1.sinaimg.cn/large/65e4f1e6gw1f7qq6ipf1hj20jy09t75c.jpg" alt=""></p>
+<p>我知道了当事触摸事件发生，通过一层层找到的这个View ,找到这个View 后先判断这个view能不能响应这个事件，如果不能那就继续找nextResponder我们看上面图可以看出如果一个View有SuperView 那么这个View的nextResponder 就是他的SuperView，如果没有SuperView 那么它的nextResponder 就是他所在ViewController 然后就这样一直找下去，直到找到或抛出异常。<br>我们了解这机制后那我们怎么把这个UIButton Click 事件传递出来呢，我们先来给UIResponder 添加一个我们自定义的事件，我就让它传递我们这个事件出去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIResponder+Router.h&quot;</div><div class="line"></div><div class="line">@implementation UIResponder (Router)</div><div class="line"> // eventName 只是作个标记，当我们需要在一个页面传递个事件时我们可以进区分，userInfo 为了省劲就没有封装，你可以针对性再封装下</div><div class="line">- (void)routerEventWithName:(NSString *)eventName userInfo:(NSDictionary *)userInfo &#123;</div><div class="line">      [[self nextResponder] routerEventWithName:eventName userInfo:userInfo];</div><div class="line"> &#125;</div><div class="line"> @end</div></pre></td></tr></table></figure>
+<p>那我们怎么进行传递呢，那就是我们手动的去让响应者链传递这个事件<br>我们先看下工程的代码文件：<br><strong>View</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;TestView.h&quot;</div><div class="line">#import &quot;TestViewTableDataSource.h&quot;</div><div class="line"></div><div class="line">@implementation TestView &#123;</div><div class="line">    UITableView *_tableView;</div><div class="line">&#125;</div><div class="line"></div><div class="line"> - (instancetype)initWithController:(SBBaseViewController *)controller &#123;</div><div class="line">   self = [super initWithController:controller];</div><div class="line">   if (self) &#123;</div><div class="line">    [self setup];</div><div class="line">    &#125;</div><div class="line">     return self;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> - (void)setup &#123;</div><div class="line"></div><div class="line">    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];</div><div class="line">    _tableView.delegate = self;</div><div class="line">    _tableView.rowHeight = 60;</div><div class="line">    _tableView.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">    [_tableView registerClass:[TestViewTableCell class] forCellReuseIdentifier:@&quot;cell&quot;];</div><div class="line">    [self addSubview:_tableView];</div><div class="line">    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@&quot;H:|-0-[_tableView]-0-|&quot; options:0 metrics:nil views:NSDictionaryOfVariableBindings(_tableView)]];</div><div class="line">    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@&quot;V:|-0-[_tableView]-0-|&quot; options:0 metrics:nil views:NSDictionaryOfVariableBindings(_tableView)]];</div></pre></td></tr></table></figure>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (void)setHandler:(SBBaseHandler *)handler &#123;</div><div class="line">    [super setHandler:handler];</div><div class="line">    // 把tableViewDataSource 分离出去</div><div class="line">    TestViewTableDataSource *tableViewDataSoure = [[TestViewTableDataSource alloc] initWithTableView:_tableView];</div><div class="line"></div><div class="line">    _tableView.dataSource = tableViewDataSoure;</div><div class="line">    self.handler.tableDataSource = tableViewDataSoure;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)didLoad &#123;</div><div class="line">    [self.handler loadData];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Controller</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#import &quot;TestViewController.h&quot;</div><div class="line">#import &quot;TestView.h&quot;</div><div class="line">#import &quot;TestViewHandler.h&quot;</div><div class="line"></div><div class="line">@interface TestViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation TestViewController</div><div class="line"></div><div class="line">- (void)loadView &#123;</div><div class="line">    [super loadView];</div><div class="line">    TestView *view = [[TestView alloc]initWithController:self];</div><div class="line">    TestViewHandler *handler = [[TestViewHandler alloc] init];</div><div class="line">    view.handler = handler;</div><div class="line">    self.view = view;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view.</div><div class="line">    self.title = @&quot;UIResponderEx&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)didReceiveMemoryWarning &#123;</div><div class="line">    [super didReceiveMemoryWarning];</div><div class="line">    // Dispose of any resources that can be recreated.</div><div class="line"> &#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p><strong>Handler</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &quot;TestViewHandler.h&quot;</div><div class="line"></div><div class="line">@implementation TestViewHandler</div><div class="line"></div><div class="line">- (void)loadData &#123;</div><div class="line">    NSMutableArray *datasource = [NSMutableArray arrayWithCapacity:10];</div><div class="line">    for (int i = 0; i&lt; 10; ++i) &#123;</div><div class="line">        [datasource addObject:[NSString stringWithFormat:@&quot;Row number is %d&quot;,i]];</div><div class="line">    &#125;</div><div class="line">    self.tableDataSource.dataSouce = [datasource copy];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p><strong>TableDataSource</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#import &quot;SBBaseTableDataSource.h&quot;</div><div class="line"></div><div class="line">@interface TestViewTableDataSource : SBBaseTableDataSource</div><div class="line"></div><div class="line">@end</div><div class="line">// 这里为了省劲就没有用单独文件去写，最好还是建两个新文件去比较好</div><div class="line">@interface TestViewTableCell : UITableViewCell</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">#import &quot;TestViewTableDataSource.h&quot;</div><div class="line">#import &quot;UIResponder+Router.h&quot;</div><div class="line"></div><div class="line">@implementation TestViewTableDataSource</div><div class="line"></div><div class="line">- (id)initWithTableView:(UITableView *)tableView &#123;</div><div class="line">    self = [super initWithTableView:tableView];</div><div class="line">    if (self) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">  - (void)setDataSouce:(NSArray *)dataSouce &#123;</div><div class="line">    [super setDataSouce:dataSouce];</div><div class="line">    [self.tableView reloadData];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView &#123;</div><div class="line"></div><div class="line">    return 1;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section &#123;</div><div class="line"></div><div class="line">    return self.dataSouce.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123;</div><div class="line">    TestViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@&quot;cell&quot;];</div><div class="line">    cell.textLabel.text = self.dataSouce[indexPath.row];</div><div class="line"></div><div class="line">    return cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation TestViewTableCell</div><div class="line"></div><div class="line">- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier &#123;</div><div class="line">    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];</div><div class="line">    if (self) &#123;</div><div class="line">       [self setup];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setup &#123;</div><div class="line">    UIButton *showNumberButton = [UIButton buttonWithType:UIButtonTypeCustom];</div><div class="line">    [showNumberButton setTitle:@&quot;Show row number&quot; forState:UIControlStateNormal];</div><div class="line">    showNumberButton.backgroundColor = [UIColor purpleColor];</div><div class="line">    showNumberButton.layer.cornerRadius = 4;</div><div class="line">    showNumberButton.layer.masksToBounds = YES;</div><div class="line">    showNumberButton.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">   [showNumberButton addTarget:self action:@selector(showNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];</div><div class="line">    [self.contentView addSubview:showNumberButton];</div><div class="line"></div><div class="line">    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@&quot;H:[showNumberButton(180)]-20-|&quot; options:0 metrics:nil views:NSDictionaryOfVariableBindings(showNumberButton)]];</div><div class="line">    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:showNumberButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];</div><div class="line">&#125;</div><div class="line">   //关键代码就在这里, 我们在button click 事件中我再让传递一个事件给响应者链，让响应者链传出去</div><div class="line">- (void)showNumberButtonClick:(id)sender &#123;</div><div class="line">    // 我们在这个Click事件中去手动让响应者传递一个事件</div><div class="line">    [self.nextResponder routerEventWithName:@&quot;showNumber&quot; userInfo:@&#123;@&quot;object&quot;:self.textLabel.text&#125;];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>主要的代码差不多就是这些了，至于他们的基类都是自己封装好一部分，还不怎么完善都是一些自己的想法。就不贴代码稍后把这个Demo放出来。有兴趣的可以下下来看看，如果有我好的想法请联系我：<a href="mailto:lsb332@163.com" target="_blank" rel="external">lsb332@163.com</a><br>我们先来看看在View 中捕获下事件，在.m 文件我们导入UIResponder+Router.h头文件 然后实现我们自定义的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIResponder+Router.h&quot;</div><div class="line">#pragma UIResponder(Router)</div><div class="line">- (void)routerEventWithName:(NSString *)eventName userInfo:(NSDictionary *)userInfo &#123;</div><div class="line">   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@&quot;View中捕获&quot; message:userInfo[@&quot;object&quot;] delegate:nil cancelButtonTitle:@&quot;OK&quot; otherButtonTitles: nil];</div><div class="line">   [alertView show];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong> 手动传递事件的代码TableDataSource 已经贴出来过了这里就不贴了</strong><br>我们看下结果：</p>
+<p><img src="http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq7f1kxyj20af0ih3zq.jpg" alt=""></p>
+<p>我们再来看看在UIViewController 捕获，代码就不贴了看下结果好了:</p>
+<p><img src="http://ww1.sinaimg.cn/large/65e4f1e6gw1f7qq7rh5foj20af0ij75k.jpg" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>最重要的思想就是在响应事件方法我们再主动的传递给响应者链一个事件，然后我们合适的地方去响应这个事件</strong><br>这个也是抛砖引玉的，自己理解的还很肤浅的，现在写出来也算是自己学习的一个笔记吧，这个处理方法也是自己在集成环信中发现的，自己去摸索学习下。<br>Demo地址 <a href="https://github.com/lsb332/UIResponderEX" target="_blank" rel="external">https://github.com/lsb332/UIResponderEX</a><br>在这里再说一下自己项目结构，为了减轻UIViewController 重量实行真正的MVC 把View分出来了，从而使ViewController 只负责view 的显示 ，称除等。因为我们项目经常会用到TableView 为了不使View太重再次把这个分离去，使TableView的dataSource 在TableViewSource文件中去实现，然后又给View 建了一个Handler  用来处理业务逻辑，网络请求等，然后又把handler 继承一个网络求的类，这样可就可以处理的网络的请求了，如果handler 处理完数据后可以通过Block 回调给View 或者直接把数据传递给TableViewSource 就可以直接刷新数据，不用再回调给View。这里只是简单的说一下，有兴趣的可以工程里看看，还处在起步结段，如果觉得成熟了再写一篇文章说说吧。</p>
+<p>文／lsb332（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/8fef9171c322" target="_blank" rel="external">http://www.jianshu.com/p/8fef9171c322</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/10/git-fen-zhi-bian-ji/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/10/git-fen-zhi-bian-ji/" itemprop="url">
+                  Git 分支 - 变基
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-10T14:08:57+08:00">
+                2016-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/10/git-fen-zhi-bian-ji/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/10/git-fen-zhi-bian-ji/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h2><p>在 Git 中整合来自不同分支的修改主要有两种方法：<code>merge</code> 以及 <code>rebase</code>。 在本节中我们将学习什么是“变基”，怎样使用“变基”，并将展示该操作的惊艳之处，以及指出在何种情况下你应避免使用它。</p>
+<h3 id="变基的基本操作"><a href="#变基的基本操作" class="headerlink" title="变基的基本操作"></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA#变基的基本操作" target="_blank" rel="external">变基的基本操作</a></h3><p>请回顾之前在 <a href="https://git-scm.com/book/zh/v2/ch00/_basic_merging" target="_blank" rel="external">分支的合并</a> 中的一个例子，你会看到开发任务分叉到两个不同分支，又各自提交了更新。</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-1.png" alt="分叉的提交历史">Figure 3-27. 分叉的提交历史</p>
+<p>之前介绍过，整合分支最容易的方法是 <code>merge</code> 命令。 它会把两个分支的最新快照（<code>C3</code> 和 <code>C4</code>）以及二者最近的共同祖先（<code>C2</code>）进行三方合并，合并的结果是生成一个新的快照（并提交）。</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-2.png" alt="通过合并操作来整合分叉了的历史">Figure 3-28. 通过合并操作来整合分叉了的历史</p>
+<p>其实，还有一种方法：你可以提取在 <code>C4</code> 中引入的补丁和修改，然后在 <code>C3</code> 的基础上再应用一次。 在 Git 中，这种操作就叫做 <em>变基</em>。 你可以使用 <code>rebase</code> 命令将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样。</p>
+<p>在上面这个例子中，运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git checkout experiment</div><div class="line">$ git rebase master</div><div class="line">First, rewinding head to replay your work on top of it...</div><div class="line">Applying: added staged command</div></pre></td></tr></table></figure>
+<p>它的原理是首先找到这两个分支（即当前分支 <code>experiment</code>、变基操作的目标基底分支 <code>master</code>）的最近共同祖先 <code>C2</code>，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底 <code>C3</code>, 最后以此将之前另存为临时文件的修改依序应用。（译注：写明了 commit id，以便理解，下同）</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-3.png" alt="将 `C4` 中的修改变基到 `C3` 上">Figure 3-29. 将 <code>C4</code> 中的修改变基到 <code>C3</code> 上</p>
+<p>现在回到 <code>master</code> 分支，进行一次快进合并。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git merge experiment</div></pre></td></tr></table></figure>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-4.png" alt="master 分支的快进合并">Figure 3-30. master 分支的快进合并</p>
+<p>此时，<code>C4&#39;</code> 指向的快照就和上面使用 <code>merge</code> 命令的例子中 <code>C5</code> 指向的快照一模一样了。 这两种整合方法的最终结果没有任何区别，但是变基使得提交历史更加整洁。 你在查看一个经过变基的分支的历史记录时会发现，尽管实际的开发工作是并行的，但它们看上去就像是先后串行的一样，提交历史是一条直线没有分叉。</p>
+<p>一般我们这样做的目的是为了确保在向远程分支推送时能保持提交历史的整洁——例如向某个别人维护的项目贡献代码时。 在这种情况下，你首先在自己的分支里进行开发，当开发完成时你需要先将你的代码变基到 <code>origin/master</code> 上，然后再向主项目提交修改。 这样的话，该项目的维护者就不再需要进行整合工作，只需要快进合并便可。</p>
+<p>请注意，无论是通过变基，还是通过三方合并，整合的最终结果所指向的快照始终是一样的，只不过提交历史不同罢了。 变基是将一系列提交按照原有次序依次应用到另一分支上，而合并是把最终结果合在一起。</p>
+<h3 id="更有趣的变基例子"><a href="#更有趣的变基例子" class="headerlink" title="更有趣的变基例子"></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA#更有趣的变基例子" target="_blank" rel="external">更有趣的变基例子</a></h3><p>在对两个分支进行变基时，所生成的“重演”并不一定要在目标分支上应用，你也可以指定另外的一个分支进行应用。 就像 <a href="https://git-scm.com/book/zh/v2/ch00/rbdiag_e" target="_blank" rel="external">Figure 3-31</a> 中的例子这样。 你创建了一个特性分支 <code>server</code>，为服务端添加了一些功能，提交了 <code>C3</code> 和 <code>C4</code>。 然后从 <code>C3</code> 上创建了特性分支 <code>client</code>，为客户端添加了一些功能，提交了 <code>C8</code> 和<code>C9</code>。 最后，你回到 <code>server</code> 分支，又提交了 <code>C10</code>。</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/interesting-rebase-1.png" alt="从一个特性分支里再分出一个特性分支的提交历史">Figure 3-31. 从一个特性分支里再分出一个特性分支的提交历史</p>
+<p>假设你希望将 <code>client</code> 中的修改合并到主分支并发布，但暂时并不想合并 <code>server</code> 中的修改，因为它们还需要经过更全面的测试。 这时，你就可以使用 <code>git rebase</code> 命令的 <code>--onto</code> 选项，选中在 <code>client</code> 分支里但不在 <code>server</code> 分支里的修改（即 <code>C8</code> 和 <code>C9</code>），将它们在 <code>master</code> 分支上重演：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --onto master server client</div></pre></td></tr></table></figure>
+<p>以上命令的意思是：“取出 <code>client</code> 分支，找出处于 <code>client</code> 分支和 <code>server</code> 分支的共同祖先之后的修改，然后把它们在 <code>master</code> 分支上重演一遍”。 这理解起来有一点复杂，不过效果非常酷。</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/interesting-rebase-2.png" alt="截取特性分支上的另一个特性分支，然后变基到其他分支">Figure 3-32. 截取特性分支上的另一个特性分支，然后变基到其他分支</p>
+<p>现在可以快进合并 <code>master</code> 分支了。（如图 <a href="https://git-scm.com/book/zh/v2/ch00/rbdiag_g" target="_blank" rel="external">Figure 3-33</a>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git merge client</div></pre></td></tr></table></figure>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/interesting-rebase-3.png" alt="快进合并 master 分支，使之包含来自 client 分支的修改">Figure 3-33. 快进合并 master 分支，使之包含来自 client 分支的修改</p>
+<p>接下来你决定将 <code>server</code> 分支中的修改也整合进来。 使用 <code>git rebase [basebranch] [topicbranch]</code> 命令可以直接将特性分支（即本例中的 <code>server</code>）变基到目标分支（即 <code>master</code>）上。这样做能省去你先切换到 <code>server</code> 分支，再对其执行变基命令的多个步骤。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase master server</div></pre></td></tr></table></figure>
+<p>如图 <a href="https://git-scm.com/book/zh/v2/ch00/rbdiag_h" target="_blank" rel="external">Figure 3-34</a> 所示，<code>server</code> 中的代码被“续”到了 <code>master</code> 后面。</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/interesting-rebase-4.png" alt="将 server 中的修改变基到 master 上">Figure 3-34. 将 server 中的修改变基到 master 上</p>
+<p>然后就可以快进合并主分支 master 了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git merge server</div></pre></td></tr></table></figure>
+<p>至此，<code>client</code> 和 <code>server</code> 分支中的修改都已经整合到主分支里去了，你可以删除这两个分支，最终提交历史会变成图 <a href="https://git-scm.com/book/zh/v2/ch00/rbdiag_i" target="_blank" rel="external">Figure 3-35</a> 中的样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -d client</div><div class="line">$ git branch -d server</div></pre></td></tr></table></figure>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/interesting-rebase-5.png" alt="最终的提交历史">Figure 3-35. 最终的提交历史</p>
+<h3 id="变基的风险"><a href="#变基的风险" class="headerlink" title="变基的风险"></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA#变基的风险" target="_blank" rel="external">变基的风险</a></h3><p>呃，奇妙的变基也并非完美无缺，要用它得遵守一条准则：</p>
+<p><strong>不要对在你的仓库外有副本的分支执行变基。</strong></p>
+<p>如果你遵循这条金科玉律，就不会出差错。 否则，人民群众会仇恨你，你的朋友和家人也会嘲笑你，唾弃你。</p>
+<p>变基操作的实质是丢弃一些现有的提交，然后相应地新建一些内容一样但实际上不同的提交。 如果你已经将提交推送至某个仓库，而其他人也已经从该仓库拉取提交并进行了后续工作，此时，如果你用 <code>git rebase</code> 命令重新整理了提交并再次推送，你的同伴因此将不得不再次将他们手头的工作与你的提交进行整合，如果接下来你还要拉取并整合他们修改过的提交，事情就会变得一团糟。</p>
+<p>让我们来看一个在公开的仓库上执行变基操作所带来的问题。 假设你从一个中央服务器克隆然后在它的基础上进行了一些开发。 你的提交历史如图所示：</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/perils-of-rebasing-1.png" alt="克隆一个仓库，然后在它的基础上进行了一些开发">Figure 3-36. 克隆一个仓库，然后在它的基础上进行了一些开发</p>
+<p>然后，某人又向中央服务器提交了一些修改，其中还包括一次合并。 你抓取了这些在远程分支上的修改，并将其合并到你本地的开发分支，然后你的提交历史就会变成这样：</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/perils-of-rebasing-2.png" alt="抓取别人的提交，合并到自己的开发分支">Figure 3-37. 抓取别人的提交，合并到自己的开发分支</p>
+<p>接下来，这个人又决定把合并操作回滚，改用变基；继而又用 <code>git push --force</code> 命令覆盖了服务器上的提交历史。 之后你从服务器抓取更新，会发现多出来一些新的提交。</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/perils-of-rebasing-3.png" alt="有人推送了经过变基的提交，并丢弃了你的本地开发所基于的一些提交">Figure 3-38. 有人推送了经过变基的提交，并丢弃了你的本地开发所基于的一些提交</p>
+<p>结果就是你们两人的处境都十分尴尬。 如果你执行 <code>git pull</code> 命令，你将合并来自两条提交历史的内容，生成一个新的合并提交，最终仓库会如图所示：</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/perils-of-rebasing-4.png" alt="你将相同的内容又合并了一次，生成了一个新的提交">Figure 3-39. 你将相同的内容又合并了一次，生成了一个新的提交</p>
+<p>此时如果你执行 <code>git log</code> 命令，你会发现有两个提交的作者、日期、日志居然是一样的，这会令人感到混乱。 此外，如果你将这一堆又推送到服务器上，你实际上是将那些已经被变基抛弃的提交又找了回来，这会令人感到更加混乱。 很明显对方并不想在提交历史中看到 <code>C4</code> 和 <code>C6</code>，因为之前就是他们把这两个提交通过变基丢弃的。</p>
+<h3 id="用变基解决变基"><a href="#用变基解决变基" class="headerlink" title="用变基解决变基"></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA#用变基解决变基" target="_blank" rel="external">用变基解决变基</a></h3><p>如果你 <strong>真的</strong> 遭遇了类似的处境，Git 还有一些高级魔法可以帮到你。 如果团队中的某人强制推送并覆盖了一些你所基于的提交，你需要做的就是检查你做了哪些修改，以及他们覆盖了哪些修改。</p>
+<p>实际上，Git 除了对整个提交计算 SHA-1 校验和以外，也对本次提交所引入的修改计算了校验和—— 即 “patch-id”。</p>
+<p>如果你拉取被覆盖过的更新并将你手头的工作基于此进行变基的话，一般情况下 Git 都能成功分辨出哪些是你的修改，并把它们应用到新分支上。</p>
+<p>举个例子，如果遇到前面提到的 <a href="https://git-scm.com/book/zh/v2/ch00/_pre_merge_rebase_work" target="_blank" rel="external">Figure 3-38</a> 那种情境，如果我们不是执行合并，而是执行 <code>git rebase teamone/master</code>, Git 将会：</p>
+<ul>
+<li>检查哪些提交是我们的分支上独有的（C2，C3，C4，C6，C7）</li>
+<li>检查其中哪些提交不是合并操作的结果（C2，C3，C4）</li>
+<li>检查哪些提交在对方覆盖更新时并没有被纳入目标分支（只有 C2 和 C3，因为 C4 其实就是 C4’）</li>
+<li>把查到的这些提交应用在 <code>teamone/master</code> 上面</li>
+</ul>
+<p>从而我们将得到与 <a href="https://git-scm.com/book/zh/v2/ch00/_merge_rebase_work" target="_blank" rel="external">Figure 3-39</a> 中不同的结果，如图 <a href="https://git-scm.com/book/zh/v2/ch00/_rebase_rebase_work" target="_blank" rel="external">Figure 3-40</a> 所示。</p>
+<p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/perils-of-rebasing-5.png" alt="在一个被变基然后强制推送的分支上再次执行变基">Figure 3-40. 在一个被变基然后强制推送的分支上再次执行变基</p>
+<p>要想上述方案有效，还需要对方在变基时确保 C4’ 和 C4 是几乎一样的。 否则变基操作将无法识别，并新建另一个类似 C4 的补丁（而这个补丁很可能无法整洁的整合入历史，因为补丁中的修改已经存在于某个地方了）。</p>
+<p>在本例中另一种简单的方法是使用 <code>git pull --rebase</code> 命令而不是直接 <code>git pull</code>。 又或者你可以自己手动完成这个过程，先 <code>git fetch</code>，再 <code>git rebase teamone/master</code>。</p>
+<p>如果你习惯使用 <code>git pull</code> ，同时又希望默认使用选项 <code>--rebase</code>，你可以执行这条语句 <code>git config --global pull.rebase true</code> 来更改 <code>pull.rebase</code> 的默认配置。</p>
+<p>只要你把变基命令当作是在推送前清理提交使之整洁的工具，并且只在从未推送至共用仓库的提交上执行变基命令，你就不会有事。 假如你在那些已经被推送至共用仓库的提交上执行变基命令，并因此丢弃了一些别人的开发所基于的提交，那你就有大麻烦了，你的同事也会因此鄙视你。</p>
+<p>如果你或你的同事在某些情形下决意要这么做，请一定要通知每个人执行 <code>git pull --rebase</code> 命令，这样尽管不能避免伤痛，但能有所缓解。</p>
+<h3 id="变基-vs-合并"><a href="#变基-vs-合并" class="headerlink" title="变基 vs. 合并"></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA#变基-vs.-合并" target="_blank" rel="external">变基 vs. 合并</a></h3><p>至此，你已在实战中学习了变基和合并的用法，你一定会想问，到底哪种方式更好。 在回答这个问题之前，让我们退后一步，想讨论一下提交历史到底意味着什么。</p>
+<p>有一种观点认为，仓库的提交历史即是 <strong>记录实际发生过什么</strong>。 它是针对历史的文档，本身就有价值，不能乱改。 从这个角度看来，改变提交历史是一种亵渎，你使用<em>谎言</em>掩盖了实际发生过的事情。 如果由合并产生的提交历史是一团糟怎么办？ 既然事实就是如此，那么这些痕迹就应该被保留下来，让后人能够查阅。</p>
+<p>另一种观点则正好相反，他们认为提交历史是 <strong>项目过程中发生的故事</strong>。 没人会出版一本书的第一批草稿，软件维护手册也是需要反复修订才能方便使用。 持这一观点的人会使用 rebase 及 filter-branch 等工具来编写故事，怎么方便后来的读者就怎么写。</p>
+<p>现在，让我们回到之前的问题上来，到底合并还是变基好？希望你能明白，并没有一个简单的答案。 Git 是一个非常强大的工具，它允许你对提交历史做许多事情，但每个团队、每个项目对此的需求并不相同。 既然你已经分别学习了两者的用法，相信你能够根据实际情况作出明智的选择。</p>
+<p>总的原则是，只对尚未推送或分享给别人的本地修改执行变基操作清理历史，从不对已推送至别处的提交执行变基操作，这样，你才能享受到两种方式带来的便利。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/" itemprop="url">
+                  willMoveToSuperView导致观察者无法释放bug
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-10T10:33:17+08:00">
+                2016-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://ww1.sinaimg.cn/large/801b780agw1f7oaf0t13bj20rt0hp44z.jpg" alt="obeserve无法释放"></p>
+<p>(void)willMoveToSuperview 默认不做任何事情；当接收者父视图将要改变的时候回来到该方法，其中newSuperview是将要被添加的视图，该参数可以为new，子类可以重写这方法来作为特定的实现。<br>最近在开发公司项目的过程中，遇到了一个比较棘手的bug。<br>同事在构造一个modal出来的Controller中，用到了某个三方库<br>其中有用到KVO去监听某个属性的值。<br>而且也在dealloc里面对观察者进行了销毁。</p>
+<p>但在点击关闭按钮销毁该界面的时候，程序先回到父控制器窗口，然后crash。<br>查了许久原因未果。</p>
+<p>通过断点调试和查看函数调用栈发现<br>observeValueForKeyPath:这个方法一共来了两次<br>进一步调试发现<br>是- (void)willMoveToSuperview:(UIView *)newSuperview这个方法调用了两次，而增加观察者方法就写在其中。<br>两次调用的时间分别是View视图将要显示前，和将要销毁前。</p>
+<p>查阅资料得知newSuperview可以为nil，也就是modal视图销毁时这个方法会进行第二次调用，即把视图添加到为nill的View上。</p>
+<p>进而在方法内部做了对参数的校验，解决问题。</p>
+<p>不过把观察者写在view里面始终是野路子，把逻辑操作都写在controller中才是正途。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/09/bi-te-bi-ji-qu-kuai-lian/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/09/bi-te-bi-ji-qu-kuai-lian/" itemprop="url">
+                  比特币及区块链
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-09T11:13:43+08:00">
+                2016-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/09/bi-te-bi-ji-qu-kuai-lian/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/09/bi-te-bi-ji-qu-kuai-lian/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>####<a href="http://http://v.youku.com/v_show/id_XMjY4MTA3NDky.html" target="_blank" rel="external">Bitcoin是什么</a></p>
+<p>####<a href="http://v.youku.com/v_show/id_XNjY1NTQzMDYw.html?beta&amp;from=s1.8-1-1.2&amp;spm=0.0.0.0.Xy0KUn" target="_blank" rel="external">一分钟了解比特币</a></p>
+<p>####<a href="http://v.youku.com/v_show/id_XNzk0MzgwNTU2.html?beta&amp;from=s1.8-1-1.2&amp;spm=0.0.0.0.nfpGov" target="_blank" rel="external">NHK纪录片《比特币最前线》中英字幕版</a></p>
+<hr>
+<p>####<a href="http://v.youku.com/v_show/id_XMTYyNTc1OTAwNA==.html?beta&amp;from=s1.8-1-1.2&amp;spm=0.0.0.0.vDyGgJ" target="_blank" rel="external">Bitcoin是什么</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/" itemprop="url">
+                  Xib加载的几种方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-13T15:00:33+08:00">
+                2016-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/13/xibjia-zai-de-ji-chong-fang-fa/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>一，本质</p>
+</blockquote>
+<p> xib本质是<code>XML</code>代码（在编译时<code>Xcode</code>将<code>xib</code>中内容转换成代码）</p>
+<p>注：如果一个<code>view</code>是从<code>xib</code>中加载出来的，默认<code>width</code>与<code>height</code>是<code>xib</code>中描述的尺寸，frame中(x,y)值默认为零</p>
+<blockquote>
+<p>二、控制器中加载xib</p>
+</blockquote>
+<p>加载方式一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSArray *newsArr = [[NSBundle mainBundle] loadNibNamed:@&quot;news&quot; owner:nil options:nil];</div><div class="line">UIView *newsView = newsArr.firstObject;</div></pre></td></tr></table></figure>
+<p>注：<br>“<code>loadNibNamed:owner:options</code>” 方法返回值是一个<code>NSArray</code>，因为一个xib中可以放多个<code>view</code>，但一般情况我们都只放一个在<code>xib</code>中</p>
+<p>加载方式二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UINib *nib = [UINib nibWithNibName:@&quot;news&quot; bundle:[NSBundle mainBundle]];//[NSBundle mainBundle]作为参数时，可以传nil，切记[NSBundle mainBundle]调用其他方法时不可以为nil，用nil调用方法等于什么操作都没做</div><div class="line">UIView *news = [[nib instantiateWithOwner:nil options:nil] firstObject];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>三、使用xib加载view的注意事项</p>
+</blockquote>
+<p>1，如果一个<code>view</code>是从<code>xib</code>加载出来的，那么<code>xib</code>绑定的<code>View</code>初始化过程中，不会执行<code>init</code>方法和<code>initWithFrame</code>方法，因此在页面中如果通过 <code>alloc init</code> 来初始化该<code>view</code>，界面会是空白<br>2，如果多个页面中用到该<code>view</code>，最好在<code>xib</code>绑定的类中提供快速创建的类方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">+ (instancetype)viewForXib</div><div class="line">&#123;</div><div class="line">    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/" itemprop="url">
+                  iOS加密的基本介绍
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-08T13:52:13+08:00">
+                2016-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/iosjia-mi-de-ji-ben-jie-shao/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>安全隐患：在iOS开发过程中，尽管在发送数据的过程中，密码进行了“二进制”的转换，但实际上密码还是明文，可以通过一些拦截软件被拦截（青花瓷等等），不能保证我们数据的安全性。</p>
+<p>加密选择：一般公司都会有一套自己的加密方案，按照公司接口文档的规定去加密</p>
+<p>平常用到的解决办法：</p>
+<h4 id="1-Base64加密"><a href="#1-Base64加密" class="headerlink" title="1.Base64加密"></a>1.Base64加密</h4><blockquote>
+<p>Base64加密因其算法和充当密钥的索引表都是公开的，所以不属于加密算法，它的本质是将“二进制”数据转换成字符串，方便使用HTTP协议、用于公开的代码加密、URL加密，防止数据明文传输。</p>
+</blockquote>
+<p>例如：有的网络请求上，会希望只传递字符串</p>
+<p>1.URL中的参数，直接带上图片的传输</p>
+<p>2.银联的网络接口，把整个消费凭据生成一个数据格式，然后进行Base64的编码，编码完成后传给服务器</p>
+<p>特点：编码完成后的结果，只有64个字符。</p>
+<p>转换方法：</p>
+<blockquote>
+<p>1.将每三个字节分成一组，一共24个二进制位：3*8=24</p>
+<p>2.将这24个二进制位分成4组，每组有6个二进制位：24/4=6</p>
+<p>3.在每组前加两00，扩展成32个二进制位，即4个字节：4*(6+2)=32</p>
+<p>4.根据Base64索引表就可得到对应的符号值。</p>
+</blockquote>
+<p>Base64索引表</p>
+<p>下面来看看它的具体转换过程：</p>
+<p>加密的具体过程图</p>
+<p>苹果在iOS7之后自带Base64加密，具体方法如下：</p>
+<h4 id="2-MD5加密"><a href="#2-MD5加密" class="headerlink" title="2.MD5加密"></a>2.MD5加密</h4><blockquote>
+<p>MD5即Message-Digest Algorithm 5（信息-摘要算法5），用于确保信息传输完整一致。是计算机广泛使用的杂凑算法之一（又译摘要算法、哈希算法），主流编程语言普遍已有MD5实现。作用是让大容量信息在用数字签名软件签署私人密钥前被”压缩”成一种保密的格式（就是把一个任意长度的字节串变换成一定长的十六进制数字串）。</p>
+<p>MD5加密对输入信息生成唯一的128位散列值（32个字符），声称是不可逆的，但是目前可以通过以下网站解密<a href="http://www.cmd5.com" target="_blank" rel="external">MD5解密网站</a> ，主要运用在数字签名、文件完整性验证以及口令加密等方面。</p>
+</blockquote>
+<p>先来看看基本的加密算法实现过程：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/974583-36ecd58f885b2b01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>不过在平常的开发中我们一般都会用到第三方：例如 <strong> Security 的NSString+Hash.h</strong> 等等，主要原因稍后会介绍。</p>
+<p>基本使用方法：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/974583-2d1695260849a0e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>因为MD5生成的简单字符串会到目前会被轻易的破解，所以我们需要对其进行改进。</p>
+<p>1.<strong>*加盐（Salt）*</strong>：在明文的固定位置插入随机串，然后再进行MD5</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/974583-54897bb397997310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>注：加的盐必须足够长，足够保密或者可以计入时间戳</p>
+<p>如果还不行的话可以使用辅助手段 IP记录   手机短信记录   操作异常或者比较敏感的操作等手法。</p>
+<p>2.<strong>*HMAC+MD5*</strong>：HMAC本来就是一种加密算法，再加上MD5，算得上双重保障</p>
+<p>Security第三方有此方法</p>
+<p>3.<strong>先加密，后乱序</strong>：先对明文进行MD5，然后对加密得到的MD5串的字符进行乱序，总之宗旨就是：黑客就算攻破了数据库，也无法解密出正确的明文</p>
+<blockquote>
+<p>使用MD5的好处：快速校验</p>
+</blockquote>
+<h4 id="3-对于重要数据，使用RSA进行数字签名，起到防篡改作用"><a href="#3-对于重要数据，使用RSA进行数字签名，起到防篡改作用" class="headerlink" title="3. 对于重要数据，使用RSA进行数字签名，起到防篡改作用"></a>3. 对于重要数据，使用RSA进行数字签名，起到防篡改作用</h4><h4 id="4-对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES-AES-加密"><a href="#4-对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES-AES-加密" class="headerlink" title="4 .对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES(AES)加密"></a>4 .对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES(AES)加密</h4><p>原因：客户端发送之所以使用RSA加密，是因为RSA解密需要知道服务器私钥，而服务器私钥一般盗取难度较大；</p>
+<h4 id="5-钥匙串（keychain）"><a href="#5-钥匙串（keychain）" class="headerlink" title="5.钥匙串（keychain）"></a>5.钥匙串（keychain）</h4><p>iOS 7.0.3版本后加入，使用256位AES加密</p>
+<blockquote>
+<p>keychain Services：（iOS密钥链服务）提供了针对用户设备上的密码、密钥、证书、笔记和自定义数据的安全存储解决方案。保存的信息不会因App被删除而丢失，在用户重新安装App后依然有效，数据还在，是目前在设备中保存关键数据的唯一安全的地方。</p>
+</blockquote>
+<p>那么，如何在应用里使用keychain呢？</p>
+<p>我们需要导入Security.framework ，keychain的操作接口声明在头文件SecItem.h里，直接使用SecItem.h里方法操作keychain，需要写的代码较为复杂，我们可以使用已经封装好了的工具类KeychainItemWrapper来对keychain进行操作。KeychainItemWrapper是apple官方例子“GenericKeychain”里一个访问keychain常用操作的封装类，在官网上下载了GenericKeychain项目后，<strong>只需要把“KeychainItemWrapper.h”和“KeychainItemWrapper.m”拷贝到我们项目，并导入Security.framework 。同时需要设置ARC（-fno-objc-arc）。</strong></p>
+<p>我们来看看使用方法：</p>
+<p>保存数据</p>
+<p>取出数据</p>
+<p>其他具体的使用方法，自己看API。</p>
+<p>第三方封装的有<strong>SSKeychain</strong>，使用方法更为简便。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/974583-6949590f265968a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/974583-a16cfe95dc2702ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h4 id="6-Cookie（小甜饼）"><a href="#6-Cookie（小甜饼）" class="headerlink" title="6.Cookie（小甜饼）"></a>6.Cookie（小甜饼）</h4><p>由服务器生成，发送给客户端，将cookie的key/value保存到某个目录的文本文件内。</p>
+<p>最典型的应用是判定注册用户是否已经登录，另一个重要的应用场合是“购物车”。</p>
+<p>简单使用方法：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/974583-ff4a1b563a0f2ddb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>原文链接：<a href="http://www.jianshu.com/p/2beffa24e889" target="_blank" rel="external">http://www.jianshu.com/p/2beffa24e889</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/" itemprop="url">
+                  升级Ruby配置CocoaPods安装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-07T13:05:29+08:00">
+                2016-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这两天全新安装了系统，安装cocoapods时出现：</p>
+<blockquote>
+<p>activesupport requires Ruby version &gt;= 2.2.2</p>
+</blockquote>
+<p>检查下发现淘宝源的ruby版本是2.0.0，于是使用RVM更新了下Ruby。</p>
+<h2 id="1、安装-RVM"><a href="#1、安装-RVM" class="headerlink" title="1、安装 RVM"></a>1、安装 RVM</h2><p>RVM:Ruby Version Manager,Ruby版本管理器，包括Ruby的版本管理和Gem库管理(gemset)</p>
+<blockquote>
+<p>curl -L get.rvm.io | bash -s stable </p>
+</blockquote>
+<p>等待一段时间后就可以成功安装好 RVM。</p>
+<blockquote>
+<p>source ~/.bashrc  </p>
+<p>source ~/.bash_profile  </p>
+</blockquote>
+<p>测试是否安装正常</p>
+<blockquote>
+<p>rvm -v </p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1727086-68742171c589c6ad.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="13:03:18.jpg"></p>
+<h2 id="2、用RVM升级Ruby"><a href="#2、用RVM升级Ruby" class="headerlink" title="2、用RVM升级Ruby"></a>2、用RVM升级Ruby</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">查看当前ruby版本  </div><div class="line">ruby -v  </div><div class="line">列出已知的ruby版本  </div><div class="line">rvm list known  </div><div class="line"></div><div class="line">安装ruby 2.2.2  </div><div class="line">rvm install 2.2.2</div></pre></td></tr></table></figure>
+<p>安装完成之后ruby -v查看是否安装成功。<br>终端输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">kidteaing-macmini:~ GeXiaodong$ ruby -v</div><div class="line">ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]</div></pre></td></tr></table></figure></p>
+<p>到此已经完成ruby的升级</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/" itemprop="url">
+                  PC端获取IPA包的方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-07T12:29:16+08:00">
+                2016-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>**IPA包的下载流程</p>
+<ol>
+<li><p>使用iTunes软件</p>
+</li>
+<li><p>登入自己的苹果账号</p>
+</li>
+<li><p>找到应用界面</p>
+</li>
+<li><p>选中AppStore</p>
+</li>
+<li><p>搜索要下载的应用</p>
+</li>
+<li><p>已购买应用显示下载，未购买应用显示购买</p>
+</li>
+<li><p>点击下载或购买后，会下载IPA包</p>
+</li>
+<li><p>下载完成后，会看到已下载标志</p>
+</li>
+<li><p>点击我的应用</p>
+</li>
+<li><p>已经下载的应用都列出来了</p>
+</li>
+<li><p>点中一个包，选择在Finder中显示</p>
+</li>
+<li><p>所有已下载的ipa包，都在文件夹中</p>
+</li>
+</ol>
+<p>补充</p>
+<ol>
+<li>在iTunes的设置中，也可以直接查看缓存文件夹位置</li>
+</ol>
+<p>   用命令行即可打开文件夹<br>       open /Users/mac/Music/iTunes/iTunes\ Media</p>
+<ol>
+<li><p>应用的状态可能不止下载或购买，还可能有更新等，万变不离其宗，无论是什么状态，最终都可以下载IPA包</p>
+</li>
+<li><p>缓存的包如果被删除，需要重新下载。如果IPA包有更新版本，也可以在我的应用界面直接更新</p>
+</li>
+<li><p>如果想查看包内容，可以修改.ipa后缀名为.zip，然后解压即可</p>
+</li>
+</ol>
+<p>**</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/" itemprop="url">
+                  Swift (?)可选类型和 (!)强制解包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-13T15:00:33+08:00">
+                2016-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>很多Swift初学者在学习过程中对问号和感叹号比较迷惑，<br>Swift中<strong>问号</strong>表示这是一个可选类型。<br>翻译：某个常量或者变量可能是一个类型，也可能什么都没有，<strong>我不确定它是否真的会有值，也许会是nil</strong>。</p>
+<p>比如：</p>
+<blockquote>
+<p>let number1 = “123”</p>
+<p>let number2 = number1.toInt()</p>
+<p>//number2是Int?类型 或者叫optional Int</p>
+</blockquote>
+<p>number2，可能包含Int值，也可能什么都没有（那就是nil）</p>
+<p>当我们通过if语句判断，number2确实有值时，可以使用<strong>感叹号</strong>来表示。</p>
+<p>翻译：<strong>我确定这个可选类型的值内有正确的内容，请使用它</strong>。</p>
+<blockquote>
+<p>if number2 != nil {</p>
+<pre><code>println(number2!)
+</code></pre></blockquote>
+<p>感叹号，被称为可选值的强制解析（无论如何请一定要使用这个值，我保证这里面肯定有东西）</p>
+<p>然而在使用强制解析的时候，一定要确保包中的内容确实不会为 nil，<strong>否则会报错</strong>。</p>
 
           
         
@@ -531,6 +1812,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -571,7 +1856,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -582,7 +1867,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

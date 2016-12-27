@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content=" - bug归档," />
 
 
 
@@ -86,15 +86,18 @@
 
 
 
-<meta name="description" content="你知道我不完美">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ghostknow">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+<meta name="description" content="(void)willMoveToSuperview 默认不做任何事情；当接收者父视图将要改变的时候回来到该方法，其中newSuperview是将要被添加的视图，该参数可以为new，子类可以重写这方法来作为特定的实现。最近在开发公司项目的过程中，遇到了一个比较棘手的bug。同事在构造一个modal出来的Controller中，用到了某个三方库其中有用到KVO去监听某个属性的值。而且也在deallo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="willMoveToSuperView导致观察者无法释放bug">
+<meta property="og:url" content="http://yoursite.com/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/index.html">
 <meta property="og:site_name" content="Ghostknow">
-<meta property="og:description" content="你知道我不完美">
+<meta property="og:description" content="(void)willMoveToSuperview 默认不做任何事情；当接收者父视图将要改变的时候回来到该方法，其中newSuperview是将要被添加的视图，该参数可以为new，子类可以重写这方法来作为特定的实现。最近在开发公司项目的过程中，遇到了一个比较棘手的bug。同事在构造一个modal出来的Controller中，用到了某个三方库其中有用到KVO去监听某个属性的值。而且也在deallo">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/801b780agw1f7oaf0t13bj20rt0hp44z.jpg">
+<meta property="og:updated_time" content="2016-09-10T02:39:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ghostknow">
-<meta name="twitter:description" content="你知道我不完美">
+<meta name="twitter:title" content="willMoveToSuperView导致观察者无法释放bug">
+<meta name="twitter:description" content="(void)willMoveToSuperview 默认不做任何事情；当接收者父视图将要改变的时候回来到该方法，其中newSuperview是将要被添加的视图，该参数可以为new，子类可以重写这方法来作为特定的实现。最近在开发公司项目的过程中，遇到了一个比较棘手的bug。同事在构造一个modal出来的Controller中，用到了某个三方库其中有用到KVO去监听某个属性的值。而且也在deallo">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/801b780agw1f7oaf0t13bj20rt0hp44z.jpg">
 
 
 
@@ -122,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/"/>
 
 
 
 
 
-  <title> 归档 | Ghostknow </title>
+  <title> willMoveToSuperView导致观察者无法释放bug | Ghostknow </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,403 +254,169 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 27 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/" itemprop="url">
-              
-                <span itemprop="name">iOS开发 之 运动GPS采样处理</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-23T13:29:52+08:00"
-              content="2016-09-23" >
-          09-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/" itemprop="url">
-              
-                <span itemprop="name">响应者链条传递事件</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-12T13:15:11+08:00"
-              content="2016-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/10/git-fen-zhi-bian-ji/" itemprop="url">
-              
-                <span itemprop="name">Git 分支 - 变基</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-10T14:08:57+08:00"
-              content="2016-09-10" >
-          09-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/" itemprop="url">
-              
-                <span itemprop="name">willMoveToSuperView导致观察者无法释放bug</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-10T10:33:17+08:00"
-              content="2016-09-10" >
-          09-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/09/bi-te-bi-ji-qu-kuai-lian/" itemprop="url">
-              
-                <span itemprop="name">比特币及区块链</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-09T11:13:43+08:00"
-              content="2016-09-09" >
-          09-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/" itemprop="url">
-              
-                <span itemprop="name">Xib加载的几种方法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-13T15:00:33+08:00"
-              content="2016-08-13" >
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/" itemprop="url">
-              
-                <span itemprop="name">iOS加密的基本介绍</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-08T13:52:13+08:00"
-              content="2016-08-08" >
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/" itemprop="url">
-              
-                <span itemprop="name">升级Ruby配置CocoaPods安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-07T13:05:29+08:00"
-              content="2016-08-07" >
-          08-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/" itemprop="url">
-              
-                <span itemprop="name">PC端获取IPA包的方法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-07T12:29:16+08:00"
-              content="2016-08-07" >
-          08-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/" itemprop="url">
-              
-                <span itemprop="name">Swift (?)可选类型和 (!)强制解包</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-13T15:00:33+08:00"
-              content="2016-07-13" >
-          07-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2016/page/2/">2</a><a class="page-number" href="/archives/2016/page/3/">3</a><a class="extend next" rel="next" href="/archives/2016/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                willMoveToSuperView导致观察者无法释放bug
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-10T10:33:17+08:00">
+                2016-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww1.sinaimg.cn/large/801b780agw1f7oaf0t13bj20rt0hp44z.jpg" alt="obeserve无法释放"></p>
+<p>(void)willMoveToSuperview 默认不做任何事情；当接收者父视图将要改变的时候回来到该方法，其中newSuperview是将要被添加的视图，该参数可以为new，子类可以重写这方法来作为特定的实现。<br>最近在开发公司项目的过程中，遇到了一个比较棘手的bug。<br>同事在构造一个modal出来的Controller中，用到了某个三方库<br>其中有用到KVO去监听某个属性的值。<br>而且也在dealloc里面对观察者进行了销毁。</p>
+<p>但在点击关闭按钮销毁该界面的时候，程序先回到父控制器窗口，然后crash。<br>查了许久原因未果。</p>
+<p>通过断点调试和查看函数调用栈发现<br>observeValueForKeyPath:这个方法一共来了两次<br>进一步调试发现<br>是- (void)willMoveToSuperview:(UIView *)newSuperview这个方法调用了两次，而增加观察者方法就写在其中。<br>两次调用的时间分别是View视图将要显示前，和将要销毁前。</p>
+<p>查阅资料得知newSuperview可以为nil，也就是modal视图销毁时这个方法会进行第二次调用，即把视图添加到为nill的View上。</p>
+<p>进而在方法内部做了对参数的校验，解决问题。</p>
+<p>不过把观察者写在view里面始终是野路子，把逻辑操作都写在controller中才是正途。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bug归档/" rel="tag">#  - bug归档</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/09/bi-te-bi-ji-qu-kuai-lian/" rel="next" title="比特币及区块链">
+                <i class="fa fa-chevron-left"></i> 比特币及区块链
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/10/git-fen-zhi-bian-ji/" rel="prev" title="Git 分支 - 变基">
+                Git 分支 - 变基 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -655,6 +424,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/"
+           data-title="willMoveToSuperView导致观察者无法释放bug" data-url="http://yoursite.com/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -836,11 +613,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   

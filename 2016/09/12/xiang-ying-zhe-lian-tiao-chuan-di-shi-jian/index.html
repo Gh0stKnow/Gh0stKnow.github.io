@@ -1,0 +1,730 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content=" - 转载," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ghostknow" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="开篇先说点废话吧，最近整个人都很烦躁，也许跟天气有关吧，也很久没有静下来写一些东西了，最近也一直忙着新项目，也很纠接新项目应该采用什么样的结构去写才好迭代、维护。最终按自己的一写想法采用了Controller View ViewHander的模式（有点类似MVVM），因为这个Demo按照这个想法来写的所以这里简单说下，就不过多的讨论这个了，回到主题上UIResponder来，没有说之前我们先看一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="响应者链条传递事件">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/index.html">
+<meta property="og:site_name" content="Ghostknow">
+<meta property="og:description" content="开篇先说点废话吧，最近整个人都很烦躁，也许跟天气有关吧，也很久没有静下来写一些东西了，最近也一直忙着新项目，也很纠接新项目应该采用什么样的结构去写才好迭代、维护。最终按自己的一写想法采用了Controller View ViewHander的模式（有点类似MVVM），因为这个Demo按照这个想法来写的所以这里简单说下，就不过多的讨论这个了，回到主题上UIResponder来，没有说之前我们先看一个">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq6xkecej20af0ik75x.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/65e4f1e6gw1f7qq6j34v9j20eu04g0st.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/65e4f1e6gw1f7qq6ipf1hj20jy09t75c.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq7f1kxyj20af0ih3zq.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/65e4f1e6gw1f7qq7rh5foj20af0ij75k.jpg">
+<meta property="og:updated_time" content="2016-09-12T05:16:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="响应者链条传递事件">
+<meta name="twitter:description" content="开篇先说点废话吧，最近整个人都很烦躁，也许跟天气有关吧，也很久没有静下来写一些东西了，最近也一直忙着新项目，也很纠接新项目应该采用什么样的结构去写才好迭代、维护。最终按自己的一写想法采用了Controller View ViewHander的模式（有点类似MVVM），因为这个Demo按照这个想法来写的所以这里简单说下，就不过多的讨论这个了，回到主题上UIResponder来，没有说之前我们先看一个">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq6xkecej20af0ik75x.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '3993343',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/"/>
+
+
+
+
+
+  <title> 响应者链条传递事件 | Ghostknow </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ghostknow</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">技术和设计是我的生活</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ghostknow">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ghostknow" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                响应者链条传递事件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-12T13:15:11+08:00">
+                2016-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>开篇先说点废话吧，最近整个人都很烦躁，也许跟天气有关吧，也很久没有静下来写一些东西了，最近也一直忙着新项目，也很纠接新项目应该采用什么样的结构去写才好迭代、维护。最终按自己的一写想法采用了Controller View ViewHander的模式（有点类似MVVM），因为这个Demo按照这个想法来写的所以这里简单说下，就不过多的讨论这个了，回到主题上UIResponder来，没有说之前我们先看一个图我们开发中经常遇到的：</p>
+<p><img src="http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq6xkecej20af0ik75x.jpg" alt=""></p>
+<p>很简单就是在UITableViewCell 放了一个UIButton 那我们怎么样接收这个Button的点击事件? 你第一时间可能会想到Delegate,Block？的确它们都可以实现我们的需求，Delegate我们要多写点代码，Block 如果我们的事件逻辑复杂点就会再赋值时写很多代码，当然你可以用一个简单的Block把处理的业务代封装成方法，再这个调用这方法，也可以把代码弄的简洁点，最重要我一定要考虑<strong>循环引用</strong>的问题。那我们能不能用UIResponder 传递这个事件呢，在我们想要的地方捕获这个事件呢? 我们先来看看iOS 事件是怎么传递的我们看个图：</p>
+<p><img src="http://ww4.sinaimg.cn/large/65e4f1e6gw1f7qq6j34v9j20eu04g0st.jpg" alt=""></p>
+<p>如上图，iOS中事件传递首先从App(UIApplication)开始，接着传递到Window(UIWindow)，在接着往下传递到View之前，Window会将事件交给GestureRecognizer，如果在此期间，GestureRecognizer识别了传递过来的事件，则该事件将不会继续传递到View去，而是像我们之前说的那样交给Target(ViewController)进行处理。（注：详细原理可以自己进行搜索学习）我们大致知道事件产生最先识别是的 AppDelegate，然后一层层往下找看事件发生那个view上，直到找个这个view,然后看个view 能不能响应这个事件。那我们现在再说说响应者链先看个张图：</p>
+<p><img src="http://ww1.sinaimg.cn/large/65e4f1e6gw1f7qq6ipf1hj20jy09t75c.jpg" alt=""></p>
+<p>我知道了当事触摸事件发生，通过一层层找到的这个View ,找到这个View 后先判断这个view能不能响应这个事件，如果不能那就继续找nextResponder我们看上面图可以看出如果一个View有SuperView 那么这个View的nextResponder 就是他的SuperView，如果没有SuperView 那么它的nextResponder 就是他所在ViewController 然后就这样一直找下去，直到找到或抛出异常。<br>我们了解这机制后那我们怎么把这个UIButton Click 事件传递出来呢，我们先来给UIResponder 添加一个我们自定义的事件，我就让它传递我们这个事件出去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIResponder+Router.h&quot;</div><div class="line"></div><div class="line">@implementation UIResponder (Router)</div><div class="line"> // eventName 只是作个标记，当我们需要在一个页面传递个事件时我们可以进区分，userInfo 为了省劲就没有封装，你可以针对性再封装下</div><div class="line">- (void)routerEventWithName:(NSString *)eventName userInfo:(NSDictionary *)userInfo &#123;</div><div class="line">      [[self nextResponder] routerEventWithName:eventName userInfo:userInfo];</div><div class="line"> &#125;</div><div class="line"> @end</div></pre></td></tr></table></figure>
+<p>那我们怎么进行传递呢，那就是我们手动的去让响应者链传递这个事件<br>我们先看下工程的代码文件：<br><strong>View</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#import &quot;TestView.h&quot;</div><div class="line">#import &quot;TestViewTableDataSource.h&quot;</div><div class="line"></div><div class="line">@implementation TestView &#123;</div><div class="line">    UITableView *_tableView;</div><div class="line">&#125;</div><div class="line"></div><div class="line"> - (instancetype)initWithController:(SBBaseViewController *)controller &#123;</div><div class="line">   self = [super initWithController:controller];</div><div class="line">   if (self) &#123;</div><div class="line">    [self setup];</div><div class="line">    &#125;</div><div class="line">     return self;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> - (void)setup &#123;</div><div class="line"></div><div class="line">    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];</div><div class="line">    _tableView.delegate = self;</div><div class="line">    _tableView.rowHeight = 60;</div><div class="line">    _tableView.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">    [_tableView registerClass:[TestViewTableCell class] forCellReuseIdentifier:@&quot;cell&quot;];</div><div class="line">    [self addSubview:_tableView];</div><div class="line">    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@&quot;H:|-0-[_tableView]-0-|&quot; options:0 metrics:nil views:NSDictionaryOfVariableBindings(_tableView)]];</div><div class="line">    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@&quot;V:|-0-[_tableView]-0-|&quot; options:0 metrics:nil views:NSDictionaryOfVariableBindings(_tableView)]];</div></pre></td></tr></table></figure>
+<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (void)setHandler:(SBBaseHandler *)handler &#123;</div><div class="line">    [super setHandler:handler];</div><div class="line">    // 把tableViewDataSource 分离出去</div><div class="line">    TestViewTableDataSource *tableViewDataSoure = [[TestViewTableDataSource alloc] initWithTableView:_tableView];</div><div class="line"></div><div class="line">    _tableView.dataSource = tableViewDataSoure;</div><div class="line">    self.handler.tableDataSource = tableViewDataSoure;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)didLoad &#123;</div><div class="line">    [self.handler loadData];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Controller</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#import &quot;TestViewController.h&quot;</div><div class="line">#import &quot;TestView.h&quot;</div><div class="line">#import &quot;TestViewHandler.h&quot;</div><div class="line"></div><div class="line">@interface TestViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation TestViewController</div><div class="line"></div><div class="line">- (void)loadView &#123;</div><div class="line">    [super loadView];</div><div class="line">    TestView *view = [[TestView alloc]initWithController:self];</div><div class="line">    TestViewHandler *handler = [[TestViewHandler alloc] init];</div><div class="line">    view.handler = handler;</div><div class="line">    self.view = view;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view.</div><div class="line">    self.title = @&quot;UIResponderEx&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)didReceiveMemoryWarning &#123;</div><div class="line">    [super didReceiveMemoryWarning];</div><div class="line">    // Dispose of any resources that can be recreated.</div><div class="line"> &#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p><strong>Handler</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#import &quot;TestViewHandler.h&quot;</div><div class="line"></div><div class="line">@implementation TestViewHandler</div><div class="line"></div><div class="line">- (void)loadData &#123;</div><div class="line">    NSMutableArray *datasource = [NSMutableArray arrayWithCapacity:10];</div><div class="line">    for (int i = 0; i&lt; 10; ++i) &#123;</div><div class="line">        [datasource addObject:[NSString stringWithFormat:@&quot;Row number is %d&quot;,i]];</div><div class="line">    &#125;</div><div class="line">    self.tableDataSource.dataSouce = [datasource copy];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p><strong>TableDataSource</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#import &quot;SBBaseTableDataSource.h&quot;</div><div class="line"></div><div class="line">@interface TestViewTableDataSource : SBBaseTableDataSource</div><div class="line"></div><div class="line">@end</div><div class="line">// 这里为了省劲就没有用单独文件去写，最好还是建两个新文件去比较好</div><div class="line">@interface TestViewTableCell : UITableViewCell</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">#import &quot;TestViewTableDataSource.h&quot;</div><div class="line">#import &quot;UIResponder+Router.h&quot;</div><div class="line"></div><div class="line">@implementation TestViewTableDataSource</div><div class="line"></div><div class="line">- (id)initWithTableView:(UITableView *)tableView &#123;</div><div class="line">    self = [super initWithTableView:tableView];</div><div class="line">    if (self) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">  - (void)setDataSouce:(NSArray *)dataSouce &#123;</div><div class="line">    [super setDataSouce:dataSouce];</div><div class="line">    [self.tableView reloadData];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView &#123;</div><div class="line"></div><div class="line">    return 1;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section &#123;</div><div class="line"></div><div class="line">    return self.dataSouce.count;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123;</div><div class="line">    TestViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@&quot;cell&quot;];</div><div class="line">    cell.textLabel.text = self.dataSouce[indexPath.row];</div><div class="line"></div><div class="line">    return cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation TestViewTableCell</div><div class="line"></div><div class="line">- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier &#123;</div><div class="line">    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];</div><div class="line">    if (self) &#123;</div><div class="line">       [self setup];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setup &#123;</div><div class="line">    UIButton *showNumberButton = [UIButton buttonWithType:UIButtonTypeCustom];</div><div class="line">    [showNumberButton setTitle:@&quot;Show row number&quot; forState:UIControlStateNormal];</div><div class="line">    showNumberButton.backgroundColor = [UIColor purpleColor];</div><div class="line">    showNumberButton.layer.cornerRadius = 4;</div><div class="line">    showNumberButton.layer.masksToBounds = YES;</div><div class="line">    showNumberButton.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">   [showNumberButton addTarget:self action:@selector(showNumberButtonClick:) forControlEvents:UIControlEventTouchUpInside];</div><div class="line">    [self.contentView addSubview:showNumberButton];</div><div class="line"></div><div class="line">    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@&quot;H:[showNumberButton(180)]-20-|&quot; options:0 metrics:nil views:NSDictionaryOfVariableBindings(showNumberButton)]];</div><div class="line">    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:showNumberButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];</div><div class="line">&#125;</div><div class="line">   //关键代码就在这里, 我们在button click 事件中我再让传递一个事件给响应者链，让响应者链传出去</div><div class="line">- (void)showNumberButtonClick:(id)sender &#123;</div><div class="line">    // 我们在这个Click事件中去手动让响应者传递一个事件</div><div class="line">    [self.nextResponder routerEventWithName:@&quot;showNumber&quot; userInfo:@&#123;@&quot;object&quot;:self.textLabel.text&#125;];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>主要的代码差不多就是这些了，至于他们的基类都是自己封装好一部分，还不怎么完善都是一些自己的想法。就不贴代码稍后把这个Demo放出来。有兴趣的可以下下来看看，如果有我好的想法请联系我：<a href="mailto:lsb332@163.com" target="_blank" rel="external">lsb332@163.com</a><br>我们先来看看在View 中捕获下事件，在.m 文件我们导入UIResponder+Router.h头文件 然后实现我们自定义的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIResponder+Router.h&quot;</div><div class="line">#pragma UIResponder(Router)</div><div class="line">- (void)routerEventWithName:(NSString *)eventName userInfo:(NSDictionary *)userInfo &#123;</div><div class="line">   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@&quot;View中捕获&quot; message:userInfo[@&quot;object&quot;] delegate:nil cancelButtonTitle:@&quot;OK&quot; otherButtonTitles: nil];</div><div class="line">   [alertView show];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong> 手动传递事件的代码TableDataSource 已经贴出来过了这里就不贴了</strong><br>我们看下结果：</p>
+<p><img src="http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq7f1kxyj20af0ih3zq.jpg" alt=""></p>
+<p>我们再来看看在UIViewController 捕获，代码就不贴了看下结果好了:</p>
+<p><img src="http://ww1.sinaimg.cn/large/65e4f1e6gw1f7qq7rh5foj20af0ij75k.jpg" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>最重要的思想就是在响应事件方法我们再主动的传递给响应者链一个事件，然后我们合适的地方去响应这个事件</strong><br>这个也是抛砖引玉的，自己理解的还很肤浅的，现在写出来也算是自己学习的一个笔记吧，这个处理方法也是自己在集成环信中发现的，自己去摸索学习下。<br>Demo地址 <a href="https://github.com/lsb332/UIResponderEX" target="_blank" rel="external">https://github.com/lsb332/UIResponderEX</a><br>在这里再说一下自己项目结构，为了减轻UIViewController 重量实行真正的MVC 把View分出来了，从而使ViewController 只负责view 的显示 ，称除等。因为我们项目经常会用到TableView 为了不使View太重再次把这个分离去，使TableView的dataSource 在TableViewSource文件中去实现，然后又给View 建了一个Handler  用来处理业务逻辑，网络请求等，然后又把handler 继承一个网络求的类，这样可就可以处理的网络的请求了，如果handler 处理完数据后可以通过Block 回调给View 或者直接把数据传递给TableViewSource 就可以直接刷新数据，不用再回调给View。这里只是简单的说一下，有兴趣的可以工程里看看，还处在起步结段，如果觉得成熟了再写一篇文章说说吧。</p>
+<p>文／lsb332（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/8fef9171c322" target="_blank" rel="external">http://www.jianshu.com/p/8fef9171c322</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/转载/" rel="tag">#  - 转载</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/10/git-fen-zhi-bian-ji/" rel="next" title="Git 分支 - 变基">
+                <i class="fa fa-chevron-left"></i> Git 分支 - 变基
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/" rel="prev" title="iOS开发 之 运动GPS采样处理">
+                iOS开发 之 运动GPS采样处理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/"
+           data-title="响应者链条传递事件" data-url="http://yoursite.com/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg"
+               alt="晓东儿" />
+          <p class="site-author-name" itemprop="name">晓东儿</p>
+          <p class="site-description motion-element" itemprop="description">你知道我不完美</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晓东儿</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ghostknow"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

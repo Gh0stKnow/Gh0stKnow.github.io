@@ -4,14 +4,29 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/27/First/</loc>
-    <lastmod>2016-12-27T04:34:10.000Z</lastmod>
+    <loc>http://yoursite.com/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/</loc>
+    <lastmod>2016-09-28T06:28:02.000Z</lastmod>
     <data>
         <display>
-        <title>GPS采点数据处理</title>
-        <pubTime>2016-12-27T03:47:05.000Z</pubTime>
+        <title>iOS开发 之 运动GPS采样处理</title>
+        <pubTime>2016-09-23T05:29:52.000Z</pubTime>
         
-        <tag>GPS</tag>
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/09/12/xiang-ying-zhe-lian-tiao-chuan-di-shi-jian/</loc>
+    <lastmod>2016-09-12T05:16:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>响应者链条传递事件</title>
+        <pubTime>2016-09-12T05:15:11.000Z</pubTime>
+        
+        <tag> - 转载</tag>
          
          
            
@@ -21,13 +36,401 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/27/hello-world/</loc>
-    <lastmod>2016-12-27T03:42:52.000Z</lastmod>
+    <loc>http://yoursite.com/2016/09/10/git-fen-zhi-bian-ji/</loc>
+    <lastmod>2016-09-10T06:27:06.000Z</lastmod>
     <data>
         <display>
-        <title>Hello World</title>
-        <pubTime>2016-12-27T03:42:52.000Z</pubTime>
+        <title>Git 分支 - 变基</title>
+        <pubTime>2016-09-10T06:08:57.000Z</pubTime>
         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/09/09/bi-te-bi-ji-qu-kuai-lian/</loc>
+    <lastmod>2016-09-10T03:46:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>比特币及区块链</title>
+        <pubTime>2016-09-09T03:13:43.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/09/10/willmovetosuperviewdao-zhi-guan-cha-zhe-wu-fa-shi-fang-bug/</loc>
+    <lastmod>2016-09-10T02:39:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>willMoveToSuperView导致观察者无法释放bug</title>
+        <pubTime>2016-09-10T02:33:17.000Z</pubTime>
+        
+        <tag> - bug归档</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/13/xibjia-zai-de-ji-chong-fang-fa/</loc>
+    <lastmod>2016-08-25T04:50:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>Xib加载的几种方法</title>
+        <pubTime>2016-08-13T07:00:33.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/08/iosjia-mi-de-ji-ben-jie-shao/</loc>
+    <lastmod>2016-08-14T09:59:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS加密的基本介绍</title>
+        <pubTime>2016-08-08T05:52:13.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/07/07/osshi-pin-zhi-bo-fang/</loc>
+    <lastmod>2016-08-10T16:05:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>基于 ijkplayer 的iOS视频直播推流仿写</title>
+        <pubTime>2016-07-07T03:39:36.000Z</pubTime>
+        
+        <tag> - 转载</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/</loc>
+    <lastmod>2016-08-07T05:25:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>升级Ruby配置CocoaPods安装</title>
+        <pubTime>2016-08-07T05:05:29.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/</loc>
+    <lastmod>2016-08-07T04:30:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>PC端获取IPA包的方法</title>
+        <pubTime>2016-08-07T04:29:16.000Z</pubTime>
+        
+        <tag> - iOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/07/13/swiftzhong-de-ke-xuan-lei-xing-he-qiang-zhi-jie-xi/</loc>
+    <lastmod>2016-07-20T19:05:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>Swift (?)可选类型和 (!)强制解包</title>
+        <pubTime>2016-07-13T07:00:33.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/11/xcode-nib-but-the-view-outlet-was-not-set-cuo-wu/</loc>
+    <lastmod>2016-07-13T07:01:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>xcode nib but the view outlet was not set 错误</title>
+        <pubTime>2016-06-11T14:48:50.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/28/react-nativexue-xi-bi-ji/</loc>
+    <lastmod>2016-07-13T07:01:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>React-Native学习笔记</title>
+        <pubTime>2016-06-27T16:47:14.000Z</pubTime>
+        
+        <tag> - 前端 - React-Native - 转载</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/23/ni-xiang-gong-cheng-reveal-ida-hopper-httpszhua-bao/</loc>
+    <lastmod>2016-07-13T07:00:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>逆向工程 - Reveal、IDA、Hopper、https抓包</title>
+        <pubTime>2016-06-23T03:21:14.000Z</pubTime>
+        
+        <tag> - iOS - 转载</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/07/12/ios-kai-fa-lu-xian/</loc>
+    <lastmod>2016-07-13T06:56:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 开发路线</title>
+        <pubTime>2016-07-12T11:59:43.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/07/03/lai-zi-linkedin-de-swift-bian-cheng-feng-ge-zhi-nan/</loc>
+    <lastmod>2016-07-03T09:36:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>来自 Linkedin 的 Swift 编程风格指南</title>
+        <pubTime>2016-07-03T01:37:29.000Z</pubTime>
+        
+        <tag> - 转载</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/28/swiftzhong-de-wen-hao-he-gan-tan-hao/</loc>
+    <lastmod>2016-06-28T08:53:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>Swift中的问号?和感叹号!</title>
+        <pubTime>2016-06-28T08:50:22.000Z</pubTime>
+        
+        <tag> - 转载 - swift</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/12/jspatch-dong-tai-geng-xin-ios-app/</loc>
+    <lastmod>2016-06-28T05:11:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>JSPatch – 动态更新iOS APP</title>
+        <pubTime>2016-06-12T04:11:58.000Z</pubTime>
+        
+        <tag> - iOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/26/bilibilikai-yuan-kuang-jia-ijkplayer/</loc>
+    <lastmod>2016-06-28T05:11:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>Bilibili开源框架ijkplayer</title>
+        <pubTime>2016-06-26T01:47:59.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/26/bitcode-li-jie/</loc>
+    <lastmod>2016-06-28T05:10:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>Bitcode 理解</title>
+        <pubTime>2016-06-26T07:14:20.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/28/swift-zhong-de-yi-chang-pao-chu-he-cuo-wu-chu-li/</loc>
+    <lastmod>2016-06-28T04:20:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>Swift 中的异常抛出和错误处理</title>
+        <pubTime>2016-06-28T04:19:24.000Z</pubTime>
+        
+        <tag> - swift</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/05/26/ce-shi/</loc>
+    <lastmod>2016-06-27T16:45:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>基于Google I/O 大会，寻求人工智能的意义</title>
+        <pubTime>2016-05-26T01:13:40.000Z</pubTime>
+        
+        <tag> - 互联网</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/07/ioskong-zhi-qi-tiao-zhuan-zong-jie/</loc>
+    <lastmod>2016-06-27T16:44:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS控制器总结</title>
+        <pubTime>2016-06-07T03:32:50.000Z</pubTime>
+        
+        <tag> - iOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/26/mac-os-x-jin-cheng-usereventagent-zhan-yong-cpu-100-de-jie-jue-ban-fa/</loc>
+    <lastmod>2016-06-26T14:54:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac OS X 进程UserEventAgent 占用CPU 100%的解决办法</title>
+        <pubTime>2016-06-26T14:53:59.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/08/ios-liping-xuanran/</loc>
+    <lastmod>2016-06-23T14:42:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS 离屏渲染的研究</title>
+        <pubTime>2016-06-08T06:35:45.000Z</pubTime>
+        
+        <tag> - iOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/11/uiwindow-he-uiwindowlevelxiang-jie/</loc>
+    <lastmod>2016-06-23T14:41:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>UIWindow 和 UIWindowLevel详解</title>
+        <pubTime>2016-06-11T02:13:09.000Z</pubTime>
+        
+        <tag> - iOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/06/15/wwdc2016-sui-xiang/</loc>
+    <lastmod>2016-06-23T14:40:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>WWDC2016 随想</title>
+        <pubTime>2016-06-15T14:09:31.000Z</pubTime>
+        
+        <tag> - Apple.Inc</tag>
+         
          
            
         </display>
