@@ -53,6 +53,7 @@
     <content type="html"><![CDATA[<p>开篇先说点废话吧，最近整个人都很烦躁，也许跟天气有关吧，也很久没有静下来写一些东西了，最近也一直忙着新项目，也很纠接新项目应该采用什么样的结构去写才好迭代、维护。最终按自己的一写想法采用了Controller View ViewHander的模式（有点类似MVVM），因为这个Demo按照这个想法来写的所以这里简单说下，就不过多的讨论这个了，回到主题上UIResponder来，没有说之前我们先看一个图我们开发中经常遇到的：</p>
 <p><img src="http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq6xkecej20af0ik75x.jpg" alt=""></p>
 <p>很简单就是在UITableViewCell 放了一个UIButton 那我们怎么样接收这个Button的点击事件? 你第一时间可能会想到Delegate,Block？的确它们都可以实现我们的需求，Delegate我们要多写点代码，Block 如果我们的事件逻辑复杂点就会再赋值时写很多代码，当然你可以用一个简单的Block把处理的业务代封装成方法，再这个调用这方法，也可以把代码弄的简洁点，最重要我一定要考虑<strong>循环引用</strong>的问题。那我们能不能用UIResponder 传递这个事件呢，在我们想要的地方捕获这个事件呢? 我们先来看看iOS 事件是怎么传递的我们看个图：</p>
+<a id="more"></a>
 <p><img src="http://ww4.sinaimg.cn/large/65e4f1e6gw1f7qq6j34v9j20eu04g0st.jpg" alt=""></p>
 <p>如上图，iOS中事件传递首先从App(UIApplication)开始，接着传递到Window(UIWindow)，在接着往下传递到View之前，Window会将事件交给GestureRecognizer，如果在此期间，GestureRecognizer识别了传递过来的事件，则该事件将不会继续传递到View去，而是像我们之前说的那样交给Target(ViewController)进行处理。（注：详细原理可以自己进行搜索学习）我们大致知道事件产生最先识别是的 AppDelegate，然后一层层往下找看事件发生那个view上，直到找个这个view,然后看个view 能不能响应这个事件。那我们现在再说说响应者链先看个张图：</p>
 <p><img src="http://ww1.sinaimg.cn/large/65e4f1e6gw1f7qq6ipf1hj20jy09t75c.jpg" alt=""></p>
@@ -82,7 +83,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;开篇先说点废话吧，最近整个人都很烦躁，也许跟天气有关吧，也很久没有静下来写一些东西了，最近也一直忙着新项目，也很纠接新项目应该采用什么样的结构去写才好迭代、维护。最终按自己的一写想法采用了Controller View ViewHander的模式（有点类似MVVM），因为这
+      &lt;p&gt;开篇先说点废话吧，最近整个人都很烦躁，也许跟天气有关吧，也很久没有静下来写一些东西了，最近也一直忙着新项目，也很纠接新项目应该采用什么样的结构去写才好迭代、维护。最终按自己的一写想法采用了Controller View ViewHander的模式（有点类似MVVM），因为这个Demo按照这个想法来写的所以这里简单说下，就不过多的讨论这个了，回到主题上UIResponder来，没有说之前我们先看一个图我们开发中经常遇到的：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/65e4f1e6gw1f7qq6xkecej20af0ik75x.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;很简单就是在UITableViewCell 放了一个UIButton 那我们怎么样接收这个Button的点击事件? 你第一时间可能会想到Delegate,Block？的确它们都可以实现我们的需求，Delegate我们要多写点代码，Block 如果我们的事件逻辑复杂点就会再赋值时写很多代码，当然你可以用一个简单的Block把处理的业务代封装成方法，再这个调用这方法，也可以把代码弄的简洁点，最重要我一定要考虑&lt;strong&gt;循环引用&lt;/strong&gt;的问题。那我们能不能用UIResponder 传递这个事件呢，在我们想要的地方捕获这个事件呢? 我们先来看看iOS 事件是怎么传递的我们看个图：&lt;/p&gt;
     
     </summary>
     
@@ -301,6 +304,7 @@
 <p>下面来看看它的具体转换过程：</p>
 <p>加密的具体过程图</p>
 <p>苹果在iOS7之后自带Base64加密，具体方法如下：</p>
+<a id="more"></a>
 <h4 id="2-MD5加密"><a href="#2-MD5加密" class="headerlink" title="2.MD5加密"></a>2.MD5加密</h4><blockquote>
 <p>MD5即Message-Digest Algorithm 5（信息-摘要算法5），用于确保信息传输完整一致。是计算机广泛使用的杂凑算法之一（又译摘要算法、哈希算法），主流编程语言普遍已有MD5实现。作用是让大容量信息在用数字签名软件签署私人密钥前被”压缩”成一种保密的格式（就是把一个任意长度的字节串变换成一定长的十六进制数字串）。</p>
 <p>MD5加密对输入信息生成唯一的128位散列值（32个字符），声称是不可逆的，但是目前可以通过以下网站解密<a href="http://www.cmd5.com" target="_blank" rel="external">MD5解密网站</a> ，主要运用在数字签名、文件完整性验证以及口令加密等方面。</p>
@@ -346,7 +350,25 @@
     
       &lt;p&gt;安全隐患：在iOS开发过程中，尽管在发送数据的过程中，密码进行了“二进制”的转换，但实际上密码还是明文，可以通过一些拦截软件被拦截（青花瓷等等），不能保证我们数据的安全性。&lt;/p&gt;
 &lt;p&gt;加密选择：一般公司都会有一套自己的加密方案，按照公司接口文档的规定去加密&lt;/p&gt;
-&lt;p
+&lt;p&gt;平常用到的解决办法：&lt;/p&gt;
+&lt;h4 id=&quot;1-Base64加密&quot;&gt;&lt;a href=&quot;#1-Base64加密&quot; class=&quot;headerlink&quot; title=&quot;1.Base64加密&quot;&gt;&lt;/a&gt;1.Base64加密&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Base64加密因其算法和充当密钥的索引表都是公开的，所以不属于加密算法，它的本质是将“二进制”数据转换成字符串，方便使用HTTP协议、用于公开的代码加密、URL加密，防止数据明文传输。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;例如：有的网络请求上，会希望只传递字符串&lt;/p&gt;
+&lt;p&gt;1.URL中的参数，直接带上图片的传输&lt;/p&gt;
+&lt;p&gt;2.银联的网络接口，把整个消费凭据生成一个数据格式，然后进行Base64的编码，编码完成后传给服务器&lt;/p&gt;
+&lt;p&gt;特点：编码完成后的结果，只有64个字符。&lt;/p&gt;
+&lt;p&gt;转换方法：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.将每三个字节分成一组，一共24个二进制位：3*8=24&lt;/p&gt;
+&lt;p&gt;2.将这24个二进制位分成4组，每组有6个二进制位：24/4=6&lt;/p&gt;
+&lt;p&gt;3.在每组前加两00，扩展成32个二进制位，即4个字节：4*(6+2)=32&lt;/p&gt;
+&lt;p&gt;4.根据Base64索引表就可得到对应的符号值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Base64索引表&lt;/p&gt;
+&lt;p&gt;下面来看看它的具体转换过程：&lt;/p&gt;
+&lt;p&gt;加密的具体过程图&lt;/p&gt;
+&lt;p&gt;苹果在iOS7之后自带Base64加密，具体方法如下：&lt;/p&gt;
     
     </summary>
     
@@ -379,7 +401,7 @@
 <p>rvm -v </p>
 </blockquote>
 <p><img src="http://upload-images.jianshu.io/upload_images/1727086-68742171c589c6ad.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="13:03:18.jpg"></p>
-<h2 id="2、用RVM升级Ruby"><a href="#2、用RVM升级Ruby" class="headerlink" title="2、用RVM升级Ruby"></a>2、用RVM升级Ruby</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">查看当前ruby版本  </div><div class="line">ruby -v  </div><div class="line">列出已知的ruby版本  </div><div class="line">rvm list known  </div><div class="line"></div><div class="line">安装ruby 2.2.2  </div><div class="line">rvm install 2.2.2</div></pre></td></tr></table></figure>
+<h2 id="2、用RVM升级Ruby"><a href="#2、用RVM升级Ruby" class="headerlink" title="2、用RVM升级Ruby"></a>2、用RVM升级Ruby</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">查看当前ruby版本  </div><div class="line">ruby -v  </div><div class="line">列出已知的ruby版本  </div><div class="line">rvm list known  </div><div class="line"></div><div class="line">&lt;!------MORE-------&gt;</div><div class="line"></div><div class="line"></div><div class="line">安装ruby 2.2.2  </div><div class="line">rvm install 2.2.2</div></pre></td></tr></table></figure>
 <p>安装完成之后ruby -v查看是否安装成功。<br>终端输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">kidteaing-macmini:~ GeXiaodong$ ruby -v</div><div class="line">ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]</div></pre></td></tr></table></figure></p>
 <p>到此已经完成ruby的升级</p>
 ]]></content>
@@ -543,6 +565,7 @@
 <p>服务器处理: 需要在服务器做一些流处理工作, 让推送上来的流适配各个平台各种不同的协议, 比如:RTMP,HLS,FLV…</p>
 <p>解码和渲染: 也就即音视频的播放. 解码毫无疑问也必须要硬解码. iOS端兼容较好, Android依然大坑.这块的难点在于音画同步, 目前很多直播平台这块是硬伤.国内比较好的开源项目应该是B站开源的ijkplayer . 斗鱼就是基于ijkplayer 的, 本项目也是基于ijkplayer 的.</p>
 <p>技术坑 : 降噪, 音频解码器, 蓝牙适配, 回声消除, 信令控制, 登录, 鉴权, 权限管理, 状态管理, 应用消息, 消息推送, 礼物系统, 即时聊天, 支付系统, 统计系统, 数据库, 缓存, 分布式文件存储, 消息队列, 运维系统等等大小不一的坑等你来填!!!</p>
+<a id="more"></a>
 <p>资金坑 : 以带宽为例, 2万人同时在线, 手机码率在600KB, 每个月的带宽费用至少在30万左右. 根据欢聚时代(YY)15年四季度财务报, 他们的带宽成本为人民币1.611亿元, 折合每月5000万+. 人力成本+渠道支出和其他支出就不详谈了.</p>
 <p>社会坑: 还得每时每刻与各种黑暗势力斗争, 包括色情, 广告, 刷小号, 刷充值, 告侵权, DDos…</p>
 <p>前期准备<br>项目主要是基于ijkplayer 的. 最好是打包成framework. 原本我准备写一个打包教程, 不过后来在简书上发现了一篇特别详细的打包blog, 分享给大家: <a href="http://" target="_blank" rel="external">http://www.jianshu.com/p/1f06b27b3ac0</a></p>
@@ -574,7 +597,13 @@
     <summary type="html">
     
       &lt;p&gt;视频直播，可以分为 采集，前处理，编码，传输, 服务器处理，解码，渲染&lt;/p&gt;
-&lt;p&gt;采集: iOS系统因为软硬件种类不多, 硬件适配性比较好, 所以比较简单. 而Android端市面上机型众多, 要做些机型的适配工作.PC端是最麻烦的, 各种奇葩摄像头驱动.所以现在很多的
+&lt;p&gt;采集: iOS系统因为软硬件种类不多, 硬件适配性比较好, 所以比较简单. 而Android端市面上机型众多, 要做些机型的适配工作.PC端是最麻烦的, 各种奇葩摄像头驱动.所以现在很多的中小型直播平台, 都放弃了PC的直播, 更有一些直播平台只做iOS端的视频直播.&lt;/p&gt;
+&lt;p&gt;前处理: 美颜算法,视频的模糊效果, 水印等都是在这个环节做. 目前iOS端最著名开源框架的毫无疑问就是GPUImage.其中内置了125种渲染效果, 还支持各种脚本自定义. 我高仿的喵播的美颜效果也是基于GPUImage的.&lt;/p&gt;
+&lt;p&gt;编码: 重难点在于要在分辨率，帧率，码率，GOP等参数设计上找到最佳平衡点。iOS8之后, Apple开放了VideoToolbox.framework, 可以直接进行硬编解码, 这也是为什么现在大多数直播平台最低只支持到iOS8的原因之一. iOS端硬件兼容性比较好, 可以直接采取硬编码. 而Android得硬编码又是一大坑.&lt;/p&gt;
+&lt;p&gt;传输: 这块一般都是交给CDN服务商. CDN只提供带宽和服务器之间的传输, 发送端和接收端的网络连接抖动缓存还是要自己实现的.目前国内最大的CDN服务商应该是网宿.&lt;/p&gt;
+&lt;p&gt;服务器处理: 需要在服务器做一些流处理工作, 让推送上来的流适配各个平台各种不同的协议, 比如:RTMP,HLS,FLV…&lt;/p&gt;
+&lt;p&gt;解码和渲染: 也就即音视频的播放. 解码毫无疑问也必须要硬解码. iOS端兼容较好, Android依然大坑.这块的难点在于音画同步, 目前很多直播平台这块是硬伤.国内比较好的开源项目应该是B站开源的ijkplayer . 斗鱼就是基于ijkplayer 的, 本项目也是基于ijkplayer 的.&lt;/p&gt;
+&lt;p&gt;技术坑 : 降噪, 音频解码器, 蓝牙适配, 回声消除, 信令控制, 登录, 鉴权, 权限管理, 状态管理, 应用消息, 消息推送, 礼物系统, 即时聊天, 支付系统, 统计系统, 数据库, 缓存, 分布式文件存储, 消息队列, 运维系统等等大小不一的坑等你来填!!!&lt;/p&gt;
     
     </summary>
     
@@ -1222,6 +1251,7 @@
 <p>比如 你要 用微信里的默认表情包，解压微信的ipa包就可以获取到。</p>
 <p>3、iOS的系统目录和MAC上的都类似（类unix系统）。iOS系统的目录图：</p>
 <p> <img src="http://images2015.cnblogs.com/blog/859442/201606/859442-20160603113527508-253137717.png" alt="img"></p>
+ <a id="more"></a>
 <p>##<strong>三、沙盒 中的数据</strong></p>
 <p>iPhone上 计算器的沙盒：</p>
 <p><img src="http://images2015.cnblogs.com/blog/859442/201606/859442-20160602201509805-146936001.png" alt="img"></p>
@@ -1325,7 +1355,16 @@
       &lt;p&gt;&lt;em&gt;iOS应用的安全性 常常被大家忽视&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;##&lt;strong&gt;一、iOS 如何做才安全:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;详见《iOS如何做才安全》&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;##&lt;strong&gt;二、ipa文件&lt;/strong
+&lt;p&gt;##&lt;strong&gt;二、ipa文件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1、AppStore里的ipa包 可以通过 iTunes 下载到电脑。iOS8.3以下系统的非越狱的手机上，可以用MAC上的PP助手等软件，直接把手机上的ipa文件(包含沙盒里的存储文件)拷贝到电脑。&lt;/p&gt;
+&lt;p&gt;如果是越狱手机，都可以用PP助手、itools直接把ipa导出到电脑，并且可以用PP助手、iExplorer、itools这些工具 查看 iOS的系统目录。&lt;/p&gt;
+&lt;p&gt;MAC上安装 iExplorer软件，用iExplorer 可以看到 手机（非越狱也可以） 在 iTunes上备份的内容。&lt;/p&gt;
+&lt;p&gt;如果你在帮测试美女的手机 调试问题的时候， 在 iTunes上设置 “连接次iPhone时自动同步”(或者点击 备份到本地电脑),默认该手机上的照片、短信等内容都会备份到你的电脑上，用 iExplorer 就可以看到 这位 美女的隐私。&lt;/p&gt;
+&lt;p&gt;曾经有次不小心看到同事的隐私信息，所以现在都比较注意这块，避免引发误会。&lt;/p&gt;
+&lt;p&gt;2、拿到ipa文件后，解压缩，得到.app文件，右键显示包内容，可以看到里面的app中的图片、js、plist、静态H5页 等资源。&lt;/p&gt;
+&lt;p&gt;比如 你要 用微信里的默认表情包，解压微信的ipa包就可以获取到。&lt;/p&gt;
+&lt;p&gt;3、iOS的系统目录和MAC上的都类似（类unix系统）。iOS系统的目录图：&lt;/p&gt;
+&lt;p&gt; &lt;img src=&quot;http://images2015.cnblogs.com/blog/859442/201606/859442-20160603113527508-253137717.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
     
     </summary>
     
