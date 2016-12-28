@@ -128,35 +128,7 @@
   </url>
   
   <url>
-    <loc>http://godknow.cn/about/README.html</loc>
-    
-    <lastmod>2016-07-05T21:08:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://godknow.cn/about/test/core_tests.js</loc>
-    
-    <lastmod>2016-07-05T21:08:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://godknow.cn/about/package.json</loc>
-    
-    <lastmod>2016-07-05T21:08:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://godknow.cn/about/circle.json</loc>
-    
-    <lastmod>2016-07-05T21:08:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://godknow.cn/about/karma.conf.js</loc>
+    <loc>http://godknow.cn/about/test/bootstrap.js</loc>
     
     <lastmod>2016-07-05T21:08:08.000Z</lastmod>
     
@@ -170,28 +142,7 @@
   </url>
   
   <url>
-    <loc>http://godknow.cn/about/test/bootstrap.js</loc>
-    
-    <lastmod>2016-07-05T21:08:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://godknow.cn/about/CHANGELOG.html</loc>
-    
-    <lastmod>2016-07-05T21:08:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://godknow.cn/about/DOCUMENTATION.html</loc>
-    
-    <lastmod>2016-07-05T21:08:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://godknow.cn/about/bower.json</loc>
+    <loc>http://godknow.cn/about/test/core_tests.js</loc>
     
     <lastmod>2016-07-05T21:08:08.000Z</lastmod>
     
