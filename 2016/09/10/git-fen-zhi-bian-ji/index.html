@@ -87,17 +87,13 @@
 
 
 <meta name="description" content="变基在 Git 中整合来自不同分支的修改主要有两种方法：merge 以及 rebase。 在本节中我们将学习什么是“变基”，怎样使用“变基”，并将展示该操作的惊艳之处，以及指出在何种情况下你应避免使用它。
-变基的基本操作请回顾之前在 分支的合并 中的一个例子，你会看到开发任务分叉到两个不同分支，又各自提交了更新。
-Figure 3-27. 分叉的提交历史
-之前介绍过，整合分支最容易的方法是 mer">
+变基的基本操作请回顾之前在 分支的合并 中的一个例子，你会看到开发任务分叉到两个不同分支，又各自提交了更新。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 分支 - 变基">
 <meta property="og:url" content="http://godknow.cn/2016/09/10/git-fen-zhi-bian-ji/index.html">
 <meta property="og:site_name" content="Xiaodong's Blog">
 <meta property="og:description" content="变基在 Git 中整合来自不同分支的修改主要有两种方法：merge 以及 rebase。 在本节中我们将学习什么是“变基”，怎样使用“变基”，并将展示该操作的惊艳之处，以及指出在何种情况下你应避免使用它。
-变基的基本操作请回顾之前在 分支的合并 中的一个例子，你会看到开发任务分叉到两个不同分支，又各自提交了更新。
-Figure 3-27. 分叉的提交历史
-之前介绍过，整合分支最容易的方法是 mer">
+变基的基本操作请回顾之前在 分支的合并 中的一个例子，你会看到开发任务分叉到两个不同分支，又各自提交了更新。">
 <meta property="og:image" content="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-1.png">
 <meta property="og:image" content="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-2.png">
 <meta property="og:image" content="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-3.png">
@@ -116,9 +112,7 @@ Figure 3-27. 分叉的提交历史
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 分支 - 变基">
 <meta name="twitter:description" content="变基在 Git 中整合来自不同分支的修改主要有两种方法：merge 以及 rebase。 在本节中我们将学习什么是“变基”，怎样使用“变基”，并将展示该操作的惊艳之处，以及指出在何种情况下你应避免使用它。
-变基的基本操作请回顾之前在 分支的合并 中的一个例子，你会看到开发任务分叉到两个不同分支，又各自提交了更新。
-Figure 3-27. 分叉的提交历史
-之前介绍过，整合分支最容易的方法是 mer">
+变基的基本操作请回顾之前在 分支的合并 中的一个例子，你会看到开发任务分叉到两个不同分支，又各自提交了更新。">
 <meta name="twitter:image" content="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-1.png">
 
 
@@ -363,6 +357,7 @@ Figure 3-27. 分叉的提交历史
       
         <h2 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h2><p>在 Git 中整合来自不同分支的修改主要有两种方法：<code>merge</code> 以及 <code>rebase</code>。 在本节中我们将学习什么是“变基”，怎样使用“变基”，并将展示该操作的惊艳之处，以及指出在何种情况下你应避免使用它。</p>
 <h3 id="变基的基本操作"><a href="#变基的基本操作" class="headerlink" title="变基的基本操作"></a><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA#变基的基本操作" target="_blank" rel="external">变基的基本操作</a></h3><p>请回顾之前在 <a href="https://git-scm.com/book/zh/v2/ch00/_basic_merging" target="_blank" rel="external">分支的合并</a> 中的一个例子，你会看到开发任务分叉到两个不同分支，又各自提交了更新。</p>
+<a id="more"></a>
 <p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-1.png" alt="分叉的提交历史">Figure 3-27. 分叉的提交历史</p>
 <p>之前介绍过，整合分支最容易的方法是 <code>merge</code> 命令。 它会把两个分支的最新快照（<code>C3</code> 和 <code>C4</code>）以及二者最近的共同祖先（<code>C2</code>）进行三方合并，合并的结果是生成一个新的快照（并提交）。</p>
 <p><img src="https://git-scm.com/book/en/v2/book/03-git-branching/images/basic-rebase-2.png" alt="通过合并操作来整合分叉了的历史">Figure 3-28. 通过合并操作来整合分叉了的历史</p>
