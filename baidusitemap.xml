@@ -3,17 +3,17 @@
 
 
     
-    
-    
   <url>
     <loc>http://godknow.cn/2016/12/29/OpenCVLearning/</loc>
-    <lastmod>2016-12-29T05:43:52.000Z</lastmod>
+    <lastmod>2016-12-29T06:40:39.000Z</lastmod>
     <data>
         <display>
         <title>OpenCV学习开发笔记(iOS9)</title>
         <pubTime>2016-12-29T01:52:38.000Z</pubTime>
         
-        <tag>学习笔记 人脸识别</tag>
+        <tag>学习笔记</tag>
+         
+        <tag>人脸识别</tag>
          
          
            
@@ -21,6 +21,8 @@
     </data>
     </url>
 
+    
+    
     
   <url>
     <loc>http://godknow.cn/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/</loc>
@@ -30,6 +32,8 @@
         <title>iOS开发 之 运动GPS采样处理</title>
         <pubTime>2016-09-23T05:29:52.000Z</pubTime>
         
+        <tag>GPS</tag>
+         
          
            
         </display>
@@ -188,6 +192,8 @@
         <title>Swift (?)可选类型和 (!)强制解包</title>
         <pubTime>2016-07-13T07:00:33.000Z</pubTime>
         
+        <tag>swift</tag>
+         
          
            
         </display>
@@ -218,7 +224,11 @@
         <title>React-Native学习笔记</title>
         <pubTime>2016-06-27T16:47:14.000Z</pubTime>
         
-        <tag> - 前端 - React-Native - 转载</tag>
+        <tag>前端</tag>
+         
+        <tag>React-Native</tag>
+         
+        <tag>转载</tag>
          
          
            
@@ -284,7 +294,9 @@
         <title>Swift中的问号?和感叹号!</title>
         <pubTime>2016-06-28T08:50:22.000Z</pubTime>
         
-        <tag> - 转载 - swift</tag>
+        <tag>转载</tag>
+         
+        <tag>swift</tag>
          
          
            
