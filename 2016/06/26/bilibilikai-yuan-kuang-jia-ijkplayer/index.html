@@ -368,16 +368,16 @@
 
       
         <p>ijkplayer 是一款做视频直播的框架, 基于ffmpeg, 支持 Android 和 iOS, 网上也有很多集成说明, 但是个人觉得还是不够详细, 在这里详细的讲一下在 iOS 中如何集成ijkplayer, 即便以前从没有接触过, 按着下面做也可以集成成功!</p>
-<h5 id="一-下载ijkplayer"><a href="#一-下载ijkplayer" class="headerlink" title="一. 下载ijkplayer"></a>一. 下载ijkplayer</h5><p>ijkplayer下载地址:<a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">https://github.com/Bilibili/ijkplayer</a></p>
+<h1 id="一-下载ijkplayer"><a href="#一-下载ijkplayer" class="headerlink" title="一. 下载ijkplayer"></a>一. 下载ijkplayer</h1><p>ijkplayer下载地址:<a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">https://github.com/Bilibili/ijkplayer</a></p>
 <p>ijkplayer下载地址:<a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">https://github.com/Bilibili/ijkplayer</a><br>下载完成后解压</p>
-<h5 id="二-编译-ijkplayer"><a href="#二-编译-ijkplayer" class="headerlink" title="二. 编译 ijkplayer"></a>二. 编译 ijkplayer</h5><p>说是编译 ijkplayer, 其实是编译 ffmpeg, 在这里我们已经下载好了<code>ijkplayer</code>, 所以 github 上<code>README.md</code>中的<code>Build iOS</code>那一步中有一些步骤是不需要的.</p>
+<h1 id="二-编译-ijkplayer"><a href="#二-编译-ijkplayer" class="headerlink" title="二. 编译 ijkplayer"></a>二. 编译 ijkplayer</h1><p>说是编译 ijkplayer, 其实是编译 ffmpeg, 在这里我们已经下载好了<code>ijkplayer</code>, 所以 github 上<code>README.md</code>中的<code>Build iOS</code>那一步中有一些步骤是不需要的.</p>
 <p>说是编译 ijkplayer, 其实是编译 ffmpeg, 在这里我们已经下载好了<code>ijkplayer</code>, 所以 github 上<code>README.md</code>中的<code>Build iOS</code>那一步中有一些步骤是不需要的.<br>下面开始一步一步编译:</p>
 <p>说是编译 ijkplayer, 其实是编译 ffmpeg, 在这里我们已经下载好了<code>ijkplayer</code>, 所以 github 上<code>README.md</code>中的<code>Build iOS</code>那一步中有一些步骤是不需要的.<br>下面开始一步一步编译:<br>1.打开终端, cd 到<code>jkplayer-master</code>文件夹中, 也就是下载完解压后的文件夹</p>
 <p>2.执行命令行<code>./init-ios.sh</code>, 这一步是去下载 ffmpeg 的, 时间会久一点, 耐心等一下.如下图:</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1803339-96d2217e323aab4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p>3.在第2步中下载完成后, 执行<code>cd ios</code>, 也就是进入到 ios目录中</p>
 <p>4.进入 ios 文件夹后, 在终端依次执行<code>./compile-ffmpeg.sh clean</code>和<code>./compile-ffmpeg.sh all</code>命令, 编译 ffmpeg, 也就是<code>README.md</code>中这两步<br><em>编译时间较久, 耐心等待一下.</em></p>
-<h6 id="三-打包IJKMediaFramework-framework框架"><a href="#三-打包IJKMediaFramework-framework框架" class="headerlink" title="三. 打包IJKMediaFramework.framework框架"></a>三. 打包<code>IJKMediaFramework.framework</code>框架</h6><p>集成 ijkplayer 有两种方法:</p>
+<h1 id="三-打包IJKMediaFramework-framework框架"><a href="#三-打包IJKMediaFramework-framework框架" class="headerlink" title="三. 打包IJKMediaFramework.framework框架"></a>三. 打包<code>IJKMediaFramework.framework</code>框架</h1><p>集成 ijkplayer 有两种方法:</p>
 <p>集成 ijkplayer 有两种方法:<br>一种方法是按照<code>IJKMediaDemo</code>工程中那样, 直接导入工程<code>IJKMediaPlayer.xcodeproj</code>, 在这里不做介绍</p>
 <p>第二种集成方法是把 ijkplayer 打包成<code>framework</code>导入工程中使用. 下面开始介绍如何打包<code>IJKMediaFramework.framework</code></p>
 <ol>
@@ -391,7 +391,7 @@
 <p>下面开始合并真机和模拟器版本的 framework, 注意不要合并错了<br>打开终端, 进行合并, 命令行具体格式为:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lipo -create &quot;真机版本路径&quot; &quot;模拟器版本路径&quot; -output &quot;合并后的文件路径&quot;</div></pre></td></tr></table></figure>
 <p>下面很重要, 需要用合并后的<code>IJKMediaFramework</code>把原来的<code>IJKMediaFramework</code>替换掉<br>上图中的1、2两步完成后, 绿色框住的那个<code>IJKMediaFramework.framework</code>文件就是我们需要的框架了, 可以复制出来, 稍后我们需要导入工程使用.</p>
-<h5 id="四-iOS工程中集成ijkplayer"><a href="#四-iOS工程中集成ijkplayer" class="headerlink" title="四. iOS工程中集成ijkplayer"></a>四. iOS工程中集成ijkplayer</h5><p>新建工程, 导入合并后的<code>IJKMediaFramework.framework</code>以及相关依赖框架以及相关依赖框架<br>导入框架后, 在<code>ViewController.m</code>进行测试, 首先导入<code>IJKMediaFramework.h</code>头文件, 编译看有没有错, 如果没有错说明集成成功.</p>
+<h1 id="四-iOS工程中集成ijkplayer"><a href="#四-iOS工程中集成ijkplayer" class="headerlink" title="四. iOS工程中集成ijkplayer"></a>四. iOS工程中集成ijkplayer</h1><p>新建工程, 导入合并后的<code>IJKMediaFramework.framework</code>以及相关依赖框架以及相关依赖框架<br>导入框架后, 在<code>ViewController.m</code>进行测试, 首先导入<code>IJKMediaFramework.h</code>头文件, 编译看有没有错, 如果没有错说明集成成功.</p>
 <p>导入框架后, 在<code>ViewController.m</code>进行测试, 首先导入<code>IJKMediaFramework.h</code>头文件, 编译看有没有错, 如果没有错说明集成成功.<br>接着开始在<code>ViewController.m</code>文件中使用<code>IJKMediaFramework</code>框架进行测试使用, 写一个简单的直播视频进行测试, 在这里看一下运行后的结果, 后面会放上 Demo 供下载.</p>
 
       
@@ -596,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一-下载ijkplayer"><span class="nav-number">1.</span> <span class="nav-text">一. 下载ijkplayer</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二-编译-ijkplayer"><span class="nav-number">2.</span> <span class="nav-text">二. 编译 ijkplayer</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#三-打包IJKMediaFramework-framework框架"><span class="nav-number">2.1.</span> <span class="nav-text">三. 打包IJKMediaFramework.framework框架</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四-iOS工程中集成ijkplayer"><span class="nav-number">3.</span> <span class="nav-text">四. iOS工程中集成ijkplayer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-下载ijkplayer"><span class="nav-number">1.</span> <span class="nav-text">一. 下载ijkplayer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-编译-ijkplayer"><span class="nav-number">2.</span> <span class="nav-text">二. 编译 ijkplayer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-打包IJKMediaFramework-framework框架"><span class="nav-number">3.</span> <span class="nav-text">三. 打包IJKMediaFramework.framework框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-iOS工程中集成ijkplayer"><span class="nav-number">4.</span> <span class="nav-text">四. iOS工程中集成ijkplayer</span></a></li></ol></div>
             
 
           </div>

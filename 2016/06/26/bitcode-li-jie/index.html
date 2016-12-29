@@ -88,16 +88,14 @@
 
 <meta name="description" content="今天试着用Xcode 7 beta 3在真机(iOS 8.3)上运行一下我们的工程，结果发现工程编译不过。看了下问题，得到的信息是我们引入的一个第三方库不包含bitcode。嗯，不知道bitcode是啥，所以就得先看看这货是啥了。
 
-#Bitcode是什么？
-找东西嘛，最先想到的当然是先看官方文档了。在App Distribution Guide – App Thinning (iOS, watc">
+Bitcode是什么？找东西嘛，最先想到的当然是先看官方文档了。在App Distribution Guide – App Thinning (iOS, watchO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bitcode 理解">
 <meta property="og:url" content="http://godknow.cn/2016/06/26/bitcode-li-jie/index.html">
 <meta property="og:site_name" content="Xiaodong's Blog">
 <meta property="og:description" content="今天试着用Xcode 7 beta 3在真机(iOS 8.3)上运行一下我们的工程，结果发现工程编译不过。看了下问题，得到的信息是我们引入的一个第三方库不包含bitcode。嗯，不知道bitcode是啥，所以就得先看看这货是啥了。
 
-#Bitcode是什么？
-找东西嘛，最先想到的当然是先看官方文档了。在App Distribution Guide – App Thinning (iOS, watc">
+Bitcode是什么？找东西嘛，最先想到的当然是先看官方文档了。在App Distribution Guide – App Thinning (iOS, watchO">
 <meta property="og:image" content="http://cc.cocimg.com/api/uploads/20150702/1435823658708967.png">
 <meta property="og:image" content="http://cc.cocimg.com/api/uploads/20150817/1439791780516322.png">
 <meta property="og:updated_time" content="2016-06-28T05:10:38.000Z">
@@ -105,8 +103,7 @@
 <meta name="twitter:title" content="Bitcode 理解">
 <meta name="twitter:description" content="今天试着用Xcode 7 beta 3在真机(iOS 8.3)上运行一下我们的工程，结果发现工程编译不过。看了下问题，得到的信息是我们引入的一个第三方库不包含bitcode。嗯，不知道bitcode是啥，所以就得先看看这货是啥了。
 
-#Bitcode是什么？
-找东西嘛，最先想到的当然是先看官方文档了。在App Distribution Guide – App Thinning (iOS, watc">
+Bitcode是什么？找东西嘛，最先想到的当然是先看官方文档了。在App Distribution Guide – App Thinning (iOS, watchO">
 <meta name="twitter:image" content="http://cc.cocimg.com/api/uploads/20150702/1435823658708967.png">
 
 
@@ -374,8 +371,7 @@
       
         <p>今天试着用Xcode 7 beta 3在真机(iOS 8.3)上运行一下我们的工程，结果发现工程编译不过。看了下问题，得到的信息是我们引入的一个第三方库不包含bitcode。嗯，不知道bitcode是啥，所以就得先看看这货是啥了。</p>
 <p><img src="http://cc.cocimg.com/api/uploads/20150702/1435823658708967.png" alt=""></p>
-<p>#Bitcode是什么？</p>
-<p>找东西嘛，最先想到的当然是先看官方文档了。在<a href="https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html#//apple_ref/doc/uid/TP40012582-CH35" target="_blank" rel="external">App Distribution Guide – App Thinning (iOS, watchOS)</a>一节中，找到了下面这样一个定义：</p>
+<h1 id="Bitcode是什么？"><a href="#Bitcode是什么？" class="headerlink" title="Bitcode是什么？"></a>Bitcode是什么？</h1><p>找东西嘛，最先想到的当然是先看官方文档了。在<a href="https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html#//apple_ref/doc/uid/TP40012582-CH35" target="_blank" rel="external">App Distribution Guide – App Thinning (iOS, watchOS)</a>一节中，找到了下面这样一个定义：</p>
 <p>Bitcode is an intermediate representation of a compiled program. Apps you upload to iTunes Connect that contain bitcode will be compiled and linked on the App Store. Including bitcode will allow Apple to re-optimize your app binary in the future without the need to submit a new version of your app to the store.</p>
 <p>说的是bitcode是被编译程序的一种中间形式的代码。包含bitcode配置的程序将会在App store上被编译和链接。bitcode允许苹果在后期重新优化我们程序的二进制文件，而不需要我们重新提交一个新的版本到App store上。</p>
 <p>嗯，看着挺高级的啊。</p>
@@ -383,8 +379,7 @@
 <p>Bitcode. When you archive for submission to the App Store, Xcode will compile your app into an intermediate representation. The App Store will then compile the bitcode down into the 64 or 32 bit executables as necessary.</p>
 <p>当我们提交程序到App store上时，Xcode会将程序编译为一个中间表现形式(bitcode)。然后App store会再将这个botcode编译为可执行的64位或32位程序。</p>
 <p>再看看这两段描述都是放在App Thinning(App瘦身)一节中，可以看出其与包的优化有关了。喵大(@onevcat)在其博客<a href="http://onevcat.com/2015/06/ios9-sdk/" target="_blank" rel="external">开发者所需要知道的 iOS 9 SDK 新特性</a>中也描述了iOS 9中苹果在App瘦身中所做的一些改进，大家可以转场到那去研读一下。</p>
-<p>#Bitcode配置</p>
-<p>在上面的错误提示中，提到了如何处理我们遇到的问题：</p>
+<h1 id="Bitcode配置"><a href="#Bitcode配置" class="headerlink" title="Bitcode配置"></a>Bitcode配置</h1><p>在上面的错误提示中，提到了如何处理我们遇到的问题：</p>
 <p>You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. for architecture arm64</p>
 <p>要么让第三方库支持，要么关闭target的bitcode选项。</p>
 <p>实际上在Xcode 7中，我们新建一个iOS程序时，bitcode选项默认是设置为YES的。我们可以在”Build Settings”-&gt;”Enable Bitcode”选项中看到这个设置。</p>
@@ -398,10 +393,8 @@
 <p><img src="http://cc.cocimg.com/api/uploads/20150817/1439791780516322.png" alt="blob.png"></p>
 <p>盗图，我的应用没办法在这个界面显示bitcode，因为依赖于第三方的库，而这个库不支持bitcode，暂时只能设置ENABLE_BITCODE为NO。</p>
 <p>所以，如果我们的工程需要支持bitcode，则必要要求所有的引入的第三方库都支持bitcode。我就只能等着公司那些大哥大姐们啥时候提供一个新包给我们了。</p>
-<p>##题外话</p>
-<p>如上面所说，bitcode是一种中间代码。LLVM官方文档有介绍这种文件的格式，有兴趣的可以移步<a href="http://llvm.org/docs/BitCodeFormat.html#llvm-bitcode-file-format" target="_blank" rel="external">LLVM Bitcode File Format</a>。</p>
-<p>###参考</p>
-<ul>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>如上面所说，bitcode是一种中间代码。LLVM官方文档有介绍这种文件的格式，有兴趣的可以移步<a href="http://llvm.org/docs/BitCodeFormat.html#llvm-bitcode-file-format" target="_blank" rel="external">LLVM Bitcode File Format</a>。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html#//apple_ref/doc/uid/TP40012582-CH35" target="_blank" rel="external">App Distribution Guide – App Thinning (iOS, watchOS)</a></li>
 <li><a href="https://developer.apple.com/library/prerelease/ios/documentation/DeveloperTools/Conceptual/WhatsNewXcode/Articles/xcode_7_0.html" target="_blank" rel="external">What’s New in Xcode-New Features in Xcode 7</a></li>
 <li><a href="http://onevcat.com/2015/06/ios9-sdk/" target="_blank" rel="external">开发者所需要知道的 iOS 9 SDK 新特性</a></li>
@@ -496,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg"
@@ -591,6 +593,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bitcode是什么？"><span class="nav-number">1.</span> <span class="nav-text">Bitcode是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bitcode配置"><span class="nav-number">2.</span> <span class="nav-text">Bitcode配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话"><span class="nav-number">2.1.</span> <span class="nav-text">题外话</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">2.1.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
