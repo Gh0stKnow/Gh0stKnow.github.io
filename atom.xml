@@ -353,7 +353,7 @@
     <content type="html"><![CDATA[<p>安全隐患：在iOS开发过程中，尽管在发送数据的过程中，密码进行了“二进制”的转换，但实际上密码还是明文，可以通过一些拦截软件被拦截（青花瓷等等），不能保证我们数据的安全性。</p>
 <p>加密选择：一般公司都会有一套自己的加密方案，按照公司接口文档的规定去加密</p>
 <p>平常用到的解决办法：</p>
-<h4 id="1-Base64加密"><a href="#1-Base64加密" class="headerlink" title="1.Base64加密"></a>1.Base64加密</h4><blockquote>
+<h1 id="1-Base64加密"><a href="#1-Base64加密" class="headerlink" title="1.Base64加密"></a>1.Base64加密</h1><blockquote>
 <p>Base64加密因其算法和充当密钥的索引表都是公开的，所以不属于加密算法，它的本质是将“二进制”数据转换成字符串，方便使用HTTP协议、用于公开的代码加密、URL加密，防止数据明文传输。</p>
 </blockquote>
 <p>例如：有的网络请求上，会希望只传递字符串</p>
@@ -372,7 +372,7 @@
 <p>加密的具体过程图</p>
 <p>苹果在iOS7之后自带Base64加密，具体方法如下：</p>
 <a id="more"></a>
-<h4 id="2-MD5加密"><a href="#2-MD5加密" class="headerlink" title="2.MD5加密"></a>2.MD5加密</h4><blockquote>
+<h1 id="2-MD5加密"><a href="#2-MD5加密" class="headerlink" title="2.MD5加密"></a>2.MD5加密</h1><blockquote>
 <p>MD5即Message-Digest Algorithm 5（信息-摘要算法5），用于确保信息传输完整一致。是计算机广泛使用的杂凑算法之一（又译摘要算法、哈希算法），主流编程语言普遍已有MD5实现。作用是让大容量信息在用数字签名软件签署私人密钥前被”压缩”成一种保密的格式（就是把一个任意长度的字节串变换成一定长的十六进制数字串）。</p>
 <p>MD5加密对输入信息生成唯一的128位散列值（32个字符），声称是不可逆的，但是目前可以通过以下网站解密<a href="http://www.cmd5.com" target="_blank" rel="external">MD5解密网站</a> ，主要运用在数字签名、文件完整性验证以及口令加密等方面。</p>
 </blockquote>
@@ -392,8 +392,8 @@
 <blockquote>
 <p>使用MD5的好处：快速校验</p>
 </blockquote>
-<h4 id="3-对于重要数据，使用RSA进行数字签名，起到防篡改作用"><a href="#3-对于重要数据，使用RSA进行数字签名，起到防篡改作用" class="headerlink" title="3. 对于重要数据，使用RSA进行数字签名，起到防篡改作用"></a>3. 对于重要数据，使用RSA进行数字签名，起到防篡改作用</h4><h4 id="4-对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES-AES-加密"><a href="#4-对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES-AES-加密" class="headerlink" title="4 .对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES(AES)加密"></a>4 .对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES(AES)加密</h4><p>原因：客户端发送之所以使用RSA加密，是因为RSA解密需要知道服务器私钥，而服务器私钥一般盗取难度较大；</p>
-<h4 id="5-钥匙串（keychain）"><a href="#5-钥匙串（keychain）" class="headerlink" title="5.钥匙串（keychain）"></a>5.钥匙串（keychain）</h4><p>iOS 7.0.3版本后加入，使用256位AES加密</p>
+<h1 id="3-对于重要数据，使用RSA进行数字签名，起到防篡改作用"><a href="#3-对于重要数据，使用RSA进行数字签名，起到防篡改作用" class="headerlink" title="3. 对于重要数据，使用RSA进行数字签名，起到防篡改作用"></a>3. 对于重要数据，使用RSA进行数字签名，起到防篡改作用</h1><h1 id="4-对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES-AES-加密"><a href="#4-对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES-AES-加密" class="headerlink" title="4 .对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES(AES)加密"></a>4 .对于比较敏感的数据，如用户信息（登陆、注册等），客户端发送使用RSA加密，服务器返回使用DES(AES)加密</h1><p>原因：客户端发送之所以使用RSA加密，是因为RSA解密需要知道服务器私钥，而服务器私钥一般盗取难度较大；</p>
+<h1 id="5-钥匙串（keychain）"><a href="#5-钥匙串（keychain）" class="headerlink" title="5.钥匙串（keychain）"></a>5.钥匙串（keychain）</h1><p>iOS 7.0.3版本后加入，使用256位AES加密</p>
 <blockquote>
 <p>keychain Services：（iOS密钥链服务）提供了针对用户设备上的密码、密钥、证书、笔记和自定义数据的安全存储解决方案。保存的信息不会因App被删除而丢失，在用户重新安装App后依然有效，数据还在，是目前在设备中保存关键数据的唯一安全的地方。</p>
 </blockquote>
@@ -406,7 +406,7 @@
 <p>第三方封装的有<strong>SSKeychain</strong>，使用方法更为简便。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/974583-6949590f265968a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/974583-a16cfe95dc2702ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
-<h4 id="6-Cookie（小甜饼）"><a href="#6-Cookie（小甜饼）" class="headerlink" title="6.Cookie（小甜饼）"></a>6.Cookie（小甜饼）</h4><p>由服务器生成，发送给客户端，将cookie的key/value保存到某个目录的文本文件内。</p>
+<h1 id="6-Cookie（小甜饼）"><a href="#6-Cookie（小甜饼）" class="headerlink" title="6.Cookie（小甜饼）"></a>6.Cookie（小甜饼）</h1><p>由服务器生成，发送给客户端，将cookie的key/value保存到某个目录的文本文件内。</p>
 <p>最典型的应用是判定注册用户是否已经登录，另一个重要的应用场合是“购物车”。</p>
 <p>简单使用方法：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/974583-ff4a1b563a0f2ddb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
@@ -418,7 +418,7 @@
       &lt;p&gt;安全隐患：在iOS开发过程中，尽管在发送数据的过程中，密码进行了“二进制”的转换，但实际上密码还是明文，可以通过一些拦截软件被拦截（青花瓷等等），不能保证我们数据的安全性。&lt;/p&gt;
 &lt;p&gt;加密选择：一般公司都会有一套自己的加密方案，按照公司接口文档的规定去加密&lt;/p&gt;
 &lt;p&gt;平常用到的解决办法：&lt;/p&gt;
-&lt;h4 id=&quot;1-Base64加密&quot;&gt;&lt;a href=&quot;#1-Base64加密&quot; class=&quot;headerlink&quot; title=&quot;1.Base64加密&quot;&gt;&lt;/a&gt;1.Base64加密&lt;/h4&gt;&lt;blockquote&gt;
+&lt;h1 id=&quot;1-Base64加密&quot;&gt;&lt;a href=&quot;#1-Base64加密&quot; class=&quot;headerlink&quot; title=&quot;1.Base64加密&quot;&gt;&lt;/a&gt;1.Base64加密&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;Base64加密因其算法和充当密钥的索引表都是公开的，所以不属于加密算法，它的本质是将“二进制”数据转换成字符串，方便使用HTTP协议、用于公开的代码加密、URL加密，防止数据明文传输。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;例如：有的网络请求上，会希望只传递字符串&lt;/p&gt;
@@ -533,7 +533,6 @@
 <li><p>如果想查看包内容，可以修改.ipa后缀名为.zip，然后解压即可</p>
 </li>
 </ol>
-<p>**</p>
 ]]></content>
     
     <summary type="html">
@@ -553,7 +552,7 @@
     </summary>
     
     
-      <category term=" - iOS" scheme="http://godknow.cn/tags/iOS/"/>
+      <category term="iOS" scheme="http://godknow.cn/tags/iOS/"/>
     
   </entry>
   

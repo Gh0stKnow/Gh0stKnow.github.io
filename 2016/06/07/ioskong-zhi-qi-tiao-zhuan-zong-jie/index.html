@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content=" - iOS," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -87,25 +87,25 @@
 
 
 <meta name="description" content="以FirstViewController(FVC)的按钮button点击后跳转到SecondViewController(SVC)为例说明:
-###方式一：Storyboard的segues方式鼠标点击按钮button然后按住control键拖拽到SVC页面，在弹出的segue页面中选择跳转模式即可
+方式一：Storyboard的segues方式鼠标点击按钮button然后按住control键拖拽到SVC页面，在弹出的segue页面中选择跳转模式即可
 segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清晰
-缺点:页面较多">
+缺点:页面较多时不方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS控制器总结">
 <meta property="og:url" content="http://godknow.cn/2016/06/07/ioskong-zhi-qi-tiao-zhuan-zong-jie/index.html">
 <meta property="og:site_name" content="Xiaodong's Blog">
 <meta property="og:description" content="以FirstViewController(FVC)的按钮button点击后跳转到SecondViewController(SVC)为例说明:
-###方式一：Storyboard的segues方式鼠标点击按钮button然后按住control键拖拽到SVC页面，在弹出的segue页面中选择跳转模式即可
+方式一：Storyboard的segues方式鼠标点击按钮button然后按住control键拖拽到SVC页面，在弹出的segue页面中选择跳转模式即可
 segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清晰
-缺点:页面较多">
+缺点:页面较多时不方">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/06/08/5757fb07bad17.jpg">
 <meta property="og:updated_time" content="2016-06-27T16:44:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS控制器总结">
 <meta name="twitter:description" content="以FirstViewController(FVC)的按钮button点击后跳转到SecondViewController(SVC)为例说明:
-###方式一：Storyboard的segues方式鼠标点击按钮button然后按住control键拖拽到SVC页面，在弹出的segue页面中选择跳转模式即可
+方式一：Storyboard的segues方式鼠标点击按钮button然后按住control键拖拽到SVC页面，在弹出的segue页面中选择跳转模式即可
 segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清晰
-缺点:页面较多">
+缺点:页面较多时不方">
 <meta name="twitter:image" content="https://ooo.0o0.ooo/2016/06/08/5757fb07bad17.jpg">
 
 
@@ -373,10 +373,10 @@ segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清�
       
         <p><img src="https://ooo.0o0.ooo/2016/06/08/5757fb07bad17.jpg" alt="banner.jpg"></p>
 <p>以FirstViewController(FVC)的按钮button点击后跳转到SecondViewController(SVC)为例说明:</p>
-<p>###方式一：Storyboard的segues方式<br>鼠标点击按钮button然后按住control键拖拽到SVC页面，在弹出的segue页面中选择跳转模式即可</p>
+<h1 id="方式一：Storyboard的segues方式"><a href="#方式一：Storyboard的segues方式" class="headerlink" title="方式一：Storyboard的segues方式"></a>方式一：Storyboard的segues方式</h1><p>鼠标点击按钮button然后按住control键拖拽到SVC页面，在弹出的segue页面中选择跳转模式即可</p>
 <p>segues方式<br>优点:操作方便,无代码生成,在storyboard中展示逻辑清晰</p>
 <p>缺点:页面较多时不方便查看,团队合作时可维护性差, 多人合作时不建议使用这种方式。</p>
-<p>###方式二：选项卡UITabBarController控制器<br>通过调用UITabBarController的addChildViewController方法添加子控制器，代码实例如下：</p>
+<h1 id="方式二：选项卡UITabBarController控制器"><a href="#方式二：选项卡UITabBarController控制器" class="headerlink" title="方式二：选项卡UITabBarController控制器"></a>方式二：选项卡UITabBarController控制器</h1><p>通过调用UITabBarController的addChildViewController方法添加子控制器，代码实例如下：</p>
 <p>UITabBarController *tabbarVC = [[ UITabBarController alloc ] init ];</p>
 <p>FirstViewController *FVC = [[FirstViewController ] init ];</p>
 <p>FVC.tabBarItem.title = @”控制器1”;</p>
@@ -389,19 +389,17 @@ segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清�
 <p>[tabbarVC addChildViewController :SVC];</p>
 <p>优点:代码量较少</p>
 <p>缺点:tabbar的ios原生样式不太好看,(不常用,目前不建议使用),如果要使用,建议自定义tabbar</p>
-<p>###方式三：导航控制器UINavigationController<br>// 在FVC的button的监听方法中调用:</p>
+<h1 id="方式三：导航控制器UINavigationController"><a href="#方式三：导航控制器UINavigationController" class="headerlink" title="方式三：导航控制器UINavigationController"></a>方式三：导航控制器UINavigationController</h1><p>// 在FVC的button的监听方法中调用:</p>
 <p>[self.navigationController pushViewController:newC animated:YES];//跳转到下一页面</p>
 <p>// 在SVC的方法中调用:</p>
 <p>[self.navigationController popViewControllerAnimated:YES];//返回上一页面</p>
 <p>//当有多次跳转发生并希望返回根控制器时,调用:</p>
 <p>[self .navigationController popToRootViewControllerAnimated: YES ];//返回根控制器,即最开始的页面</p>
-<p>###方式四：利用 Modal 形式展示控制器</p>
-<p>// 在FVC中调用:</p>
+<h1 id="方式四：利用-Modal-形式展示控制器"><a href="#方式四：利用-Modal-形式展示控制器" class="headerlink" title="方式四：利用 Modal 形式展示控制器"></a>方式四：利用 Modal 形式展示控制器</h1><p>// 在FVC中调用:</p>
 <p>[ self presentViewController:SVC animated: YES completion:nil];</p>
 <p>// 在SVC中调用:</p>
 <p>[ self dismissViewControllerAnimated: YES completion: nil ];</p>
-<p>###方式五：直接更改 UIWindow 的 rootViewController</p>
-<p>总结：<br>Storyboard方式适合个人开发小程序时使用,有团队合作或者项目较大时不建议使用</p>
+<h1 id="方式五：直接更改-UIWindow-的-rootViewController"><a href="#方式五：直接更改-UIWindow-的-rootViewController" class="headerlink" title="方式五：直接更改 UIWindow 的 rootViewController"></a>方式五：直接更改 UIWindow 的 rootViewController</h1><p>总结：<br>Storyboard方式适合个人开发小程序时使用,有团队合作或者项目较大时不建议使用</p>
 <p>UITabBarController因为目前系统的原生样式不太美观,不建议使用</p>
 <p>推荐使用UINavigationController和Modal,无明显缺点,而且目前大部分程序都使用这两种方式,只是看是否需要导航控制器而确定使用哪种方案</p>
 
@@ -427,7 +425,7 @@ segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清�
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#  - iOS</a>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
         </div>
       
@@ -499,8 +497,17 @@ segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清�
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg"
@@ -524,7 +531,7 @@ segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -594,6 +601,22 @@ segues方式优点:操作方便,无代码生成,在storyboard中展示逻辑清�
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方式一：Storyboard的segues方式"><span class="nav-number">1.</span> <span class="nav-text">方式一：Storyboard的segues方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方式二：选项卡UITabBarController控制器"><span class="nav-number">2.</span> <span class="nav-text">方式二：选项卡UITabBarController控制器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方式三：导航控制器UINavigationController"><span class="nav-number">3.</span> <span class="nav-text">方式三：导航控制器UINavigationController</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方式四：利用-Modal-形式展示控制器"><span class="nav-number">4.</span> <span class="nav-text">方式四：利用 Modal 形式展示控制器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方式五：直接更改-UIWindow-的-rootViewController"><span class="nav-number">5.</span> <span class="nav-text">方式五：直接更改 UIWindow 的 rootViewController</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
