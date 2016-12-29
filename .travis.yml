@@ -19,7 +19,7 @@ after_script:
   - git config user.email "kidteaing@gmail.com"
   - git add .
   - git commit -m "Update docs"
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/Gh0stKnow/Gh0stKnow.github.io" master:master
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
  
 branches:
@@ -27,4 +27,8 @@ branches:
     - HexoSource
 env:
  global:
-   - GH_REF: github.com/lifengsofts/lifengsofts.github.io.git</code>
+   - GH_REF: github.com/Gh0stKnow/Gh0stKnow.github.io.git</code>
+
+cache:
+  directories:
+    - node_modules
