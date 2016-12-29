@@ -27,7 +27,7 @@ branches:
     - HexoSource
 env:
  global:
-   - GH_REF: github.com/Gh0stKnow/Gh0stKnow.github.io.git</code>
+   - GH_REF: github.com/Gh0stKnow/Gh0stKnow.github.io.git
 
 cache:
   directories:
