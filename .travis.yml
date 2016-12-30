@@ -28,4 +28,4 @@ branches:
     - HexoSource
 env:
  global:
-   - GH_REF: github.com/lifengsofts/lifengsofts.github.io.git
+   - GH_REF: github.com/Gh0stKnow/Gh0stKnow.github.io.git
