@@ -1,5 +1,5 @@
 ---
-title: 1111OpenCV学习开发笔记(iOS9)
+title: OpenCV学习开发笔记(iOS9)
 permalink: OpenCVLearning
 date: 2016-12-29 09:52:38
 tags: [学习笔记, 人脸识别]
@@ -40,7 +40,8 @@ OpenCV ，是一个开源的跨平台计算机视觉和机器学习库，通俗�
 #endif
 
 ```    
-<!-- more -->
+
+<!----- MORE ----->
 
 *关于这个宏下面会有解释说明*
 
