@@ -1,0 +1,934 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,React-Native,转载," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="自己在学习React-Native过程中整理的一份学习指南，包含 教程、开源app和资源网站等，还在不断更新中。欢迎pull requests！
+React-Native学习指南
+本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pull Requests！
+同时还有Awesome React-Native系列
+https://github.co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Native学习笔记">
+<meta property="og:url" content="http://godknow.cn/2016/06/28/react-nativexue-xi-bi-ji/index.html">
+<meta property="og:site_name" content="Xiaodong's Blog">
+<meta property="og:description" content="自己在学习React-Native过程中整理的一份学习指南，包含 教程、开源app和资源网站等，还在不断更新中。欢迎pull requests！
+React-Native学习指南
+本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pull Requests！
+同时还有Awesome React-Native系列
+https://github.co">
+<meta property="og:updated_time" content="2016-07-13T07:01:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-Native学习笔记">
+<meta name="twitter:description" content="自己在学习React-Native过程中整理的一份学习指南，包含 教程、开源app和资源网站等，还在不断更新中。欢迎pull requests！
+React-Native学习指南
+本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pull Requests！
+同时还有Awesome React-Native系列
+https://github.co">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '3993343',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://godknow.cn/2016/06/28/react-nativexue-xi-bi-ji/"/>
+
+
+
+
+
+  <title> React-Native学习笔记 | Xiaodong's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Xiaodong's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Talk is cheap, show me the code.</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://godknow.cn/2016/06/28/react-nativexue-xi-bi-ji/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Xiaodong's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Xiaodong's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React-Native学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-28T00:47:14+08:00">
+                2016-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/28/react-nativexue-xi-bi-ji/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/react-nativexue-xi-bi-ji/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>自己在学习React-Native过程中整理的一份学习指南，包含 教程、开源app和资源网站等，还在不断更新中。欢迎pull requests！</p>
+<p>React-Native学习指南</p>
+<p>本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pull Requests！</p>
+<p>同时还有Awesome React-Native系列</p>
+<p><a href="https://github.com/jondot/awesome-react-native" target="_blank" rel="external">https://github.com/jondot/awesome-react-native</a></p>
+<h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><p>react-native 官方api文档 <a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">http://facebook.github.io/react-native/docs/getting-started.html</a></p>
+<p>react-native 中文api文档 (翻译中) <a href="https://github.com/ecomfe/react-native-cn" target="_blank" rel="external">https://github.com/ecomfe/react-native-cn</a></p>
+<p>react.js中文文档 <a href="http://reactjs.cn/" target="_blank" rel="external">http://reactjs.cn/</a></p>
+<p>react.js入门教程(gitbook) <a href="http://hulufei.gitbooks.io/react-tutorial/content/introduction.html" target="_blank" rel="external">http://hulufei.gitbooks.io/react-tutorial/content/introduction.html</a></p>
+<p>react.js快速入门教程 - 阮一峰 <a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/03/react.html</a></p>
+<p>react.js视频教程 <a href="http://react.nodejs-china.org/t/reactjszhong-wen-shi-pin-jiao-cheng-bai-du-wang-pan/584" target="_blank" rel="external">http://react.nodejs-china.org/t/reactjszhong-wen-shi-pin-jiao-cheng-bai-du-wang-pan/584</a></p>
+<p>react-native第一课 <a href="http://html-js.com/article/2783" target="_blank" rel="external">http://html-js.com/article/2783</a></p>
+<p>深入浅出 React Native：使用 JavaScript 构建原生应用 <a href="http://zhuanlan.zhihu.com/FrontendMagazine/19996445" target="_blank" rel="external">http://zhuanlan.zhihu.com/FrontendMagazine/19996445</a></p>
+<p>React Native通信机制详解 <a href="http://blog.cnbang.net/tech/2698/" target="_blank" rel="external">http://blog.cnbang.net/tech/2698/</a></p>
+<p>React Native布局篇 <a href="http://segmentfault.com/a/1190000002658374" target="_blank" rel="external">http://segmentfault.com/a/1190000002658374</a></p>
+<p>React Native 基础练习指北（一） <a href="http://segmentfault.com/a/1190000002645929" target="_blank" rel="external">http://segmentfault.com/a/1190000002645929</a></p>
+<p>React Native 基础练习指北（二） <a href="http://segmentfault.com/a/1190000002647733" target="_blank" rel="external">http://segmentfault.com/a/1190000002647733</a></p>
+<p>构建一个简单的列表页和2页导航 <a href="http://www.xn--cnq920ntha.cn/archives/235#6838470-tsina-1-17436-6a377b1a66595f9ede646cf5c012734c" target="_blank" rel="external">http://www.xn--cnq920ntha.cn/archives/235#6838470-tsina-1-17436-6a377b1a66595f9ede646cf5c012734c</a></p>
+<p>Diary of Building an iOS App with React Native <a href="http://herman.asia/building-a-flashcard-app-with-react-native" target="_blank" rel="external">http://herman.asia/building-a-flashcard-app-with-react-native</a></p>
+<p>Use React Native in Existing iOS App <a href="http://blog-en.leapoahead.com/post/use-react-native-in-existing-ios-app" target="_blank" rel="external">http://blog-en.leapoahead.com/post/use-react-native-in-existing-ios-app</a></p>
+<p>tcomb-form-native使用视频教程(需翻墙) <a href="http://react.rocks/example/tcomb-form-native" target="_blank" rel="external">http://react.rocks/example/tcomb-form-native</a></p>
+<h1 id="开源APP"><a href="#开源APP" class="headerlink" title="开源APP"></a>开源APP</h1><p>研究源码也是一个很好的学习方式</p>
+<p>官方演示App <a href="https://github.com/facebook/react-native/tree/master/Examples" target="_blank" rel="external">https://github.com/facebook/react-native/tree/master/Examples</a></p>
+<p>ReactNativeRubyChina <a href="https://github.com/henter/ReactNativeRubyChina" target="_blank" rel="external">https://github.com/henter/ReactNativeRubyChina</a></p>
+<p>HackerNews-React-Native <a href="https://github.com/iSimar/HackerNews-React-Native" target="_blank" rel="external">https://github.com/iSimar/HackerNews-React-Native</a></p>
+<p>React-Native新闻客户端 <a href="https://github.com/tabalt/ReactNativeNews" target="_blank" rel="external">https://github.com/tabalt/ReactNativeNews</a></p>
+<p>newswatch(新闻客户端) <a href="https://github.com/bradoyler/newswatch-react-native" target="_blank" rel="external">https://github.com/bradoyler/newswatch-react-native</a></p>
+<p>buyscreen(购买页面) <a href="https://github.com/appintheair/react-native-buyscreen" target="_blank" rel="external">https://github.com/appintheair/react-native-buyscreen</a></p>
+<p>V2EX客户端 <a href="https://github.com/samuel1112/v2er" target="_blank" rel="external">https://github.com/samuel1112/v2er</a></p>
+<p>react-native-todo <a href="https://github.com/joemaddalone/react-native-todo" target="_blank" rel="external">https://github.com/joemaddalone/react-native-todo</a></p>
+<p>react-native-beer <a href="https://github.com/muratsu/react-native-beer" target="_blank" rel="external">https://github.com/muratsu/react-native-beer</a></p>
+<p>react-native-stars <a href="https://github.com/86/react-native-stars" target="_blank" rel="external">https://github.com/86/react-native-stars</a></p>
+<p>模仿天猫首页的app <a href="https://github.com/baofen14787/react-native-demo" target="_blank" rel="external">https://github.com/baofen14787/react-native-demo</a></p>
+<p>ReactNativeChess <a href="https://github.com/csarsam/ReactNativeChess" target="_blank" rel="external">https://github.com/csarsam/ReactNativeChess</a></p>
+<p>react native 编写的音乐软件 <a href="https://github.com/Johnqing/miumiu" target="_blank" rel="external">https://github.com/Johnqing/miumiu</a></p>
+<p>react-native-pokedex <a href="https://github.com/ababol/react-native-pokedex" target="_blank" rel="external">https://github.com/ababol/react-native-pokedex</a></p>
+<p>CNode-React-Native <a href="https://github.com/SFantasy/CNode-React-Native" target="_blank" rel="external">https://github.com/SFantasy/CNode-React-Native</a></p>
+<p>8tracks电台客户端 <a href="https://github.com/voronianski/EightTracksReactNative" target="_blank" rel="external">https://github.com/voronianski/EightTracksReactNative</a></p>
+<p>React-Native实现的计算器 <a href="https://github.com/yoxisem544/Calculator-using-React-Native" target="_blank" rel="external">https://github.com/yoxisem544/Calculator-using-React-Native</a></p>
+<p>房产搜索app <a href="https://github.com/jawee/react-native-PropertyFinder" target="_blank" rel="external">https://github.com/jawee/react-native-PropertyFinder</a></p>
+<p>知乎专栏app <a href="https://github.com/LeezQ/react-native-zhihu-app" target="_blank" rel="external">https://github.com/LeezQ/react-native-zhihu-app</a></p>
+<p>ForeignExchangeApp <a href="https://github.com/peralmq/ForeignExchangeApp" target="_blank" rel="external">https://github.com/peralmq/ForeignExchangeApp</a></p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>react-native-snippets(代码提示) <a href="https://github.com/Shrugs/react-native-snippets" target="_blank" rel="external">https://github.com/Shrugs/react-native-snippets</a></p>
+<p>react-native-babel(使用ES6+) <a href="https://github.com/roman01la/react-native-babel" target="_blank" rel="external">https://github.com/roman01la/react-native-babel</a></p>
+<p>资源网站</p>
+<p>React-native官网 <a href="http://facebook.github.io/react-native/" target="_blank" rel="external">http://facebook.github.io/react-native/</a></p>
+<p>React-China社区 <a href="http://react-china.org/" target="_blank" rel="external">http://react-china.org/</a></p>
+<p>React-native组件库（比较全的组件库） <a href="http://react.parts/" target="_blank" rel="external">http://react.parts/</a></p>
+<p>React Native Modules <a href="http://reactnativemodules.com/" target="_blank" rel="external">http://reactnativemodules.com/</a></p>
+<p>11款React Native开源移动 UI 组件 <a href="http://www.oschina.net/news/61214/11-react-native-ui-components" target="_blank" rel="external">http://www.oschina.net/news/61214/11-react-native-ui-components</a></p>
+<h1 id="业界讨论"><a href="#业界讨论" class="headerlink" title="业界讨论"></a>业界讨论</h1><p>谈谈 React Native - 唐巧 <a href="http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/" target="_blank" rel="external">http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/</a></p>
+<p>如何评价React-Native? <a href="http://www.zhihu.com/question/27852694/answer/43990708" target="_blank" rel="external">http://www.zhihu.com/question/27852694/answer/43990708</a></p>
+<p>React Native概述：背景、规划和风险 <a href="http://div.io/topic/938" target="_blank" rel="external">http://div.io/topic/938</a></p>
+<h1 id="官方指南：-https-github-com-ele828-react-native-guide"><a href="#官方指南：-https-github-com-ele828-react-native-guide" class="headerlink" title="官方指南： https://github.com/ele828/react-native-guide"></a>官方指南： <a href="https://github.com/ele828/react-native-guide" target="_blank" rel="external">https://github.com/ele828/react-native-guide</a></h1>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/React-Native/" rel="tag"># React-Native</a>
+          
+            <a href="/tags/转载/" rel="tag"># 转载</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/26/mac-os-x-jin-cheng-usereventagent-zhan-yong-cpu-100-de-jie-jue-ban-fa/" rel="next" title="Mac OS X 进程UserEventAgent 占用CPU 100%的解决办法">
+                <i class="fa fa-chevron-left"></i> Mac OS X 进程UserEventAgent 占用CPU 100%的解决办法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/28/swift-zhong-de-yi-chang-pao-chu-he-cuo-wu-chu-li/" rel="prev" title="Swift 中的异常抛出和错误处理">
+                Swift 中的异常抛出和错误处理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/28/react-nativexue-xi-bi-ji/"
+           data-title="React-Native学习笔记" data-url="http://godknow.cn/2016/06/28/react-nativexue-xi-bi-ji/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg"
+               alt="晓东儿" />
+          <p class="site-author-name" itemprop="name">晓东儿</p>
+          <p class="site-description motion-element" itemprop="description">喜欢代码，喜欢设计</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gh0stKnow" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/kidteaing" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lllld" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/kidteaing" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-gittip"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#教程"><span class="nav-number">1.</span> <span class="nav-text">教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开源APP"><span class="nav-number">2.</span> <span class="nav-text">开源APP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工具"><span class="nav-number">3.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#业界讨论"><span class="nav-number">4.</span> <span class="nav-text">业界讨论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#官方指南：-https-github-com-ele828-react-native-guide"><span class="nav-number">5.</span> <span class="nav-text">官方指南： https://github.com/ele828/react-native-guide</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">晓东儿</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ghostknow"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
