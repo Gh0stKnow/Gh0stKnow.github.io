@@ -173,6 +173,7 @@ Demo：人脸检测与识别
 
 ### 视频拍摄
 
+
 OpenCV 的 highgui 模块中有个类，CvVideoCamera，它把 iPhone 的摄像机抽象出来，让我们的 app 通过一个代理函数 - (void)processImage:(cv::Mat&)image 来获得视频流。CvVideoCamera 实例可像下面这样进行设置：
 
 ```objc

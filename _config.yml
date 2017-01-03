@@ -34,6 +34,8 @@ skip_render:
   - about/**
   - googleb56fd646cb9e7356.html
   - baidu_verify_4XJlx2eMub.html
+  
+jiathis: true
 
 #搜索
 search:
