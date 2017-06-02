@@ -284,6 +284,389 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://godknow.cn/2017/01/03/localization/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Xiaodong's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Xiaodong's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/03/localization/" itemprop="url">
+                  iOS国际化(本地化)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-03T09:52:38+08:00">
+                2017-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/03/localization/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/03/localization/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>语言本地化，又叫做语言国际化。是指根据用户操作系统的语言设置，自动将应用程序的语言设置为和用户操作系统语言一致的语言。往往一些应用程序需要提供给多个国家的人群使用，或者一个国家有多种语言，这就要求应用程序所展示的文字、图片等信息，能够让讲不同语言的用户读懂、看懂。进而提出为同一个应用程序适配多种语言，也即是国际化。语言国际化之所以又叫做语言本地化，这是站在每个用户的角度而言的，是指能够让用户本地、本土人群能够看懂的语言信息，顾名思义，语言本地化。其实语言本地化 == 语言国际化！<br>本文将分如下7个主要章节一步一步讲解如何完全本地化一个App。</p>
+<ul>
+<li><strong>配置需要国际化的语言（国际化的准备工作）</strong></li>
+<li><strong>App名称本地化</strong></li>
+<li><strong>代码中字符串本地化</strong></li>
+<li><strong>多人开发情况下的字符串本地化</strong></li>
+<li><strong>图片本地化（两种方式两种方式）</strong></li>
+<li><strong>查看/切换本地语言</strong></li>
+<li><strong>storyboard/xib本地化</strong></li>
+</ul>
+<h1 id="配置需要国际化的语言"><a href="#配置需要国际化的语言" class="headerlink" title="配置需要国际化的语言"></a>配置需要国际化的语言</h1><p>配置需要国际化的语言，这也是国际化之前的准备工作，无论我们是国际化App名称、代码中的字符串、图片、还是storyboard和xib，都需要进行这一步的准备工作（一个项目中需要且仅需要配置一次）。</p>
+<ul>
+<li>选中project-&gt;Info-&gt;Localizations，然后点击”+”，添加需要国际化/本地化的语言，如下图（默认需要勾选Use Base Internationalization）：</li>
+</ul>
+<p>Snip20160616_15.png</p>
+<ul>
+<li><p>此处以添加法语为例，如下图：</p>
+<p>​</p>
+<p>​</p>
+<p>Snip20160616_18.png</p>
+</li>
+<li><p>弹出如下对话框，直接点击finish，如下图：</p>
+</li>
+</ul>
+<p>Snip20160616_21.png</p>
+<ul>
+<li><p>同理，添加简体中文、繁体中文、韩语，最终结果如下图：</p>
+<p>​</p>
+<p>​</p>
+<p>​</p>
+<p>Snip20160616_22.png</p>
+</li>
+</ul>
+<p><code>备注：</code> “zh-Hans”和“zh-Hant”是简体中文和繁体中文的缩写。这是标准的缩写。H可大写也可小写。”en”是英语的缩写。ko是韩语的缩写，fr是法语的缩写。其他语言请百度各国语言缩写即可查询。</p>
+<h1 id="（一）应用名称本地化-国际化"><a href="#（一）应用名称本地化-国际化" class="headerlink" title="（一）应用名称本地化/国际化"></a>（一）应用名称本地化/国际化</h1><p>应用名称本地化，是指同一个App的名称，在不同的语言环境下（也就是手机设备的语言设置）显示不同的名称。比如，微信在简体中文环境下App名称显示为“<strong>微信</strong>”，在英语环境下显示为“<strong>weChat</strong>”。下面就开始进行应用名称本地化。</p>
+<ol>
+<li>选中Info.plist，按下键盘上的command + N，选择<strong>Strings File</strong>（iOS-&gt;Resource-&gt;Strings File）</li>
+</ol>
+<p>Snip20160616_10.png</p>
+<ul>
+<li>文件名字命名为<strong>InfoPlist</strong>，且<strong>必须是这个名字</strong>（因每个人电脑设置差异，此处本人电脑没有显示strings后缀名）:</li>
+</ul>
+<p>Snip20160616_11.png</p>
+<ul>
+<li>点击create后，Xcode左侧导航列表就会出现名为InfoPlist.strings的文件，如下图：</li>
+</ul>
+<p>Snip20160616_13.png</p>
+<ul>
+<li>选中InfoPlist.strings，在Xcode的File inspection（Xcode右侧文件检查器）中点击Localize，目的是选择我们需要本地化的语言，如下图：<br><code>注意：</code>在点击Localize之前，一定要保证我们已经添加了需要本地化的语言，也就是上面<strong>配置需要国际化的语言</strong>那一步（步骤：project-&gt;Info-&gt;Localizations，然后点击”+”，添加需要国际化/本地化的语言）。</li>
+</ul>
+<p>Snip20160616_14.png</p>
+<ul>
+<li>点击Localize后，会弹出一个对话框，展开对话框列表，发现下拉列表所展示的语言正是我们在上面配置的需要国际化的语言，选择我们需要本地化的语言，然后点击对话框的Localize按钮，如下图：</li>
+</ul>
+<p>Snip20160617_10.png</p>
+<p>Snip20160617_12.png</p>
+<p><code>注意：</code>如果我们没有在 PROJECT 中配置需要国际化的语言（project-&gt;Info-&gt;Localizations，然后点击”+”），上图下拉列表中将只会出现”Base”和”English”选项，English语言是系统默认的语言，其他需要国际化的语言（例如中文简体、法语）必须通过上面的<strong>配置本地化语言</strong>那一步手动添加。</p>
+<ul>
+<li>然后我们发现Xcode右侧的File inspection变成了下图的样式：</li>
+</ul>
+<p>Snip20160617_13.png</p>
+<ul>
+<li>接下来，勾选French、Chinese（zh-Hans）、Chinese（zh-Hant）、Korean，如下图：</li>
+</ul>
+<p>Snip20160617_14.png</p>
+<ul>
+<li>此时，Xcode左侧的InfoPlist.stirings左侧多了一个箭头，点击箭头可以展开，如下图所示：</li>
+</ul>
+<p>Snip20160617_15.png</p>
+<p>从上图可以看出，InfoPlist.strings文件下包含了English、French、Chinese（Simplified）、Chinese（Traditional）、Korean这五种语言的文件。<br>原理：程序启动时，会根据操作系统设置的语言，自动加载InfoPlist.strings文件下对应的语言文件，然后显示应用程序的名字。</p>
+<ul>
+<li>接下来，我们分别用不同的语言给InfoPlist.strings下的文件设置对应的名字。</li>
+</ul>
+<p>（1）在InfoPlist.strings(english)中加入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Localizable App Name是App在英语环境环境下显示的名称</div><div class="line">CFBundleDisplayName = &quot;Localizable App Name&quot;;</div></pre></td></tr></table></figure>
+<p><code>备注：</code>CFBundleDisplayName可以使用双引号，也可以不使用双引号！</p>
+<p>Snip20160617_21.png</p>
+<p>（2）在InfoPlist.strings(French)中加入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFBundleDisplayName = &quot;Le nom de la localisation de l&apos;App&quot;;</div></pre></td></tr></table></figure>
+<p>Snip20160617_27.png</p>
+<p>（3）在InfoPlist.strings(Chinese(Simplified))中加入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFBundleDisplayName = &quot;国际化App名称&quot;;</div></pre></td></tr></table></figure>
+<p>Snip20160617_32.png</p>
+<p>（4）在InfoPlist.strings(Chinese(Traditional))中加入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFBundleDisplayName = &quot;國際化App名稱&quot;;</div></pre></td></tr></table></figure>
+<p>Snip20160617_30.png</p>
+<p>（5）在InfoPlist.strings(Korean)中加入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CFBundleDisplayName = &quot;현지화 앱 명칭&quot;;</div></pre></td></tr></table></figure>
+<p>Snip20160617_31.png</p>
+<p>修改模拟器语言环境为English。App名称如下图：</p>
+<p>Snip20160617_33.png</p>
+<p>修改模拟器语言环境为Chinese(Simplified)。App名称如下图：</p>
+<p>Snip20160618_4.png</p>
+<p>修改模拟器语言环境为Chinese(Traditional)。App名称如下图：</p>
+<p>Snip20160618_5.png</p>
+<p>修改模拟器语言环境为Franch。App名称如下图：</p>
+<p>Snip20160618_6.png</p>
+<p>修改模拟器语言环境为Korean。App名称如下图：</p>
+<p>Snip20160618_7.png</p>
+<p><code>备注：</code>过去本地化App名称，需要在Info.plist文件中增加一个名为“Application has localized display name”的BOOL类型的Key，并且需要将其值设置为YES（如下图）。目的是让App支持本地化App名称。<strong>但现在可以忽略这一步</strong>。</p>
+<p>Snip20160618_8.png</p>
+<p>至此，本地化App名称已经演示完毕，其步骤就是：</p>
+<ul>
+<li>在Project的设置中通过点击”+”添加需要本地化的语言。</li>
+<li>然后在Xcode右侧的File inspection中点击Localize，选中需要本地化App名称的语言。</li>
+<li>最后在每个语言对应的文件中以key = value(CFBundleDisplayName = “App名称”;);的形式设置App的名称。</li>
+</ul>
+<h1 id="（二）代码中字符串的本地化"><a href="#（二）代码中字符串的本地化" class="headerlink" title="（二）代码中字符串的本地化"></a>（二）代码中字符串的本地化</h1><p>所谓字符串本地化，就是指App内的字符串在不同的语言环境下显示不同的内容。比如，”主页”这个字符串在中文语言环境下显示“主页”，在英语环境下显示“home”。下面就开始进行字符串本地化。<br>其实字符本地化和App名称本地化过程如出一辙，只是创建的文件名成不一样（连同后缀一起，文件名必须是Localizable.strings），其他步骤完全相同。为了能够让大家彻底了解，此处还是会把步骤一一贴出来。</p>
+<ul>
+<li>和应用名称本地化一样，首先需要command + N，选择iOS -&gt; Resource -&gt; Strings File</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1055199-1fe1660ee2986990.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<ul>
+<li>文件名必须命名为<strong>Localizable</strong><br><code>备注</code>：因本人电脑取消隐藏文件后缀名，所以会自动补全.strings后缀名。</li>
+</ul>
+<p>Snip20160619_8.png</p>
+<ul>
+<li>文件创建成功，查看Xcode左侧导航列表，发现多了一个名为Localizable.strings的文件，如下图：</li>
+</ul>
+<p>Snip20160619_4.png</p>
+<ul>
+<li>选中Localizable.strings文件，在Xcode的File inspection中点击Localize，目的是选择我们需要本地化的语言（和本地化App名称同理），如下图：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1055199-c2378ac118e3f496.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<ul>
+<li>依次选择English-&gt;Localize，如下图：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1055199-0aba0931daecd274.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1055199-015545406751fd42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<ul>
+<li>然后我们发现Xcode右侧的File inspection变成了下图的样式：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1055199-581527c3c2149e22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<ul>
+<li>然后勾选French、Chinese（zh-Hans）、Chinese（zh-Hant）、Korean，如下图：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1055199-154a9e311e6a8033.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<ul>
+<li>此时，Xcode左侧的Localizable.stirings左侧多了一个箭头，展开后，如下图所示：</li>
+</ul>
+<p>Snip20160619_6.png</p>
+<ul>
+<li>然后我们只需要在Localizable.strings下对应的文件中，分别以Key-Value的形式，为代码中每一个需要本地化的字符串赋值，如下图：</li>
+</ul>
+<p>Snip20160619_9.png</p>
+<p>Snip20160619_10.png</p>
+<p>Snip20160619_12.png</p>
+<p>Snip20160619_13.png</p>
+<p>Snip20160619_14.png</p>
+<ul>
+<li>本地化代码中的字符串，如下图：</li>
+</ul>
+<p>Snip20160619_15.png</p>
+<ul>
+<li>我们只需要使用Foundation框架自带的NSLocalizedString(key, comment)这个宏根据Key获取对应的字符串，然后赋值给代码中的字符串。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// NSLocalizedString(key, comment) 本质</div><div class="line">// NSlocalizeString 第一个参数是内容,根据第一个参数去对应语言的文件中取对应的字符串，第二个参数将会转化为字符串文件里的注释，可以传nil，也可以传空字符串@&quot;&quot;。</div><div class="line">#define NSLocalizedString(key, comment) [[NSBundle mainBundle] localizedStringForKey:(key) value:@&quot;&quot; table:nil]</div></pre></td></tr></table></figure>
+<ul>
+<li>不同语言环境下运行效果，如下图：</li>
+<li>英语环境下：</li>
+</ul>
+<p>Snip20160619_17.png</p>
+<ul>
+<li>法语环境下：</li>
+</ul>
+<p>Snip20160619_18.png</p>
+<ul>
+<li>简体中文环境下：</li>
+</ul>
+<p>Snip20160619_19.png</p>
+<ul>
+<li>繁体中文环境下：</li>
+</ul>
+<p>Snip20160619_20.png</p>
+<ul>
+<li>韩语环境下：</li>
+</ul>
+<p>Snip20160619_23.png</p>
+<p>如此一来，我们就实现了代码中字符串的本地化。</p>
+<h3 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h3><ul>
+<li>其实，我们不需要给Localizable.strings(English)文件添加Key-Value。原因如下：系统根据某个key去获取对应的字符串时，如果没有找到，那么就会以key作为value返回。所以如果我们在Localizable.strings(English)文件中没有添加 click = “hit”;那么在english环境下btn最终显示的title会是click.</li>
+<li>切换语言无需在模拟器中设置，只需要在Xcode中进行如下设置： Edit-&gt;Scheme-&gt;Run-&gt;Arguments Passed On Launch -&gt;-AppleLanguages (语言代码)。例如，我们模拟器此时虽然是韩语，如果通过上述步骤设置为zh-Hans，那么语言环境将会变为汉语，如下图：</li>
+</ul>
+<p>Snip20160619_26.png</p>
+<p>Snip20160619_28.png</p>
+<ul>
+<li>运行效果：</li>
+</ul>
+<p>Snip20160619_29.png</p>
+<ul>
+<li>如此一来，切换语言变得更加简单，无需在模拟器的设置中进行繁琐的语言切换。</li>
+</ul>
+<h1 id="（三）多人开发情况下的字符串本地化"><a href="#（三）多人开发情况下的字符串本地化" class="headerlink" title="（三）多人开发情况下的字符串本地化"></a>（三）多人开发情况下的字符串本地化</h1><p>项目开发中，独立开发的还是少数。经常会有多人开发的情况，这种情况，如果多人同时操作本地化文件，极有可能会存在冲突。另一方面，我们又不希望自己的本地化文件受到对方的污染，也就是说，我们不希望对方操作我们的本地化文件。但是上面介绍的代码中字符串的本地化是使用的是默认的文件名”Localizable”,因为启动程序时，系统将根据语言加载相应的文件得到其对应的字符串文件，这个字符串可以通过系统将NSLocalizedString中的宏生成名为“Localizable.strings”的文件。那么如何让系统加载我们自己命名的本地化文件而非系统默认的Localizable.strings呢？这就是 NSLocalizedStringFromTable(&lt;#key#&gt;, &lt;#tbl#&gt;, &lt;#comment#&gt;)的用处。<br>也就是说，如果你的strings文件名字不是Localizable而是自定义的话，如VVS.strings，那么你就得使用NSLocalizedStringFromTable这个宏来读取本地化字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// key：系统根据key取字符串</div><div class="line">// tbl：自定义strings文件的名字</div><div class="line">// comment：可以不传</div><div class="line">    NSLocalizedStringFromTable(&lt;#key#&gt;, &lt;#tbl#&gt;, &lt;#comment#&gt;)</div></pre></td></tr></table></figure>
+<p>Snip20160619_32.png</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line">@property (weak, nonatomic) IBOutlet UIButton *btn;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">    NSString *title = NSLocalizedStringFromTable(@&quot;click&quot;, @&quot;VVS&quot;, nil);</div><div class="line">    [self.btn setTitle:title forState:UIControlStateNormal];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<ul>
+<li>运行效果，如下图：</li>
+</ul>
+<p>Snip20160619_33.png</p>
+<p>如此一来，我们就可以挣脱别人的strings文件和系统默认的Localizable.strings文件，自己另起炉灶。</p>
+<h1 id="（四）图片本地化"><a href="#（四）图片本地化" class="headerlink" title="（四）图片本地化"></a>（四）图片本地化</h1><p>本地化图片，有两种方式，第一种方式和本地化代码中的字符串一样，通过NSLocalizedString(key,comment)来获取相应的字符串，然后根据这个字符串再获取图片。</p>
+<h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSString *imageName = NSLocalizedString(@&quot;icon&quot;, nil);</div><div class="line">UIImage *image = [UIImage imageNamed:imageName];</div><div class="line">self.imageView.image = image;</div></pre></td></tr></table></figure>
+<h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>首先需要添加需要本地化的语言，具体步骤参考第一章<strong>配置需要国际化的语言</strong>。因为我演示的demo中在本地化App名称时已经添加了需要国际化的语言。所以不需要再设置。</p>
+<ul>
+<li>将图片拖入工程中，例如“icon.png”，然后选中icon.png，展开Xcode右侧的file Inspection，点击Localize，如下图:</li>
+</ul>
+<p>Snip20160619_36.png</p>
+<ul>
+<li>然后，右击icon.png-&gt;show in Finder，我们发现在en.Iproj文件中多了一个名为icon.png的图片，如下图：</li>
+</ul>
+<p>Snip20160619_38.png</p>
+<ul>
+<li>当然，zh-Hans.Iproj文件夹下并没有图片，如下图：</li>
+</ul>
+<p>Snip20160619_39.png</p>
+<ul>
+<li>我们只需给zh-Hans.Iproj添加一个名字也为icon.png的图片。如下图：</li>
+</ul>
+<p>Snip20160619_40.png</p>
+<ul>
+<li>然后把zh-Hans.Iproj中的icon.png拖到Xcode中，如下图：</li>
+</ul>
+<p>Snip20160619_43.png</p>
+<ul>
+<li>然后发现，icon.png左边出现了一个可以展开的三角形。如下图：</li>
+</ul>
+<p>Snip20160619_44.png</p>
+<ul>
+<li>展开后发现里面包含两张图片，如下图：</li>
+</ul>
+<p>Snip20160619_45.png</p>
+<p>然后控制器中添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line">@property (weak, nonatomic) IBOutlet UIImageView *imageView;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">    NSString *imageName = NSLocalizedString(@&quot;icon&quot;, nil);</div><div class="line">    UIImage *image = [UIImage imageNamed:imageName];</div><div class="line">    self.imageView.image = image;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<ul>
+<li>english环境下运行效果如下：</li>
+</ul>
+<p>Snip20160620_46.png</p>
+<ul>
+<li>中文环境改下运行效果如下：</li>
+</ul>
+<p>Snip20160620_47.png</p>
+<ul>
+<li>其他语言环境，例如法语、中文繁体、韩语，操作步骤完全和上面相同。都是在对应的.Iproj文件夹下添加同名的图片，然后把图片拖放到Xcode中，不再赘述。</li>
+</ul>
+<h1 id="（五）查看-切换本地语言"><a href="#（五）查看-切换本地语言" class="headerlink" title="（五）查看/切换本地语言"></a>（五）查看/切换本地语言</h1><p>原理：应用启动时，首先会读取NSUserDefaults中的key为AppleLanguages对应的value，该value是一个String数组，也就是说，我们访问这个名为AppleLanguages的key可以返回一个string数组，该数组存储着APP支持的语言列表，数组的第一项为APP当前默认的语言。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">    NSArray *languages = [[NSUserDefaults standardUserDefaults] valueForKey:@&quot;AppleLanguages&quot;];</div><div class="line">    NSString *currentLanguage = languages.firstObject;</div><div class="line">    NSLog(@&quot;模拟器当前语言：%@&quot;,currentLanguage);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>-控制台打印结果：</p>
+<p>Snip20160620_1.png</p>
+<p>同理，既然我们可以通过AppleLanguages这个key从NSUserDefaults中取出语言数组，那么我们也可以给AppleLanguages这个key赋值来达到切换本地语言的效果，从此以后，我们就无需频繁的去模拟器的设置-&gt;通用-&gt;语言与地区 中切换语言。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">    // 切换语言前</div><div class="line">    NSArray *langArr1 = [[NSUserDefaults standardUserDefaults] valueForKey:@&quot;AppleLanguages&quot;];</div><div class="line">    NSString *language1 = langArr1.firstObject;</div><div class="line">    NSLog(@&quot;模拟器语言切换之前：%@&quot;,language1);</div><div class="line"></div><div class="line">    // 切换语言</div><div class="line">    NSArray *lans = @[@&quot;en&quot;];</div><div class="line">    [[NSUserDefaults standardUserDefaults] setObject:lans forKey:@&quot;AppleLanguages&quot;];</div><div class="line"></div><div class="line">    // 切换语言后</div><div class="line">    NSArray *langArr2 = [[NSUserDefaults standardUserDefaults] valueForKey:@&quot;AppleLanguages&quot;];</div><div class="line">    NSString *language2 = langArr2.firstObject;</div><div class="line">    NSLog(@&quot;模拟器语言切换之后：%@&quot;,language2);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>Snip20160620_2.png</p>
+<ul>
+<li>回想一下，我在上面的<strong>技巧</strong>一节中提过：切换语言无需在模拟器中设置，只需要在Xcode中进行如下设置： Edit-&gt;Scheme-&gt;Run-&gt;Arguments Passed On Launch -&gt;-AppleLanguages (语言代码)。其实本质上就是给NSUserDefaults中名为AppleLanguages的key赋值。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://godknow.cn/2016/12/29/OpenCVLearning/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -310,7 +693,7 @@
               
                 
                 <a class="post-title-link" href="/2016/12/29/OpenCVLearning/" itemprop="url">
-                  1111OpenCV学习开发笔记(iOS9)
+                  OpenCV学习开发笔记(iOS9)
                 </a>
               
             
@@ -377,13 +760,38 @@
             <p>本文章采用的的开发环境为：<br>1）Xcode 8.2<br>2）OpenCV for iOS 3.2 </p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近公司项目进入了较为稳定的维护周期，考虑到后面很可能会进行需要生物特征识别的项目，提前学习下OpenCV，也在此和大家分享一下。</p>
 <h1 id="OpenCV介绍"><a href="#OpenCV介绍" class="headerlink" title="OpenCV介绍"></a>OpenCV介绍</h1><p>OpenCV ，是一个开源的跨平台计算机视觉和机器学习库，通俗点的说，就是他给计算机提供了一双眼睛，一双可以从图片中获取信息的眼镜，从而完成人脸识别、去红眼、追踪移动物体等等的图像相关的功能。更多具体的说明可参见 OpenCV 官网。</p>
-<h1 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h1><p>首先下载从官网<a href="http://opencv.org/" target="_blank" rel="external">OpenCV官网</a>下载的iOS支持库，我们新建一个工程。</p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>下面是在官方文档中列出的最重要的模块。</p>
+<p>core：简洁的核心模块，定义了基本的数据结构，包括稠密多维数组 Mat 和其他模块需要的基本函数。<br>imgproc：图像处理模块，包括线性和非线性图像滤波、几何图像转换 (缩放、仿射与透视变换、一般性基于表的重映射)、颜色空间转换、直方图等等。<br>video：视频分析模块，包括运动估计、背景消除、物体跟踪算法。<br>calib3d：包括基本的多视角几何算法、单体和立体相机的标定、对象姿态估计、双目立体匹配算法和元素的三维重建。<br>features2d：包含了显著特征检测算法、描述算子和算子匹配算法。<br>objdetect：物体检测和一些预定义的物体的检测 (如人脸、眼睛、杯子、人、汽车等)。<br>ml：多种机器学习算法，如 K 均值、支持向量机和神经网络。<br>highgui：一个简单易用的接口，提供视频捕捉、图像和视频编码等功能，还有简单的 UI 接口 (iOS 上可用的仅是其一个子集)。<br>gpu：OpenCV 中不同模块的 GPU 加速算法 (iOS 上不可用)。<br>ocl：使用 OpenCL 实现的通用算法 (iOS 上不可用)。<br>一些其它辅助模块，如 Python 绑定和用户贡献的算法。</p>
+<h2 id="基础类和操作"><a href="#基础类和操作" class="headerlink" title="基础类和操作"></a>基础类和操作</h2><p>OpenCV 包含几百个类。为简便起见，我们只看几个基础的类和操作，进一步阅读请参考全部文档。过一遍这几个核心类应该足以对这个库的机理产生一些感觉认识。</p>
+<p>cv::Mat</p>
+<p>cv::Mat 是 OpenCV 的核心数据结构，用来表示任意 N 维矩阵。因为图像只是 2 维矩阵的一个特殊场景，所以也是使用 cv::Mat来表示的。也就是说，cv::Mat 将是你在 OpenCV 中用到最多的类。</p>
+<p>一个 cv::Mat 实例的作用就像是图像数据的头，其中包含着描述图像格式的信息。图像数据只是被引用，并能为多个 cv::Mat 实例共享。OpenCV 使用类似于 ARC 的引用计数方法，以保证当最后一个来自 cv::Mat 的引用也消失的时候，图像数据会被释放。图像数据本身是图像连续的行的数组 (对 N 维矩阵来说，这个数据是由连续的 N-1 维数据组成的数组)。使用 step[] 数组中包含的值，图像的任一像素地址都可通过下面的指针运算得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uchar *pixelPtr = cvMat.data + rowIndex * cvMat.step[0] + colIndex * cvMat.step[1]</div></pre></td></tr></table></figure>
+<p>每个像素的数据格式可以通过 type() 方法获得。除了常用的每通道 8 位无符号整数的灰度图 (1 通道，CV_8UC1) 和彩色图 (3 通道，CV_8UC3)，OpenCV 还支持很多不常用的格式，例如 CV_16SC3 (每像素 3 通道，每通道使用 16 位有符号整数)，甚至CV_64FC4 (每像素 4 通道，每通道使用 64 位浮点数)。</p>
+<p>cv::Algorithm</p>
+<p>Algorithm 是 OpenCV 中实现的很多算法的抽象基类，包括将在我们的 demo 工程中用到的 FaceRecognizer。它提供的 API 与苹果的 Core Image 框架中的 CIFilter 有些相似之处。创建一个 Algorithm 的时候使用算法的名字来调用 Algorithm::create()，并且可以通过 get() 和 set()方法来获取和设置各个参数，这有点像是键值编码。另外，Algorithm 从底层就支持从/向 XML 或 YAML 文件加载/保存参数的功能。</p>
+<h1 id="实战部分"><a href="#实战部分" class="headerlink" title="实战部分"></a>实战部分</h1><h2 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h2><p>首先下载从官网<a href="http://opencv.org/" target="_blank" rel="external">OpenCV官网</a>下载的iOS支持库，我们新建一个工程。</p>
 <p><img src="http://oiu3ghos7.bkt.clouddn.com/14829768918916.jpg" alt="搭建环境"></p>
 <p>导入 OpenCV 到 Xcode 的工程中还是比较简单的，从官网下载对应的 framework，直接丢到 Xcode 的工程中，从xcode7以后拖入的工程会自动添加到Building phase里面，检查一下。<br><img src="http://oiu3ghos7.bkt.clouddn.com/14829783173349.jpg" alt=""></p>
 <p>然后在你想用 OpenCV 的地方引入 OpenCV 的头文件：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"></div><div class="line">```    </div><div class="line"></div><div class="line">或者直接在 PCH 文件中添加：  </div><div class="line">  </div><div class="line">```objc</div><div class="line"><span class="meta">#ifdef __cplusplus</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line">```    </div><div class="line">&lt;!-- more --&gt;</div><div class="line"></div><div class="line">*关于这个宏下面会有解释说明*</div><div class="line"></div><div class="line">然后把使用到 OpenCV 中 C++方法的实现文件后缀名改成.mm，就可以开始使用 OpenCV 的方法了。</div><div class="line"></div><div class="line">看起来很简单，然而实际操作中还是有不少的问题。</div><div class="line"></div><div class="line"><span class="meta"># 实际使用</span></div><div class="line"></div><div class="line">由于OpenCV代码是基于C++编写的，因此，要在项目中运行c++代码，需要将实现文件名后缀由`.m`改成`.mm`，如下图所示。</div><div class="line">![](http:<span class="comment">//oiu3ghos7.bkt.clouddn.com/14829787278230.jpg)</span></div><div class="line"></div><div class="line">再次强调一次使用opencv的类名一定要改成.mm!</div><div class="line"></div><div class="line"></div><div class="line">说了那么多先测试一下吧!</div><div class="line"></div><div class="line"></div><div class="line">```objc</div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/imgproc/types_c.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/imgcodecs/ios.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></div><div class="line">&#123;</div><div class="line">     cv::Mat cvImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *imgView;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"learn.jpg"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImageToMat</span>(image, cvImage);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(!cvImage.empty())&#123;</div><div class="line">        cv::Mat gray;</div><div class="line">        <span class="comment">// 将图像转换为灰度显示</span></div><div class="line">        cv::cvtColor(cvImage,gray,CV_RGB2GRAY);</div><div class="line">        <span class="comment">// 应用高斯滤波器去除小的边缘</span></div><div class="line">        cv::GaussianBlur(gray, gray, cv::Size(<span class="number">5</span>,<span class="number">5</span>), <span class="number">1.2</span>,<span class="number">1.2</span>);</div><div class="line">        <span class="comment">// 计算与画布边缘</span></div><div class="line">        cv::Mat edges;</div><div class="line">        cv::Canny(gray, edges, <span class="number">0</span>, <span class="number">50</span>);</div><div class="line">        <span class="comment">// 使用白色填充</span></div><div class="line">        cvImage.setTo(cv::Scalar::all(<span class="number">225</span>));</div><div class="line">        <span class="comment">// 修改边缘颜色</span></div><div class="line">        cvImage.setTo(cv::Scalar(<span class="number">0</span>,<span class="number">128</span>,<span class="number">255</span>,<span class="number">255</span>),edges);</div><div class="line">        <span class="comment">// 将Mat转换为Xcode的UIImageView显示</span></div><div class="line">        <span class="keyword">self</span>.imgView.image = MatToUIImage(cvImage);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"></div><div class="line">```    </div><div class="line"></div><div class="line">或者直接在 PCH 文件中添加：  </div><div class="line">  </div><div class="line">```objc</div><div class="line"><span class="meta">#ifdef __cplusplus</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line">```    </div><div class="line"></div><div class="line">把使用到 OpenCV 中 C++方法的实现文件后缀名改成.mm，就可以开始使用 OpenCV 的方法了。</div><div class="line"></div><div class="line"><span class="meta">### Objective-C++</span></div><div class="line"></div><div class="line">如前面所说，OpenCV 是一个 C++ 的 API，因此不能直接在 Swift 和 Objective-C 代码中使用，但能在 Objective-C++ 文件中使用。</div><div class="line"></div><div class="line">Objective-C++ 是 Objective-C 和 C++ 的混合物，让你可以在 Objective-C 类中使用 C++ 对象。clang 编译器会把所有后缀名为.mm 的文件都当做是 Objective-C++。一般来说，它会如你所期望的那样运行，但还是有一些使用 Objective-C++ 的注意事项。内存管理是你最应该格外注意的点，因为 ARC 只对 Objective-C 对象有效。当你使用一个 C++ 对象作为类属性的时候，其唯一有效的属性就是 <span class="keyword">assign</span>。因此，你的 dealloc 函数应确保 C++ 对象被正确地释放了。</div><div class="line"></div><div class="line">第二重要的点就是，如果你在 Objective-C++ 头文件中引入了 C++ 头文件，当你在工程中使用该 Objective-C++ 文件的时候就泄露了 C++ 的依赖。任何引入你的 Objective-C++ 类的 Objective-C 类也会引入该 C++ 类，因此该 Objective-C 文件也要被声明为 Objective-C++ 的文件。这会像森林大火一样在工程中迅速蔓延。所以，应该把你引入 C++ 文件的地方都用 <span class="meta">#ifdef __cplusplus包起来，并且只要可能，就尽量只在 .mm 实现文件中引入 C++ 头文件。</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">看起来很简单，然而实际操作中还是有不少的问题。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;!------MORE-------&gt;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">## 小热身</span></div><div class="line"></div><div class="line">由于OpenCV代码是基于C++编写的，因此，要在项目中运行c++代码，需要将实现文件名后缀由`.m`改成`.mm`，如下图所示。</div><div class="line">![](http:<span class="comment">//oiu3ghos7.bkt.clouddn.com/14829787278230.jpg)</span></div><div class="line"></div><div class="line">再次强调一次使用opencv的类名一定要改成.mm!</div><div class="line"></div><div class="line"></div><div class="line">说了那么多先测试一下吧!</div><div class="line"></div><div class="line"></div><div class="line">```objc</div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/imgproc/types_c.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/imgcodecs/ios.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></div><div class="line">&#123;</div><div class="line">     cv::Mat cvImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *imgView;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"learn.jpg"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImageToMat</span>(image, cvImage);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(!cvImage.empty())&#123;</div><div class="line">        cv::Mat gray;</div><div class="line">        <span class="comment">// 将图像转换为灰度显示</span></div><div class="line">        cv::cvtColor(cvImage,gray,CV_RGB2GRAY);</div><div class="line">        <span class="comment">// 应用高斯滤波器去除小的边缘</span></div><div class="line">        cv::GaussianBlur(gray, gray, cv::Size(<span class="number">5</span>,<span class="number">5</span>), <span class="number">1.2</span>,<span class="number">1.2</span>);</div><div class="line">        <span class="comment">// 计算与画布边缘</span></div><div class="line">        cv::Mat edges;</div><div class="line">        cv::Canny(gray, edges, <span class="number">0</span>, <span class="number">50</span>);</div><div class="line">        <span class="comment">// 使用白色填充</span></div><div class="line">        cvImage.setTo(cv::Scalar::all(<span class="number">225</span>));</div><div class="line">        <span class="comment">// 修改边缘颜色</span></div><div class="line">        cvImage.setTo(cv::Scalar(<span class="number">0</span>,<span class="number">128</span>,<span class="number">255</span>,<span class="number">255</span>),edges);</div><div class="line">        <span class="comment">// 将Mat转换为Xcode的UIImageView显示</span></div><div class="line">        <span class="keyword">self</span>.imgView.image = MatToUIImage(cvImage);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <p>原图<br><img src="http://oiu3ghos7.bkt.clouddn.com/finn.jpg" alt="finn-w290"></p>
 <p>运行在模拟器上的效果<br><img src="http://oiu3ghos7.bkt.clouddn.com/14829830035512.jpg" alt="运行效果"></p>
+<h2 id="Demo-人脸识别"><a href="#Demo-人脸识别" class="headerlink" title="Demo:人脸识别"></a>Demo:人脸识别</h2><p>Demo：人脸检测与识别</p>
+<p>现在，我们对 OpenCV 及如何把它集成到我们的应用中有了大概认识，那让我们来做一个小 demo 应用：从 iPhone 的摄像头获取视频流，对它持续进行人脸检测，并在屏幕上标出来。当用户点击一个脸孔时，应用会尝试识别这个人。如果识别结果正确，用户必须点击 “Correct”。如果识别错误，用户必须选择正确的人名来纠正错误。我们的人脸识别器就会从错误中学习，变得越来越好。</p>
+<h3 id="视频拍摄"><a href="#视频拍摄" class="headerlink" title="视频拍摄"></a>视频拍摄</h3><p>OpenCV 的 highgui 模块中有个类，CvVideoCamera，它把 iPhone 的摄像机抽象出来，让我们的 app 通过一个代理函数 - (void)processImage:(cv::Mat&amp;)image 来获得视频流。CvVideoCamera 实例可像下面这样进行设置：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CvVideoCamera *videoCamera = [[CvVideoCamera alloc] initWithParentView:view];  </div><div class="line">videoCamera.defaultAVCaptureDevicePosition = <span class="built_in">AVCaptureDevicePositionFront</span>;  </div><div class="line">videoCamera.defaultAVCaptureSessionPreset = <span class="built_in">AVCaptureSessionPreset640x480</span>;  </div><div class="line">videoCamera.defaultAVCaptureVideoOrientation = <span class="built_in">AVCaptureVideoOrientationPortrait</span>;  </div><div class="line">videoCamera.defaultFPS = <span class="number">30</span>;  </div><div class="line">videoCamera.grayscaleMode = <span class="literal">NO</span>;  </div><div class="line">videoCamera.delegate = <span class="keyword">self</span>;</div></pre></td></tr></table></figure>
+<p>摄像头的帧率被设置为 30 帧每秒， 我们实现的 processImage 函数将每秒被调用 30 次。因为我们的 app 要持续不断地检测人脸，所以我们应该在这个函数里实现人脸的检测。要注意的是，如果对某一帧进行人脸检测的时间超过 1/30 秒，就会产生掉帧现象。</p>
+<h3 id="人脸检测"><a href="#人脸检测" class="headerlink" title="人脸检测"></a>人脸检测</h3><p>其实你并不需要使用 OpenCV 来做人脸检测，因为 Core Image 已经提供了 CIDetector 类。用它来做人脸检测已经相当好了，并且它已经被优化过，使用起来也很容易：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CIDetector</span> *faceDetector = [<span class="built_in">CIDetector</span> detectorOfType:<span class="built_in">CIDetectorTypeFace</span> context:context options:@&#123;<span class="built_in">CIDetectorAccuracy</span>: <span class="built_in">CIDetectorAccuracyHigh</span>&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSArray</span> *faces = [faceDetector featuresInImage:image];</div></pre></td></tr></table></figure>
+<p>从该图片中检测到的每一张面孔都在数组 faces 中保存着一个 CIFaceFeature 实例。这个实例中保存着这张面孔的所处的位置和宽高，除此之外，眼睛和嘴的位置也是可选的。</p>
+<p>另一方面，OpenCV 也提供了一套物体检测功能，经过训练后能够检测出任何你需要的物体。该库为多个场景自带了可以直接拿来用的检测参数，如人脸、眼睛、嘴、身体、上半身、下半身和笑脸。检测引擎由一些非常简单的检测器的级联组成。这些检测器被称为 Haar 特征检测器，它们各自具有不同的尺度和权重。在训练阶段，决策树会通过已知的正确和错误的图片进行优化。关于训练与检测过程的详情可参考此原始论文。当正确的特征级联及其尺度与权重通过训练确立以后，这些参数就可被加载并初始化级联分类器了：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/ 正面人脸检测器训练参数的文件路径</div><div class="line"><span class="built_in">NSString</span> *faceCascadePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:@&amp;quot;haarcascade_frontalface_alt2&amp;quot;  </div><div class="line">                                                   ofType:@&amp;quot;xml&amp;quot;];</div><div class="line"> </div><div class="line"><span class="keyword">const</span> <span class="built_in">CFIndex</span> <span class="built_in">CASCADE_NAME_LEN</span> = <span class="number">2048</span>;  </div><div class="line"><span class="keyword">char</span> *<span class="built_in">CASCADE_NAME</span> = (<span class="keyword">char</span> *) malloc(<span class="built_in">CASCADE_NAME_LEN</span>);  </div><div class="line"><span class="built_in">CFStringGetFileSystemRepresentation</span>( (<span class="built_in">CFStringRef</span>)faceCascadePath, <span class="built_in">CASCADE_NAME</span>, <span class="built_in">CASCADE_NAME_LEN</span>);</div><div class="line"> </div><div class="line">CascadeClassifier faceDetector;  </div><div class="line">faceDetector.load(<span class="built_in">CASCADE_NAME</span>);</div></pre></td></tr></table></figure>
+<p>这些参数文件可在 OpenCV 发行包里的 data/haarcascades 文件夹中找到。</p>
+<p>在使用所需要的参数对人脸检测器进行初始化后，就可以用它进行人脸检测了：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cv::Mat img;  </div><div class="line">vector&amp;lt;cv::Rect&amp;gt; faceRects;  </div><div class="line"><span class="keyword">double</span> scalingFactor = <span class="number">1.1</span>;  </div><div class="line"><span class="keyword">int</span> minNeighbors = <span class="number">2</span>;  </div><div class="line"><span class="keyword">int</span> flags = <span class="number">0</span>;  </div><div class="line">cv::Size minimumSize(<span class="number">30</span>,<span class="number">30</span>);  </div><div class="line">faceDetector.detectMultiScale(img, faceRects,  </div><div class="line">                              scalingFactor, minNeighbors, flags</div><div class="line">                              cv::Size(<span class="number">30</span>, <span class="number">30</span>) );</div></pre></td></tr></table></figure>
+<p>检测过程中，已训练好的分类器会用不同的尺度遍历输入图像的每一个像素，以检测不同大小的人脸。参数 scalingFactor 决定每次遍历分类器后尺度会变大多少倍。参数 minNeighbors 指定一个符合条件的人脸区域应该有多少个符合条件的邻居像素才被认为是一个可能的人脸区域；如果一个符合条件的人脸区域只移动了一个像素就不再触发分类器，那么这个区域非常可能并不是我们想要的结果。拥有少于 minNeighbors 个符合条件的邻居像素的人脸区域会被拒绝掉。如果 minNeighbors 被设置为 0，所有可能的人脸区域都会被返回回来。参数 flags 是 OpenCV 1.x 版本 API 的遗留物，应该始终把它设置为 0。最后，参数 minimumSize 指定我们所寻找的人脸区域大小的最小值。faceRects 向量中将会包含对 img 进行人脸识别获得的所有人脸区域。识别的人脸图像可以通过cv::Mat 的 () 运算符提取出来，调用方式很简单：cv::Mat faceImg = img(aFaceRect)。</p>
+<p>不管是使用 CIDetector 还是 OpenCV 的 CascadeClassifier，只要我们获得了至少一个人脸区域，我们就可以对图像中的人进行识别了。</p>
 <h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><p>这是第一次导入C++的库进工程中，所以还是摸索了一段时间。</p>
 <ol>
 <li>第一次编译的时候遇到一个问题，编译器报了个警告是<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#if defined(NO)</div><div class="line">#  warning Detected Apple &apos;NO&apos; macro definition, it can cause build conflicts. Please, include this header before any Apple headers.</div><div class="line">#endif</div></pre></td></tr></table></figure>
@@ -399,6 +807,157 @@
 <h1 id="转换UIImage和cv-Mat"><a href="#转换UIImage和cv-Mat" class="headerlink" title="转换UIImage和cv::Mat"></a>转换UIImage和cv::Mat</h1><p>在 OpenCV 中同常用 cv::Mat 表示图片，而 iOS 中则是 UIImage 来表示图片，但openCV的<a href="http://docs.opencv.org/2.4/doc/tutorials/ios/image_manipulation/image_manipulation.html#opencviosimagemanipulation" target="_blank" rel="external">官方教程</a>已经给出了方法。</p>
 <h2 id="UIImage-to-cv-Mat"><a href="#UIImage-to-cv-Mat" class="headerlink" title="UIImage to cv::Mat"></a>UIImage to cv::Mat</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">    - (cv::Mat)cvMatFromUIImage:(<span class="built_in">UIImage</span> *)image</div><div class="line">&#123;</div><div class="line">  <span class="built_in">CGColorSpaceRef</span> colorSpace = <span class="built_in">CGImageGetColorSpace</span>(image.CGImage);</div><div class="line">  <span class="built_in">CGFloat</span> cols = image.size.width;</div><div class="line">  <span class="built_in">CGFloat</span> rows = image.size.height;</div><div class="line"></div><div class="line">  cv::Mat cvMat(rows, cols, CV_8UC4); <span class="comment">// 8 bits per component, 4 channels (color channels + alpha)</span></div><div class="line"></div><div class="line">  <span class="built_in">CGContextRef</span> contextRef = <span class="built_in">CGBitmapContextCreate</span>(cvMat.data,                 <span class="comment">// Pointer to  data</span></div><div class="line">                                                 cols,                       <span class="comment">// Width of bitmap</span></div><div class="line">                                                 rows,                       <span class="comment">// Height of bitmap</span></div><div class="line">                                                 <span class="number">8</span>,                          <span class="comment">// Bits per component</span></div><div class="line">                                                 cvMat.step[<span class="number">0</span>],              <span class="comment">// Bytes per row</span></div><div class="line">                                                 colorSpace,                 <span class="comment">// Colorspace</span></div><div class="line">                                                 kCGImageAlphaNoneSkipLast |</div><div class="line">                                                 kCGBitmapByteOrderDefault); <span class="comment">// Bitmap info flags</span></div><div class="line"></div><div class="line">  <span class="built_in">CGContextDrawImage</span>(contextRef, <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, cols, rows), image.CGImage);</div><div class="line">  <span class="built_in">CGContextRelease</span>(contextRef);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> cvMat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="cv-Mat-to-UIImage"><a href="#cv-Mat-to-UIImage" class="headerlink" title="cv::Mat to UIImage"></a>cv::Mat to UIImage</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">-(<span class="built_in">UIImage</span> *)<span class="built_in">UIImageFromCVMat</span>:(cv::Mat)cvMat</div><div class="line">&#123;</div><div class="line">  <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];</div><div class="line">  <span class="built_in">CGColorSpaceRef</span> colorSpace;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (cvMat.elemSize() == <span class="number">1</span>) &#123;<span class="comment">//可以根据这个决定使用哪种</span></div><div class="line">      colorSpace = <span class="built_in">CGColorSpaceCreateDeviceGray</span>();</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">      colorSpace = <span class="built_in">CGColorSpaceCreateDeviceRGB</span>();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">CGDataProviderRef</span> provider = <span class="built_in">CGDataProviderCreateWithCFData</span>((__bridge <span class="built_in">CFDataRef</span>)data);</div><div class="line"></div><div class="line">  <span class="comment">// Creating CGImage from cv::Mat</span></div><div class="line">  <span class="built_in">CGImageRef</span> imageRef = <span class="built_in">CGImageCreate</span>(cvMat.cols,                                 <span class="comment">//width</span></div><div class="line">                                     cvMat.rows,                                 <span class="comment">//height</span></div><div class="line">                                     <span class="number">8</span>,                                          <span class="comment">//bits per component</span></div><div class="line">                                     <span class="number">8</span> * cvMat.elemSize(),                       <span class="comment">//bits per pixel</span></div><div class="line">                                     cvMat.step[<span class="number">0</span>],                            <span class="comment">//bytesPerRow</span></div><div class="line">                                     colorSpace,                                 <span class="comment">//colorspace</span></div><div class="line">                                     kCGImageAlphaNone|kCGBitmapByteOrderDefault,<span class="comment">// bitmap info</span></div><div class="line">                                     provider,                                   <span class="comment">//CGDataProviderRef</span></div><div class="line">                                     <span class="literal">NULL</span>,                                       <span class="comment">//decode</span></div><div class="line">                                     <span class="literal">false</span>,                                      <span class="comment">//should interpolate</span></div><div class="line">                                     kCGRenderingIntentDefault                   <span class="comment">//intent</span></div><div class="line">                                     );</div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">// Getting UIImage from CGImage</span></div><div class="line">  <span class="built_in">UIImage</span> *finalImage = [<span class="built_in">UIImage</span> imageWithCGImage:imageRef];</div><div class="line">  <span class="built_in">CGImageRelease</span>(imageRef);</div><div class="line">  <span class="built_in">CGDataProviderRelease</span>(provider);</div><div class="line">  <span class="built_in">CGColorSpaceRelease</span>(colorSpace);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> finalImage;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://godknow.cn/2016/12/29/LifeExp/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="晓东儿">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Xiaodong's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Xiaodong's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/29/LifeExp/" itemprop="url">
+                  早该知道的生活小经验
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-29T09:52:38+08:00">
+                2016-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生活/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/29/LifeExp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/29/LifeExp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>恋爱要趁早，学习要搞好。<br>在不了解之前，先别急着说不感兴趣。<br>别为自己是个凡人而负疚。<br>坚持不是没有中断，而是现在还在做。<br>如果袜子买同样的颜色款式，早上拿的时候会容易很多。<br>别为太久以后的事情发愁。<br>自己的事情，要自己做决定。<br>没有选择的时候，就只能前行。<br>如果橘子很酸，换个角度吃，可能会觉得甜。<br>早睡。<br>多学几种运动。<br>人生没有成功，只有顿挫和偶胜。<br>要对得起别人，更要对得起自己。<br>牙痛的时候，含两粒花椒，可以消肿止痛。<br>没有过去和将来，只有现在。<br>同一天，过的高兴，就赚了，过的郁闷，就亏了，过的浑浑噩噩，就没了。<br>有所不为。<br>在为浪费时间而后悔和自责时，你依然在浪费时间。<br>逛街逛累了，可以去看电影。<br>只试不买，心情不好，边逛边吃，才是王道。<br>学会做饭。晚上少吃点，心情会很好。<br>学个新东西，心情会很好。<br>去跑两圈步，心情会很好。<br>蛙泳游太久，小腿上的韧带可能受伤。<br>技不压身。<br>免费的东西，不一定便宜。<br>对于没用的东西，最好的收纳方法，就是扔。<br>学习资料找太多，就会有已经学了的错觉。<br>运动装备买太好，就会有已经瘦了的错觉。<br>如果吃点油腻的东西，就会拉肚子，可能减肥会有帮助。<br>减肥的时候，要假设所有人都不想你成功，所有人都想破坏你的计划，包括爹妈。<br>面试是低成本，高回报的事。<br>低成本的事情谈不上失败，只有成功或不成功。<br>没有万事俱备的时候，只有做，或者不做。<br>不试，就不会有结果。<br>一辈子，大概是三万天。</p>
 
           
         
@@ -1401,322 +1960,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://godknow.cn/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="晓东儿">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Xiaodong's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Xiaodong's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/" itemprop="url">
-                  升级Ruby配置CocoaPods安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-07T13:05:29+08:00">
-                2016-08-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/jie-jue-cocoapodan-zhuang-rubyban-ben-di-de-wen-ti/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这两天全新安装了系统，安装cocoapods时出现：</p>
-<blockquote>
-<p>activesupport requires Ruby version &gt;= 2.2.2</p>
-</blockquote>
-<p>检查下发现淘宝源的ruby版本是2.0.0，于是使用RVM更新了下Ruby。</p>
-<h2 id="1、安装-RVM"><a href="#1、安装-RVM" class="headerlink" title="1、安装 RVM"></a>1、安装 RVM</h2><p>RVM:Ruby Version Manager,Ruby版本管理器，包括Ruby的版本管理和Gem库管理(gemset)</p>
-<blockquote>
-<p>curl -L get.rvm.io | bash -s stable </p>
-</blockquote>
-<p>等待一段时间后就可以成功安装好 RVM。</p>
-<blockquote>
-<p>source ~/.bashrc  </p>
-<p>source ~/.bash_profile  </p>
-</blockquote>
-<p>测试是否安装正常</p>
-<blockquote>
-<p>rvm -v </p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1727086-68742171c589c6ad.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="13:03:18.jpg"></p>
-<h2 id="2、用RVM升级Ruby"><a href="#2、用RVM升级Ruby" class="headerlink" title="2、用RVM升级Ruby"></a>2、用RVM升级Ruby</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">查看当前ruby版本  </div><div class="line">ruby -v  </div><div class="line">列出已知的ruby版本  </div><div class="line">rvm list known  </div><div class="line"></div><div class="line">&lt;!------MORE-------&gt;</div><div class="line"></div><div class="line"></div><div class="line">安装ruby 2.2.2  </div><div class="line">rvm install 2.2.2</div></pre></td></tr></table></figure>
-<p>安装完成之后ruby -v查看是否安装成功。<br>终端输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">kidteaing-macmini:~ GeXiaodong$ ruby -v</div><div class="line">ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]</div></pre></td></tr></table></figure></p>
-<p>到此已经完成ruby的升级</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://godknow.cn/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="晓东儿">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://tva4.sinaimg.cn/crop.0.0.511.511.180/72a5a039jw8f9d3gusrs1j20e80e7jrw.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Xiaodong's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Xiaodong's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/" itemprop="url">
-                  PC端获取IPA包的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-07T12:29:16+08:00">
-                2016-08-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/pcduan-huo-qu-ipabao-de-fang-fa/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="IPA包的下载流程"><a href="#IPA包的下载流程" class="headerlink" title="IPA包的下载流程"></a>IPA包的下载流程</h1><ol>
-<li><p>使用iTunes软件</p>
-</li>
-<li><p>登入自己的苹果账号</p>
-</li>
-<li><p>找到应用界面</p>
-</li>
-<li><p>选中AppStore</p>
-</li>
-<li><p>搜索要下载的应用</p>
-</li>
-<li><p>已购买应用显示下载，未购买应用显示购买</p>
-</li>
-<li><p>点击下载或购买后，会下载IPA包</p>
-</li>
-<li><p>下载完成后，会看到已下载标志</p>
-</li>
-<li><p>点击我的应用</p>
-</li>
-<li><p>已经下载的应用都列出来了</p>
-</li>
-<li><p>点中一个包，选择在Finder中显示</p>
-</li>
-<li><p>所有已下载的ipa包，都在文件夹中</p>
-</li>
-</ol>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li>在iTunes的设置中，也可以直接查看缓存文件夹位置</li>
-</ol>
-<p>   用命令行即可打开文件夹<br>       open /Users/mac/Music/iTunes/iTunes\ Media</p>
-<ol>
-<li><p>应用的状态可能不止下载或购买，还可能有更新等，万变不离其宗，无论是什么状态，最终都可以下载IPA包</p>
-</li>
-<li><p>缓存的包如果被删除，需要重新下载。如果IPA包有更新版本，也可以在我的应用界面直接更新</p>
-</li>
-<li><p>如果想查看包内容，可以修改.ipa后缀名为.zip，然后解压即可</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1764,18 +2007,25 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1853,7 +2103,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

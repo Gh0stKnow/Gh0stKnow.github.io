@@ -88,7 +88,7 @@
 前言最近公司项目进入了较为稳定的维护周期，考虑到后面很可能会进行需要生物特征识别的项目，提前学习下OpenCV，也在此和大家分享一下。
 OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习库，通俗点的说，就是他给计算机提供了一双眼睛，一双可以从图片中获取信息的眼镜，从而完成人脸识别、去红眼">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1111OpenCV学习开发笔记(iOS9)">
+<meta property="og:title" content="OpenCV学习开发笔记(iOS9)">
 <meta property="og:url" content="http://godknow.cn/2016/12/29/OpenCVLearning/index.html">
 <meta property="og:site_name" content="Xiaodong's Blog">
 <meta property="og:description" content="本文章采用的的开发环境为：1）Xcode 8.22）OpenCV for iOS 3.2 
@@ -98,9 +98,9 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
 <meta property="og:image" content="http://oiu3ghos7.bkt.clouddn.com/14829783173349.jpg">
 <meta property="og:image" content="http://oiu3ghos7.bkt.clouddn.com/finn.jpg">
 <meta property="og:image" content="http://oiu3ghos7.bkt.clouddn.com/14829830035512.jpg">
-<meta property="og:updated_time" content="2016-12-29T08:43:11.000Z">
+<meta property="og:updated_time" content="2017-01-03T08:19:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1111OpenCV学习开发笔记(iOS9)">
+<meta name="twitter:title" content="OpenCV学习开发笔记(iOS9)">
 <meta name="twitter:description" content="本文章采用的的开发环境为：1）Xcode 8.22）OpenCV for iOS 3.2 
 前言最近公司项目进入了较为稳定的维护周期，考虑到后面很可能会进行需要生物特征识别的项目，提前学习下OpenCV，也在此和大家分享一下。
 OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习库，通俗点的说，就是他给计算机提供了一双眼睛，一双可以从图片中获取信息的眼镜，从而完成人脸识别、去红眼">
@@ -138,7 +138,7 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
 
 
 
-  <title> 1111OpenCV学习开发笔记(iOS9) | Xiaodong's Blog </title>
+  <title> OpenCV学习开发笔记(iOS9) | Xiaodong's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -318,7 +318,7 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
             
             
               
-                1111OpenCV学习开发笔记(iOS9)
+                OpenCV学习开发笔记(iOS9)
               
             
           </h1>
@@ -382,13 +382,38 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
         <p>本文章采用的的开发环境为：<br>1）Xcode 8.2<br>2）OpenCV for iOS 3.2 </p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近公司项目进入了较为稳定的维护周期，考虑到后面很可能会进行需要生物特征识别的项目，提前学习下OpenCV，也在此和大家分享一下。</p>
 <h1 id="OpenCV介绍"><a href="#OpenCV介绍" class="headerlink" title="OpenCV介绍"></a>OpenCV介绍</h1><p>OpenCV ，是一个开源的跨平台计算机视觉和机器学习库，通俗点的说，就是他给计算机提供了一双眼睛，一双可以从图片中获取信息的眼镜，从而完成人脸识别、去红眼、追踪移动物体等等的图像相关的功能。更多具体的说明可参见 OpenCV 官网。</p>
-<h1 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h1><p>首先下载从官网<a href="http://opencv.org/" target="_blank" rel="external">OpenCV官网</a>下载的iOS支持库，我们新建一个工程。</p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>下面是在官方文档中列出的最重要的模块。</p>
+<p>core：简洁的核心模块，定义了基本的数据结构，包括稠密多维数组 Mat 和其他模块需要的基本函数。<br>imgproc：图像处理模块，包括线性和非线性图像滤波、几何图像转换 (缩放、仿射与透视变换、一般性基于表的重映射)、颜色空间转换、直方图等等。<br>video：视频分析模块，包括运动估计、背景消除、物体跟踪算法。<br>calib3d：包括基本的多视角几何算法、单体和立体相机的标定、对象姿态估计、双目立体匹配算法和元素的三维重建。<br>features2d：包含了显著特征检测算法、描述算子和算子匹配算法。<br>objdetect：物体检测和一些预定义的物体的检测 (如人脸、眼睛、杯子、人、汽车等)。<br>ml：多种机器学习算法，如 K 均值、支持向量机和神经网络。<br>highgui：一个简单易用的接口，提供视频捕捉、图像和视频编码等功能，还有简单的 UI 接口 (iOS 上可用的仅是其一个子集)。<br>gpu：OpenCV 中不同模块的 GPU 加速算法 (iOS 上不可用)。<br>ocl：使用 OpenCL 实现的通用算法 (iOS 上不可用)。<br>一些其它辅助模块，如 Python 绑定和用户贡献的算法。</p>
+<h2 id="基础类和操作"><a href="#基础类和操作" class="headerlink" title="基础类和操作"></a>基础类和操作</h2><p>OpenCV 包含几百个类。为简便起见，我们只看几个基础的类和操作，进一步阅读请参考全部文档。过一遍这几个核心类应该足以对这个库的机理产生一些感觉认识。</p>
+<p>cv::Mat</p>
+<p>cv::Mat 是 OpenCV 的核心数据结构，用来表示任意 N 维矩阵。因为图像只是 2 维矩阵的一个特殊场景，所以也是使用 cv::Mat来表示的。也就是说，cv::Mat 将是你在 OpenCV 中用到最多的类。</p>
+<p>一个 cv::Mat 实例的作用就像是图像数据的头，其中包含着描述图像格式的信息。图像数据只是被引用，并能为多个 cv::Mat 实例共享。OpenCV 使用类似于 ARC 的引用计数方法，以保证当最后一个来自 cv::Mat 的引用也消失的时候，图像数据会被释放。图像数据本身是图像连续的行的数组 (对 N 维矩阵来说，这个数据是由连续的 N-1 维数据组成的数组)。使用 step[] 数组中包含的值，图像的任一像素地址都可通过下面的指针运算得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uchar *pixelPtr = cvMat.data + rowIndex * cvMat.step[0] + colIndex * cvMat.step[1]</div></pre></td></tr></table></figure>
+<p>每个像素的数据格式可以通过 type() 方法获得。除了常用的每通道 8 位无符号整数的灰度图 (1 通道，CV_8UC1) 和彩色图 (3 通道，CV_8UC3)，OpenCV 还支持很多不常用的格式，例如 CV_16SC3 (每像素 3 通道，每通道使用 16 位有符号整数)，甚至CV_64FC4 (每像素 4 通道，每通道使用 64 位浮点数)。</p>
+<p>cv::Algorithm</p>
+<p>Algorithm 是 OpenCV 中实现的很多算法的抽象基类，包括将在我们的 demo 工程中用到的 FaceRecognizer。它提供的 API 与苹果的 Core Image 框架中的 CIFilter 有些相似之处。创建一个 Algorithm 的时候使用算法的名字来调用 Algorithm::create()，并且可以通过 get() 和 set()方法来获取和设置各个参数，这有点像是键值编码。另外，Algorithm 从底层就支持从/向 XML 或 YAML 文件加载/保存参数的功能。</p>
+<h1 id="实战部分"><a href="#实战部分" class="headerlink" title="实战部分"></a>实战部分</h1><h2 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h2><p>首先下载从官网<a href="http://opencv.org/" target="_blank" rel="external">OpenCV官网</a>下载的iOS支持库，我们新建一个工程。</p>
 <p><img src="http://oiu3ghos7.bkt.clouddn.com/14829768918916.jpg" alt="搭建环境"></p>
 <p>导入 OpenCV 到 Xcode 的工程中还是比较简单的，从官网下载对应的 framework，直接丢到 Xcode 的工程中，从xcode7以后拖入的工程会自动添加到Building phase里面，检查一下。<br><img src="http://oiu3ghos7.bkt.clouddn.com/14829783173349.jpg" alt=""></p>
 <p>然后在你想用 OpenCV 的地方引入 OpenCV 的头文件：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"></div><div class="line">```    </div><div class="line"></div><div class="line">或者直接在 PCH 文件中添加：  </div><div class="line">  </div><div class="line">```objc</div><div class="line"><span class="meta">#ifdef __cplusplus</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line">```    </div><div class="line">&lt;!-- more --&gt;</div><div class="line"></div><div class="line">*关于这个宏下面会有解释说明*</div><div class="line"></div><div class="line">然后把使用到 OpenCV 中 C++方法的实现文件后缀名改成.mm，就可以开始使用 OpenCV 的方法了。</div><div class="line"></div><div class="line">看起来很简单，然而实际操作中还是有不少的问题。</div><div class="line"></div><div class="line"><span class="meta"># 实际使用</span></div><div class="line"></div><div class="line">由于OpenCV代码是基于C++编写的，因此，要在项目中运行c++代码，需要将实现文件名后缀由`.m`改成`.mm`，如下图所示。</div><div class="line">![](http:<span class="comment">//oiu3ghos7.bkt.clouddn.com/14829787278230.jpg)</span></div><div class="line"></div><div class="line">再次强调一次使用opencv的类名一定要改成.mm!</div><div class="line"></div><div class="line"></div><div class="line">说了那么多先测试一下吧!</div><div class="line"></div><div class="line"></div><div class="line">```objc</div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/imgproc/types_c.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/imgcodecs/ios.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></div><div class="line">&#123;</div><div class="line">     cv::Mat cvImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *imgView;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"learn.jpg"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImageToMat</span>(image, cvImage);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(!cvImage.empty())&#123;</div><div class="line">        cv::Mat gray;</div><div class="line">        <span class="comment">// 将图像转换为灰度显示</span></div><div class="line">        cv::cvtColor(cvImage,gray,CV_RGB2GRAY);</div><div class="line">        <span class="comment">// 应用高斯滤波器去除小的边缘</span></div><div class="line">        cv::GaussianBlur(gray, gray, cv::Size(<span class="number">5</span>,<span class="number">5</span>), <span class="number">1.2</span>,<span class="number">1.2</span>);</div><div class="line">        <span class="comment">// 计算与画布边缘</span></div><div class="line">        cv::Mat edges;</div><div class="line">        cv::Canny(gray, edges, <span class="number">0</span>, <span class="number">50</span>);</div><div class="line">        <span class="comment">// 使用白色填充</span></div><div class="line">        cvImage.setTo(cv::Scalar::all(<span class="number">225</span>));</div><div class="line">        <span class="comment">// 修改边缘颜色</span></div><div class="line">        cvImage.setTo(cv::Scalar(<span class="number">0</span>,<span class="number">128</span>,<span class="number">255</span>,<span class="number">255</span>),edges);</div><div class="line">        <span class="comment">// 将Mat转换为Xcode的UIImageView显示</span></div><div class="line">        <span class="keyword">self</span>.imgView.image = MatToUIImage(cvImage);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"></div><div class="line">```    </div><div class="line"></div><div class="line">或者直接在 PCH 文件中添加：  </div><div class="line">  </div><div class="line">```objc</div><div class="line"><span class="meta">#ifdef __cplusplus</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line">```    </div><div class="line"></div><div class="line">把使用到 OpenCV 中 C++方法的实现文件后缀名改成.mm，就可以开始使用 OpenCV 的方法了。</div><div class="line"></div><div class="line"><span class="meta">### Objective-C++</span></div><div class="line"></div><div class="line">如前面所说，OpenCV 是一个 C++ 的 API，因此不能直接在 Swift 和 Objective-C 代码中使用，但能在 Objective-C++ 文件中使用。</div><div class="line"></div><div class="line">Objective-C++ 是 Objective-C 和 C++ 的混合物，让你可以在 Objective-C 类中使用 C++ 对象。clang 编译器会把所有后缀名为.mm 的文件都当做是 Objective-C++。一般来说，它会如你所期望的那样运行，但还是有一些使用 Objective-C++ 的注意事项。内存管理是你最应该格外注意的点，因为 ARC 只对 Objective-C 对象有效。当你使用一个 C++ 对象作为类属性的时候，其唯一有效的属性就是 <span class="keyword">assign</span>。因此，你的 dealloc 函数应确保 C++ 对象被正确地释放了。</div><div class="line"></div><div class="line">第二重要的点就是，如果你在 Objective-C++ 头文件中引入了 C++ 头文件，当你在工程中使用该 Objective-C++ 文件的时候就泄露了 C++ 的依赖。任何引入你的 Objective-C++ 类的 Objective-C 类也会引入该 C++ 类，因此该 Objective-C 文件也要被声明为 Objective-C++ 的文件。这会像森林大火一样在工程中迅速蔓延。所以，应该把你引入 C++ 文件的地方都用 <span class="meta">#ifdef __cplusplus包起来，并且只要可能，就尽量只在 .mm 实现文件中引入 C++ 头文件。</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">看起来很简单，然而实际操作中还是有不少的问题。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;!------MORE-------&gt;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">## 小热身</span></div><div class="line"></div><div class="line">由于OpenCV代码是基于C++编写的，因此，要在项目中运行c++代码，需要将实现文件名后缀由`.m`改成`.mm`，如下图所示。</div><div class="line">![](http:<span class="comment">//oiu3ghos7.bkt.clouddn.com/14829787278230.jpg)</span></div><div class="line"></div><div class="line">再次强调一次使用opencv的类名一定要改成.mm!</div><div class="line"></div><div class="line"></div><div class="line">说了那么多先测试一下吧!</div><div class="line"></div><div class="line"></div><div class="line">```objc</div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/imgproc/types_c.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;opencv2/imgcodecs/ios.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></div><div class="line">&#123;</div><div class="line">     cv::Mat cvImage;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *imgView;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"learn.jpg"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">UIImageToMat</span>(image, cvImage);</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(!cvImage.empty())&#123;</div><div class="line">        cv::Mat gray;</div><div class="line">        <span class="comment">// 将图像转换为灰度显示</span></div><div class="line">        cv::cvtColor(cvImage,gray,CV_RGB2GRAY);</div><div class="line">        <span class="comment">// 应用高斯滤波器去除小的边缘</span></div><div class="line">        cv::GaussianBlur(gray, gray, cv::Size(<span class="number">5</span>,<span class="number">5</span>), <span class="number">1.2</span>,<span class="number">1.2</span>);</div><div class="line">        <span class="comment">// 计算与画布边缘</span></div><div class="line">        cv::Mat edges;</div><div class="line">        cv::Canny(gray, edges, <span class="number">0</span>, <span class="number">50</span>);</div><div class="line">        <span class="comment">// 使用白色填充</span></div><div class="line">        cvImage.setTo(cv::Scalar::all(<span class="number">225</span>));</div><div class="line">        <span class="comment">// 修改边缘颜色</span></div><div class="line">        cvImage.setTo(cv::Scalar(<span class="number">0</span>,<span class="number">128</span>,<span class="number">255</span>,<span class="number">255</span>),edges);</div><div class="line">        <span class="comment">// 将Mat转换为Xcode的UIImageView显示</span></div><div class="line">        <span class="keyword">self</span>.imgView.image = MatToUIImage(cvImage);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <p>原图<br><img src="http://oiu3ghos7.bkt.clouddn.com/finn.jpg" alt="finn-w290"></p>
 <p>运行在模拟器上的效果<br><img src="http://oiu3ghos7.bkt.clouddn.com/14829830035512.jpg" alt="运行效果"></p>
+<h2 id="Demo-人脸识别"><a href="#Demo-人脸识别" class="headerlink" title="Demo:人脸识别"></a>Demo:人脸识别</h2><p>Demo：人脸检测与识别</p>
+<p>现在，我们对 OpenCV 及如何把它集成到我们的应用中有了大概认识，那让我们来做一个小 demo 应用：从 iPhone 的摄像头获取视频流，对它持续进行人脸检测，并在屏幕上标出来。当用户点击一个脸孔时，应用会尝试识别这个人。如果识别结果正确，用户必须点击 “Correct”。如果识别错误，用户必须选择正确的人名来纠正错误。我们的人脸识别器就会从错误中学习，变得越来越好。</p>
+<h3 id="视频拍摄"><a href="#视频拍摄" class="headerlink" title="视频拍摄"></a>视频拍摄</h3><p>OpenCV 的 highgui 模块中有个类，CvVideoCamera，它把 iPhone 的摄像机抽象出来，让我们的 app 通过一个代理函数 - (void)processImage:(cv::Mat&amp;)image 来获得视频流。CvVideoCamera 实例可像下面这样进行设置：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CvVideoCamera *videoCamera = [[CvVideoCamera alloc] initWithParentView:view];  </div><div class="line">videoCamera.defaultAVCaptureDevicePosition = <span class="built_in">AVCaptureDevicePositionFront</span>;  </div><div class="line">videoCamera.defaultAVCaptureSessionPreset = <span class="built_in">AVCaptureSessionPreset640x480</span>;  </div><div class="line">videoCamera.defaultAVCaptureVideoOrientation = <span class="built_in">AVCaptureVideoOrientationPortrait</span>;  </div><div class="line">videoCamera.defaultFPS = <span class="number">30</span>;  </div><div class="line">videoCamera.grayscaleMode = <span class="literal">NO</span>;  </div><div class="line">videoCamera.delegate = <span class="keyword">self</span>;</div></pre></td></tr></table></figure>
+<p>摄像头的帧率被设置为 30 帧每秒， 我们实现的 processImage 函数将每秒被调用 30 次。因为我们的 app 要持续不断地检测人脸，所以我们应该在这个函数里实现人脸的检测。要注意的是，如果对某一帧进行人脸检测的时间超过 1/30 秒，就会产生掉帧现象。</p>
+<h3 id="人脸检测"><a href="#人脸检测" class="headerlink" title="人脸检测"></a>人脸检测</h3><p>其实你并不需要使用 OpenCV 来做人脸检测，因为 Core Image 已经提供了 CIDetector 类。用它来做人脸检测已经相当好了，并且它已经被优化过，使用起来也很容易：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CIDetector</span> *faceDetector = [<span class="built_in">CIDetector</span> detectorOfType:<span class="built_in">CIDetectorTypeFace</span> context:context options:@&#123;<span class="built_in">CIDetectorAccuracy</span>: <span class="built_in">CIDetectorAccuracyHigh</span>&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSArray</span> *faces = [faceDetector featuresInImage:image];</div></pre></td></tr></table></figure>
+<p>从该图片中检测到的每一张面孔都在数组 faces 中保存着一个 CIFaceFeature 实例。这个实例中保存着这张面孔的所处的位置和宽高，除此之外，眼睛和嘴的位置也是可选的。</p>
+<p>另一方面，OpenCV 也提供了一套物体检测功能，经过训练后能够检测出任何你需要的物体。该库为多个场景自带了可以直接拿来用的检测参数，如人脸、眼睛、嘴、身体、上半身、下半身和笑脸。检测引擎由一些非常简单的检测器的级联组成。这些检测器被称为 Haar 特征检测器，它们各自具有不同的尺度和权重。在训练阶段，决策树会通过已知的正确和错误的图片进行优化。关于训练与检测过程的详情可参考此原始论文。当正确的特征级联及其尺度与权重通过训练确立以后，这些参数就可被加载并初始化级联分类器了：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/ 正面人脸检测器训练参数的文件路径</div><div class="line"><span class="built_in">NSString</span> *faceCascadePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:@&amp;quot;haarcascade_frontalface_alt2&amp;quot;  </div><div class="line">                                                   ofType:@&amp;quot;xml&amp;quot;];</div><div class="line"> </div><div class="line"><span class="keyword">const</span> <span class="built_in">CFIndex</span> <span class="built_in">CASCADE_NAME_LEN</span> = <span class="number">2048</span>;  </div><div class="line"><span class="keyword">char</span> *<span class="built_in">CASCADE_NAME</span> = (<span class="keyword">char</span> *) malloc(<span class="built_in">CASCADE_NAME_LEN</span>);  </div><div class="line"><span class="built_in">CFStringGetFileSystemRepresentation</span>( (<span class="built_in">CFStringRef</span>)faceCascadePath, <span class="built_in">CASCADE_NAME</span>, <span class="built_in">CASCADE_NAME_LEN</span>);</div><div class="line"> </div><div class="line">CascadeClassifier faceDetector;  </div><div class="line">faceDetector.load(<span class="built_in">CASCADE_NAME</span>);</div></pre></td></tr></table></figure>
+<p>这些参数文件可在 OpenCV 发行包里的 data/haarcascades 文件夹中找到。</p>
+<p>在使用所需要的参数对人脸检测器进行初始化后，就可以用它进行人脸检测了：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cv::Mat img;  </div><div class="line">vector&amp;lt;cv::Rect&amp;gt; faceRects;  </div><div class="line"><span class="keyword">double</span> scalingFactor = <span class="number">1.1</span>;  </div><div class="line"><span class="keyword">int</span> minNeighbors = <span class="number">2</span>;  </div><div class="line"><span class="keyword">int</span> flags = <span class="number">0</span>;  </div><div class="line">cv::Size minimumSize(<span class="number">30</span>,<span class="number">30</span>);  </div><div class="line">faceDetector.detectMultiScale(img, faceRects,  </div><div class="line">                              scalingFactor, minNeighbors, flags</div><div class="line">                              cv::Size(<span class="number">30</span>, <span class="number">30</span>) );</div></pre></td></tr></table></figure>
+<p>检测过程中，已训练好的分类器会用不同的尺度遍历输入图像的每一个像素，以检测不同大小的人脸。参数 scalingFactor 决定每次遍历分类器后尺度会变大多少倍。参数 minNeighbors 指定一个符合条件的人脸区域应该有多少个符合条件的邻居像素才被认为是一个可能的人脸区域；如果一个符合条件的人脸区域只移动了一个像素就不再触发分类器，那么这个区域非常可能并不是我们想要的结果。拥有少于 minNeighbors 个符合条件的邻居像素的人脸区域会被拒绝掉。如果 minNeighbors 被设置为 0，所有可能的人脸区域都会被返回回来。参数 flags 是 OpenCV 1.x 版本 API 的遗留物，应该始终把它设置为 0。最后，参数 minimumSize 指定我们所寻找的人脸区域大小的最小值。faceRects 向量中将会包含对 img 进行人脸识别获得的所有人脸区域。识别的人脸图像可以通过cv::Mat 的 () 运算符提取出来，调用方式很简单：cv::Mat faceImg = img(aFaceRect)。</p>
+<p>不管是使用 CIDetector 还是 OpenCV 的 CascadeClassifier，只要我们获得了至少一个人脸区域，我们就可以对图像中的人进行识别了。</p>
 <h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><p>这是第一次导入C++的库进工程中，所以还是摸索了一段时间。</p>
 <ol>
 <li>第一次编译的时候遇到一个问题，编译器报了个警告是<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#if defined(NO)</div><div class="line">#  warning Detected Apple &apos;NO&apos; macro definition, it can cause build conflicts. Please, include this header before any Apple headers.</div><div class="line">#endif</div></pre></td></tr></table></figure>
@@ -438,8 +463,8 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/23/ioskai-fa-zhi-yun-dong-gpscai-yang-chu-li-2/" rel="next" title="iOS开发 之 运动GPS采样处理">
-                <i class="fa fa-chevron-left"></i> iOS开发 之 运动GPS采样处理
+              <a href="/2016/12/29/LifeExp/" rel="next" title="早该知道的生活小经验">
+                <i class="fa fa-chevron-left"></i> 早该知道的生活小经验
               </a>
             
           </div>
@@ -447,6 +472,10 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/03/localization/" rel="prev" title="iOS国际化(本地化)">
+                iOS国际化(本地化) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -461,6 +490,29 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
 
     <div class="post-spread">
       
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
     </div>
   </div>
 
@@ -473,7 +525,7 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/12/29/OpenCVLearning/"
-           data-title="1111OpenCV学习开发笔记(iOS9)" data-url="http://godknow.cn/2016/12/29/OpenCVLearning/">
+           data-title="OpenCV学习开发笔记(iOS9)" data-url="http://godknow.cn/2016/12/29/OpenCVLearning/">
       </div>
     
   </div>
@@ -520,18 +572,25 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -604,7 +663,7 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenCV介绍"><span class="nav-number">2.</span> <span class="nav-text">OpenCV介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入工程"><span class="nav-number">3.</span> <span class="nav-text">导入工程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到问题"><span class="nav-number">4.</span> <span class="nav-text">遇到问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#转换UIImage和cv-Mat"><span class="nav-number">5.</span> <span class="nav-text">转换UIImage和cv::Mat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIImage-to-cv-Mat"><span class="nav-number">5.1.</span> <span class="nav-text">UIImage to cv::Mat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cv-Mat-to-UIImage"><span class="nav-number">5.2.</span> <span class="nav-text">cv::Mat to UIImage</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenCV介绍"><span class="nav-number">2.</span> <span class="nav-text">OpenCV介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">2.1.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础类和操作"><span class="nav-number">2.2.</span> <span class="nav-text">基础类和操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战部分"><span class="nav-number">3.</span> <span class="nav-text">实战部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入工程"><span class="nav-number">3.1.</span> <span class="nav-text">导入工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-人脸识别"><span class="nav-number">3.2.</span> <span class="nav-text">Demo:人脸识别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#视频拍摄"><span class="nav-number">3.2.1.</span> <span class="nav-text">视频拍摄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人脸检测"><span class="nav-number">3.2.2.</span> <span class="nav-text">人脸检测</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到问题"><span class="nav-number">4.</span> <span class="nav-text">遇到问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#转换UIImage和cv-Mat"><span class="nav-number">5.</span> <span class="nav-text">转换UIImage和cv::Mat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIImage-to-cv-Mat"><span class="nav-number">5.1.</span> <span class="nav-text">UIImage to cv::Mat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cv-Mat-to-UIImage"><span class="nav-number">5.2.</span> <span class="nav-text">cv::Mat to UIImage</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -625,7 +684,7 @@ OpenCV介绍OpenCV ，是一个开源的跨平台计算机视觉和机器学习�
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
