@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -96,7 +96,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -346,14 +346,40 @@
 </blockquote>
 <p><strong>归集资金需往用户地址打入矿工费：</strong></p>
 <p>别忘了，以太坊的代币转账是扣以太坊作为油费的，那么交易所分配给用户充值的地址是不是都要给用户的地址准备一些以太坊存放着用于资金归集用呢？答案：即是又否，当然是有条件的，不可能每一个注册用户分发的地址都给充值以太坊，这样成本太高，需要过滤垃圾账号，只针对有充值资金的账号进行油费打款进行资金归集，具体视每个交易所项目产品经理如何设计了，这里没有对错，下面会简单说下我们的初步设计方案。</p>
-<h1 id="交易所钱包组成结构"><a href="#交易所钱包组成结构" class="headerlink" title="交易所钱包组成结构"></a>交易所钱包组成结构</h1><blockquote>
+<h1 id="交易所钱包组成结构"><a href="#交易所钱包组成结构" class="headerlink" title="交易所钱包组成结构"></a>交易所钱包组成结构</h1><p><img src="https:////upload-images.jianshu.io/upload_images/717863-6213aa52ad6ccbc7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/732/format/webp" alt="img"></p>
+<blockquote>
 <p>  数字货币交易所钱包组成结构分为冷钱包、热钱包、账户钱包，冷热钱包一般设计有多个热钱包A、热钱包B、热钱包C、冷钱包A、冷钱包B、冷钱包C等等，冷热钱包的设计个数需要根据自身业务规模来恒定。</p>
 </blockquote>
-<p><strong>账户钱包：</strong>每个注册用户分配单独的充值地址。交易所中每一个注册用户的充值地址都不一样，每注册一个用户将分配一个地址，所有用户的地址跟私钥由交易所集中保管。</p>
-<p><strong>热钱包：</strong>热钱包可以理解为常用钱包，一般交易所中用户进行提现，资金是通过交易所的热钱包执行转账。</p>
-<p><strong>冷钱包：</strong>由于热钱包经常需要使用，经常需要私钥进行签名，所以存在一定的安全性，资金如果全部保存在热钱包中对交易所来说是十分不安全的，万一资金被盗交易所就要倒闭。所以一般大部分不常用资金会存放在一个离线的冷钱包中。</p>
-<p><strong>业务流程：</strong>大体的业务流程上图已经很清晰，用户通过充值代币到交易所分配的账户地址中，交易所监听账户地址的资金变动，若发生资金转入，则同步数据在用户账户中添加余额记录。（注意账户地址只监听转入结果）。当然，每个用户分配了不同地址，钱如果都放在地址就会出现一个问题就是“资金分散“的问题难以管理。所以监听地址存在转入后，交易所需要把地址中的资金归集到交易所官方的热钱包中集中管理。热钱包由于经常使用资金不能过于集中，所以会把部分不动资金存放在安全的冷钱包中。</p>
-<h1 id="交易所充提业务流程设计"><a href="#交易所充提业务流程设计" class="headerlink" title="交易所充提业务流程设计"></a>交易所充提业务流程设计</h1>
+<p><strong>账户钱包：</strong> 每个注册用户分配单独的充值地址。交易所中每一个注册用户的充值地址都不一样，每注册一个用户将分配一个地址，所有用户的地址跟私钥由交易所集中保管。</p>
+<p><strong>热钱包：</strong> 热钱包可以理解为常用钱包，一般交易所中用户进行提现，资金是通过交易所的热钱包执行转账。</p>
+<p><strong>冷钱包：</strong> 由于热钱包经常需要使用，经常需要私钥进行签名，所以存在一定的安全性，资金如果全部保存在热钱包中对交易所来说是十分不安全的，万一资金被盗交易所就要倒闭。所以一般大部分不常用资金会存放在一个离线的冷钱包中。</p>
+<p><strong>业务流程：</strong> 大体的业务流程上图已经很清晰，用户通过充值代币到交易所分配的账户地址中，交易所监听账户地址的资金变动，若发生资金转入，则同步数据在用户账户中添加余额记录。（注意账户地址只监听转入结果）。当然，每个用户分配了不同地址，钱如果都放在地址就会出现一个问题就是“资金分散“的问题难以管理。所以监听地址存在转入后，交易所需要把地址中的资金归集到交易所官方的热钱包中集中管理。热钱包由于经常使用资金不能过于集中，所以会把部分不动资金存放在安全的冷钱包中。</p>
+<h1 id="交易所充提业务流程设计"><a href="#交易所充提业务流程设计" class="headerlink" title="交易所充提业务流程设计"></a>交易所充提业务流程设计</h1><p><img src="https://upload-images.jianshu.io/upload_images/717863-9c7cce7ecd67ccc5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<blockquote>
+<p>上图是比较完整的钱包业务流程图，涉及内容包括：生成用户充值地址、监听充值入账代币、资金归集、归集矿工费转入、热钱包资金分配至冷钱包、提现转账。</p>
+</blockquote>
+<p><strong>生成用户地址：</strong></p>
+<p>当账户注册完成，需要对应的创建一个钱包信息，给账号分配充值地址，充值地址暴露给用户，私钥由系统保存，用于资金归集。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/717863-3076640e4e04a91d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/409/format/webp" alt="img"></p>
+<p><strong>监听充值入账代币：</strong></p>
+<p>第二步，当用户充值后，我们需要监听钱包入账的区块确认数，一般设计为12个区块，okex设计为1个区块，币安设计为24个区块，我们参考了币安使用24个区块确认完成后才定义为成功充值，当成功充值完成，需要判断入账的代币类型，若在系统中存在入账代币的合约地址，则在账户余额添加对应代币余额。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/717863-123509f67825501d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/845/format/webp" alt="img"></p>
+<p><strong>资金归集：</strong></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/717863-611431c85cd49b51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<p> <strong>判断代币:</strong> 资金归集前，先要判断代币类型是ETH还是代币，如果是ETH则判断地址中资金是否大于0.1ETH，若不大于0.1ETH就进行归集，我们的成本会增加，所以对于低于0.1ETH的地址可先不触发归集状态，若大于则直接归集。如果是代币，则需要先判断该地址中是否存在足够的ETH作为矿工费，比对推荐矿工费与当前地址ETH余额，若足够则直接归集。</p>
+<p><strong>判断网络状态:</strong> 由于以太坊网络经常出现拥堵状态，当出现拥堵状态则转账成本会非常高，而且不一定成功，当以太坊网络推荐邮费大于100Gwei时，则是较为拥堵状态，这种状态下我们没必要增加成本来归集资金，选择等待。在归集前需要先进行推荐矿工费判断，避免资源浪费。</p>
+<p><strong>矿工费转入:</strong> 如果代币归集地址中ETH不足支付转账费用，则需把缺乏邮费的地址进行记录，次日早上10：00使用智能合约批量转入0.01EHT矿工费进行资金归集。</p>
+<blockquote>
+<p>（为什么要早上10：00？/早上处于便于技术进行监控，防止出现异常问题导致多转。）<br>（为什么要转入0.01ETH？/鉴于以往经验，最高矿工费一般在0.00X，所以转入0.01ETH较为合       理，多出的余额可以作为下一次归集所用。）<br>（为什么要集中使用智能合约转？/因为智能合约批量集中转账可以大大降低矿工费，降低成本。）</p>
+</blockquote>
+<h1 id="热钱包资金安全转移"><a href="#热钱包资金安全转移" class="headerlink" title="热钱包资金安全转移"></a>热钱包资金安全转移</h1><p><img src="https:////upload-images.jianshu.io/upload_images/717863-e14a91bc7b50f84d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/420/format/webp" alt="img"></p>
+<p><strong>资金分配：</strong> 资金存储比例设计为冷钱包储存80%，热钱包存储20%。对于目前数字货币钱包的使用门槛，大部分玩家几乎都是把资金存放在交易所中，热钱包20%流动资金是足够支撑用户的提币需求。</p>
+<p><strong>资金划转：</strong> 什么时候进行资金划转呢，这个问题视乎自身业务量而定，我们设计一周分配一次，每周一的下午2：00进行资金划转。划转前需要对有效资金进行统计，因为数字货币钱包中经常出现空投币，如果对垃圾空投币进行分配，则是无用的，所以需要先筛选钱包中有效的代币进行转移，有效代币为平台提供充提的代币合约。筛选出代币进行总资产计算“热钱包地址资金/（热钱包资金+冷钱包资金）%”</p>
+<p><strong>特殊处理：</strong> 并不是热钱包资金一定大于20%，当然会存在集中提现的情况，导致资金小于20%，这时候需要给热钱包注入资金，注入资金应当从冷钱包或其他渠道注入，但是冷钱包如果利用系统自动注入则需要把私钥放到系统，这是很不安全的，所以这种情况建议线下人工处理。</p>
+<h1 id="提币矿工费"><a href="#提币矿工费" class="headerlink" title="提币矿工费"></a>提币矿工费</h1><p><img src="https://upload-images.jianshu.io/upload_images/717863-4e74468835908e47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/392/format/webp" alt="img"></p>
+<p>这里说的提币矿工费不是平台收取用户多少提币手续费，是提币转账要设置多少手续费转出才更加容易成功，答案是获取区块网络当前推荐的手续费再往上加一点，110%最为合适。</p>
+<p>（完结）</p>
+
           
         
       
@@ -633,6 +659,22 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Gh0stknow" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:kidteaing@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-gmail"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
 
           
           
@@ -678,11 +720,12 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         
 <div class="busuanzi-count">
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
