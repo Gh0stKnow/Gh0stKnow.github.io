@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="Code is law.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ghostknow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="ETH基本概念矿工费： 即发起转账的手续费，手续费等于Gas Limit * Gwei ERC20代币： ERC20是ETH的代币（举个例子：黄金有纯金、有K金、千足金等不同标准的金。），ERC20转账与ETH转账的手续费一般是不一样的，ETH转账会便宜一些，而代币转账扣取的手续费是ETH，非代币。 区块确认： 以太坊区块确认一般以12个区块确认为确认完成，实际大多数场景下1个区块确认便可以。 确">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中心化交易所：钱包系统设计-以太坊">
+<meta property="og:url" content="http://yoursite.com/post/6d7e250c.html">
 <meta property="og:site_name" content="Ghostknow&#39;s blog">
-<meta property="og:description" content="Code is law.">
+<meta property="og:description" content="ETH基本概念矿工费： 即发起转账的手续费，手续费等于Gas Limit * Gwei ERC20代币： ERC20是ETH的代币（举个例子：黄金有纯金、有K金、千足金等不同标准的金。），ERC20转账与ETH转账的手续费一般是不一样的，ETH转账会便宜一些，而代币转账扣取的手续费是ETH，非代币。 区块确认： 以太坊区块确认一般以12个区块确认为确认完成，实际大多数场景下1个区块确认便可以。 确">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-11T05:19:49.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ghostknow&#39;s blog">
-<meta name="twitter:description" content="Code is law.">
+<meta name="twitter:title" content="中心化交易所：钱包系统设计-以太坊">
+<meta name="twitter:description" content="ETH基本概念矿工费： 即发起转账的手续费，手续费等于Gas Limit * Gwei ERC20代币： ERC20是ETH的代币（举个例子：黄金有纯金、有K金、千足金等不同标准的金。），ERC20转账与ETH转账的手续费一般是不一样的，ETH转账会便宜一些，而代币转账扣取的手续费是ETH，非代币。 区块确认： 以太坊区块确认一般以12个区块确认为确认完成，实际大多数场景下1个区块确认便可以。 确">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/post/6d7e250c.html">
 
 
 
 
 
-  <title>Ghostknow's blog</title>
+  <title>中心化交易所：钱包系统设计-以太坊 | Ghostknow's blog</title>
   
 
 
@@ -143,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -217,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -249,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/6d7e250c.html" itemprop="url">中心化交易所：钱包系统设计-以太坊</a></h1>
+          <h1 class="post-title" itemprop="name headline">中心化交易所：钱包系统设计-以太坊</h1>
         
 
         <div class="post-meta">
@@ -305,6 +303,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -323,9 +326,7 @@
       
 
       
-        
-          
-            <h1 id="ETH基本概念"><a href="#ETH基本概念" class="headerlink" title="ETH基本概念"></a>ETH基本概念</h1><p><strong>矿工费：</strong> 即发起转账的手续费，手续费等于Gas Limit * Gwei</p>
+        <h1 id="ETH基本概念"><a href="#ETH基本概念" class="headerlink" title="ETH基本概念"></a>ETH基本概念</h1><p><strong>矿工费：</strong> 即发起转账的手续费，手续费等于Gas Limit * Gwei</p>
 <p><strong>ERC20代币：</strong> ERC20是ETH的代币（举个例子：黄金有纯金、有K金、千足金等不同标准的金。），ERC20转账与ETH转账的手续费一般是不一样的，ETH转账会便宜一些，而代币转账扣取的手续费是ETH，非代币。</p>
 <p><strong>区块确认：</strong> 以太坊区块确认一般以12个区块确认为确认完成，实际大多数场景下1个区块确认便可以。</p>
 <p><strong>确认状态：</strong> 转账确认状态有“等待处理”“处理中””失败”“确认中”</p>
@@ -354,8 +355,6 @@
 <p><strong>冷钱包：</strong>由于热钱包经常需要使用，经常需要私钥进行签名，所以存在一定的安全性，资金如果全部保存在热钱包中对交易所来说是十分不安全的，万一资金被盗交易所就要倒闭。所以一般大部分不常用资金会存放在一个离线的冷钱包中。</p>
 <p><strong>业务流程：</strong>大体的业务流程上图已经很清晰，用户通过充值代币到交易所分配的账户地址中，交易所监听账户地址的资金变动，若发生资金转入，则同步数据在用户账户中添加余额记录。（注意账户地址只监听转入结果）。当然，每个用户分配了不同地址，钱如果都放在地址就会出现一个问题就是“资金分散“的问题难以管理。所以监听地址存在转入后，交易所需要把地址中的资金归集到交易所官方的热钱包中集中管理。热钱包由于经常使用资金不能过于集中，所以会把部分不动资金存放在安全的冷钱包中。</p>
 <h1 id="交易所充提业务流程设计"><a href="#交易所充提业务流程设计" class="headerlink" title="交易所充提业务流程设计"></a>交易所充提业务流程设计</h1>
-          
-        
       
     </div>
     
@@ -372,187 +371,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/28159.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ghostknow">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ghostknow's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/post/28159.html" itemprop="url">中心化交易所：钱包系统设计-比特币</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-10T19:27:02+08:00">
-                2019-04-10
-              </time>
+              <a href="/post/28159.html" rel="next" title="中心化交易所：钱包系统设计-比特币">
+                <i class="fa fa-chevron-left"></i> 中心化交易所：钱包系统设计-比特币
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blockchain/" itemprop="url" rel="index">
-                    <span itemprop="name">区块链</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <blockquote>
-<p>前言：我是一枚不懂技术的产品经理，网上供无技术基础的区块文章较少，对产品经理入行区块链行业存在教高的门槛，在工作中作一些项目的总结分享，也顺便帮助入行区块链产品经理们了解区块链相关的原理。（技术人员忽略）</p>
-<p>由于区块链每种公链都拥有着自己的特性，所以每种公链的代币进行钱包系统设计时都会存在差异，差异的点在于每种公链的转账特性，根据转账特性不同做不同的差异变化，但是大体的思路保持不变。</p>
-<p>这边主要讲比特币的转账特性与钱包系统设计中的一些差异，了解比特币钱包的转账特性，借此设计比特币钱包系统的设计方案。</p>
-<p>大体的思路看以太坊的钱包系统设计文章<a href="https://www.jianshu.com/p/b15896c6a334" target="_blank" rel="noopener">https://www.jianshu.com/p/b15896c6a334</a></p>
-<p>在转账机制上，比特币使用的是UTXO模型，以太坊使用的是余额模型。关于比特币的UTXO机制与找零机制在网上已经有很多资料，但是可能都讲得比较专业不好理解，希望可以用通俗一点语言帮助无技术经验的产品经理们帮助理解。</p>
-</blockquote>
-<h1 id="比特币转账相关概念"><a href="#比特币转账相关概念" class="headerlink" title="比特币转账相关概念"></a>比特币转账相关概念</h1><h2 id="找零地址与UTXO"><a href="#找零地址与UTXO" class="headerlink" title="找零地址与UTXO"></a>找零地址与UTXO</h2><p>  找零地址，就是找零钱给你的地址，举个例子我们在平时使用纸币买卖物品时，会存在找零钱这么一个动作，如果买一个苹果是需要两块钱的，那么我的钱包只有5元的纸币，我用5元的纸币支付两元去买这个苹果，对方需要给我找零3元，这叫找零。如果你有多个钱包，那这3元给到你的哪个钱包中，这叫找零地址。</p>
-<p>  当然找零地址在你发起转账时是由你决定填写找零到哪个地址，你可以找零到你自己的地址，也可以找零到你朋友的地址，也可以是不找零。</p>
-<p>  在比特币转账原理中，我们没有像使用支付宝一样对方需要多少钱我们支付多少钱即可，比特币更像是显示中的纸币交易的机制，我们称之为虚拟现金。</p>
-<p>  UTXO, 简单举例介绍了找零地址概念，再来说一下UTXO。关于UTXO网上也有很多专业的资料，想要深入了解请自行百度，这里简单讲解。上面说到的找零方法是不是很像我们平时使用的纸品呢，是的。但是比特币是虚拟货币，虚拟货币是虚拟数字呀，那虚拟数字就要记账呀。而这种记账方式也跟平时使用的支付宝支付有所不同，我们使用纸币时是不是一张张的纸币是分开的，而不是像支付宝直接记录你有多少钱。而比特币的记账方式也是跟纸币的原理很像，比特币的每一张张的钱被专业名称记录为UTXO，举个例子，一个比特币钱包地址中可能存在100块钱余额，但是这100块钱的构成可能是1张100元，可能是2张50元，可能是多张10元，可能是其他。而UTXO也是这一张张的钱，可能是一张UTXO就100元，可能是两张，可能是其他。</p>
-<p>  所以，当我们在付款时只需要支付10元，但是钱包中有一张20元的UTXO，还有两张5元的UTXO。那么我们可以选择直接支付两张5元的UTXO，也可以支付一张20元的UTXO然后给找零地址进行找零。</p>
-<p>  这就是UTXO的转账原理。</p>
-<p>  而比特币记账中，实际是不会记录你有多少钱，而是会记录谁给了你UTXO，每张UTXO值多少钱。当你要转账时，会去查询你有多少UTXO，要转走哪张UTXO，然后是否需要找零。这一张张的UTXO转账就是比特币记账机制的特点。</p>
-<h2 id="钱包系统设计中的注意点"><a href="#钱包系统设计中的注意点" class="headerlink" title="钱包系统设计中的注意点"></a>钱包系统设计中的注意点</h2><blockquote>
-<p>上面了解到的比特币转账特点，对比以太坊存在较大的差别。</p>
-</blockquote>
-<p><strong>1.一次转账可以转出多个地址</strong></p>
-<p>由于比特币可以一次转账转出多个地址，在钱包系统的资金归集中可以更加方便，资金归集时直接20%资金打入热钱包，80%打入冷钱包。无需像以太坊一样先打入热钱包再进行计算。</p>
-<p><strong>2.每次转账需要计算UTXO余额而选择合适的UTXO转账。</strong></p>
-<p>由于是UTXO模型，每次转账需要系统计算最合适的UTXO进行转账，举例，我的钱包有5笔转入，其中UTXO1=5、UTXO2=10、UTXO3=15、UTXO4=20、UTXO5=25, 这时我需要转出一笔13的账，应该怎么转呢？</p>
-<p>方法一：</p>
-<p><strong>3.转账需要填写找零地址，如果不填写找零地址则钱会直接给矿工</strong></p>
-<p>  这里要一定一定要填写找零地址，如果不填写找零地址那你多余的钱会直接给矿工。</p>
-<p><strong>隔离见证</strong></p>
-<p><strong>P2PKH（Pay-to-Public-Key-Hash）</strong></p>
-<p><strong>P2PK（Pay-to-Public-Key）</strong></p>
-<p><strong>MS（Multiple Signatures）多重签名</strong></p>
-<p><strong>P2SH（Pay-to-Script-Hash）</strong></p>
-<p><strong>区块</strong></p>
-<p><strong>矿工费</strong></p>
-<p><strong>比特币代币</strong></p>
-<p><strong>转账原理</strong></p>
-<p><strong>资金归集</strong></p>
-<h1 id="（未写完，后续有时间补上）"><a href="#（未写完，后续有时间补上）" class="headerlink" title="（未写完，后续有时间补上）"></a><strong>（未写完，后续有时间补上）</strong></h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -562,10 +402,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -573,6 +414,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -593,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -645,6 +499,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ETH基本概念"><span class="nav-number">1.</span> <span class="nav-text">ETH基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#了解ETH钱包转账的一些隐藏的坑"><span class="nav-number">2.</span> <span class="nav-text">了解ETH钱包转账的一些隐藏的坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交易所钱包组成结构"><span class="nav-number">3.</span> <span class="nav-text">交易所钱包组成结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交易所充提业务流程设计"><span class="nav-number">4.</span> <span class="nav-text">交易所充提业务流程设计</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -806,6 +676,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
