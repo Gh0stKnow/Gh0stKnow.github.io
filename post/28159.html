@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Ghostknow&#39;s blog">
 <meta property="og:description" content="前言：我是一枚不懂技术的产品经理，网上供无技术基础的区块文章较少，对产品经理入行区块链行业存在教高的门槛，在工作中作一些项目的总结分享，也顺便帮助入行区块链产品经理们了解区块链相关的原理。（技术人员忽略） 由于区块链每种公链都拥有着自己的特性，所以每种公链的代币进行钱包系统设计时都会存在差异，差异的点在于每种公链的转账特性，根据转账特性不同做不同的差异变化，但是大体的思路保持不变。 这边主要讲比">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-11T04:06:56.278Z">
+<meta property="og:updated_time" content="2019-04-11T04:12:04.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="中心化交易所：钱包系统设计-比特币">
 <meta name="twitter:description" content="前言：我是一枚不懂技术的产品经理，网上供无技术基础的区块文章较少，对产品经理入行区块链行业存在教高的门槛，在工作中作一些项目的总结分享，也顺便帮助入行区块链产品经理们了解区块链相关的原理。（技术人员忽略） 由于区块链每种公链都拥有着自己的特性，所以每种公链的代币进行钱包系统设计时都会存在差异，差异的点在于每种公链的转账特性，根据转账特性不同做不同的差异变化，但是大体的思路保持不变。 这边主要讲比">
@@ -328,7 +328,7 @@
 <p>大体的思路看以太坊的钱包系统设计文章<a href="https://www.jianshu.com/p/b15896c6a334" target="_blank" rel="noopener">https://www.jianshu.com/p/b15896c6a334</a></p>
 <p>在转账机制上，比特币使用的是UTXO模型，以太坊使用的是余额模型。关于比特币的UTXO机制与找零机制在网上已经有很多资料，但是可能都讲得比较专业不好理解，希望可以用通俗一点语言帮助无技术经验的产品经理们帮助理解。</p>
 </blockquote>
-<h1 id><a href="#" class="headerlink" title=" "></a> </h1><h1 id="比特币转账相关概念"><a href="#比特币转账相关概念" class="headerlink" title="比特币转账相关概念"></a>比特币转账相关概念</h1><h2 id="找零地址与UTXO"><a href="#找零地址与UTXO" class="headerlink" title="找零地址与UTXO"></a>找零地址与UTXO</h2><p>  找零地址，就是找零钱给你的地址，举个例子我们在平时使用纸币买卖物品时，会存在找零钱这么一个动作，如果买一个苹果是需要两块钱的，那么我的钱包只有5元的纸币，我用5元的纸币支付两元去买这个苹果，对方需要给我找零3元，这叫找零。如果你有多个钱包，那这3元给到你的哪个钱包中，这叫找零地址。</p>
+<h1 id="比特币转账相关概念"><a href="#比特币转账相关概念" class="headerlink" title="比特币转账相关概念"></a>比特币转账相关概念</h1><h2 id="找零地址与UTXO"><a href="#找零地址与UTXO" class="headerlink" title="找零地址与UTXO"></a>找零地址与UTXO</h2><p>  找零地址，就是找零钱给你的地址，举个例子我们在平时使用纸币买卖物品时，会存在找零钱这么一个动作，如果买一个苹果是需要两块钱的，那么我的钱包只有5元的纸币，我用5元的纸币支付两元去买这个苹果，对方需要给我找零3元，这叫找零。如果你有多个钱包，那这3元给到你的哪个钱包中，这叫找零地址。</p>
 <p>  当然找零地址在你发起转账时是由你决定填写找零到哪个地址，你可以找零到你自己的地址，也可以找零到你朋友的地址，也可以是不找零。</p>
 <p>  在比特币转账原理中，我们没有像使用支付宝一样对方需要多少钱我们支付多少钱即可，比特币更像是显示中的纸币交易的机制，我们称之为虚拟现金。</p>
 <p>  UTXO, 简单举例介绍了找零地址概念，再来说一下UTXO。关于UTXO网上也有很多专业的资料，想要深入了解请自行百度，这里简单讲解。上面说到的找零方法是不是很像我们平时使用的纸品呢，是的。但是比特币是虚拟货币，虚拟货币是虚拟数字呀，那虚拟数字就要记账呀。而这种记账方式也跟平时使用的支付宝支付有所不同，我们使用纸币时是不是一张张的纸币是分开的，而不是像支付宝直接记录你有多少钱。而比特币的记账方式也是跟纸币的原理很像，比特币的每一张张的钱被专业名称记录为UTXO，举个例子，一个比特币钱包地址中可能存在100块钱余额，但是这100块钱的构成可能是1张100元，可能是2张50元，可能是多张10元，可能是其他。而UTXO也是这一张张的钱，可能是一张UTXO就100元，可能是两张，可能是其他。</p>
@@ -494,7 +494,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比特币转账相关概念"><span class="nav-number">2.</span> <span class="nav-text">比特币转账相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#找零地址与UTXO"><span class="nav-number">2.1.</span> <span class="nav-text">找零地址与UTXO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#钱包系统设计中的注意点"><span class="nav-number">2.2.</span> <span class="nav-text">钱包系统设计中的注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#（未写完，后续有时间补上）"><span class="nav-number">3.</span> <span class="nav-text">（未写完，后续有时间补上）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#比特币转账相关概念"><span class="nav-number">1.</span> <span class="nav-text">比特币转账相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#找零地址与UTXO"><span class="nav-number">1.1.</span> <span class="nav-text">找零地址与UTXO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#钱包系统设计中的注意点"><span class="nav-number">1.2.</span> <span class="nav-text">钱包系统设计中的注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#（未写完，后续有时间补上）"><span class="nav-number">2.</span> <span class="nav-text">（未写完，后续有时间补上）</span></a></li></ol></div>
             
 
           </div>
@@ -514,7 +514,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -533,7 +534,6 @@
 
 
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
 
 
 
